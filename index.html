@@ -1,63 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Safety Saarland</title>
-<meta name="description" content="AI Safety Saarland is a student initiative at Saarland University working to make AI go well through reading groups, fellowships and events.">
-<meta name="theme-color" content="#0d2a1e">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=3">
-</head>
-<body>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a href="#about" class="brand">
-      <img src="assets/logo.png" alt="" class="brand-mark" width="55" height="48">
-      <span class="brand-name">AI Safety <span>Saarland</span></span>
-    </a>
-
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-    </button>
-
-    <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="team.html">Team</a>
-      <a href="#programs">Programs</a>
-      <a href="#security">AI Security</a>
-      <a href="#events">Events</a>
-      <a href="updates.html">Updates</a>
-      <a href="https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-join">Join us</a>
-      <div class="nav-social">
-        <a href="https://www.instagram.com/aiss_saarland/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
-        <a href="https://www.linkedin.com/company/ai-safety-saarland/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
-      </div>
-    </nav>
-
-    <div class="header-actions">
-      <a href="https://www.instagram.com/aiss_saarland/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
-      <a href="https://www.linkedin.com/company/ai-safety-saarland/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
-      <a href="https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join us</a>
-    </div>
-  </div>
-</header>
-
+---
+nav: home
+---
+{% assign home = site.data.home %}
 <main>
 
   <!-- About -->
   <section class="about wrap" id="about">
     <div class="about-text">
-      <p class="eyebrow">About AI Safety Saarland</p>
-      <h1>Students from Saarland University working to make AI go&nbsp;well.</h1>
-      <p class="lede">We are a student-led initiative passionate about driving change. Through reading groups, fellowships and events, we bring people from every discipline together to understand the risks from advanced AI — and to work on reducing them.</p>
-      <a href="team.html" class="btn btn-outline">Meet the team <span aria-hidden="true">→</span></a>
+      <p class="eyebrow">{{ home.about.eyebrow | escape }}</p>
+      <h1>{{ home.about.title | escape }}</h1>
+      <p class="lede">{{ home.about.intro | escape }}</p>
+      <a href="{{ '/team.html' | relative_url }}" class="btn btn-outline">Meet the team <span aria-hidden="true">→</span></a>
     </div>
     <div class="about-art">
-      <img src="assets/logo.png" alt="AI Safety Saarland logo — the outline of Saarland" width="460" height="398">
+      <img src="{{ '/assets/logo.png' | relative_url }}" alt="AI Safety Saarland logo — the outline of Saarland" width="460" height="398">
     </div>
   </section>
 
@@ -67,26 +23,18 @@
       <div class="section-head">
         <div>
           <p class="eyebrow eyebrow-light">Why it matters</p>
-          <h2>Why AI safety is important.</h2>
+          <h2>{{ home.why.title | escape }}</h2>
         </div>
-        <p>AI systems are getting more capable every year and are being built into more of the world. Making sure they stay safe, controllable and beneficial is one of the defining challenges of our generation.</p>
+        <p>{{ home.why.intro | escape }}</p>
       </div>
       <div class="why-grid">
+        {% for reason in home.why.reasons %}
         <div class="why-card">
-          <span class="why-num">01</span>
-          <h3>Capabilities are moving fast</h3>
-          <p>Each new generation of models can do more, and they're being deployed into research, business and public life before we fully understand them.</p>
+          <span class="why-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <h3>{{ reason.title | escape }}</h3>
+          <p>{{ reason.text | escape }}</p>
         </div>
-        <div class="why-card">
-          <span class="why-num">02</span>
-          <h3>Safety is still an open problem</h3>
-          <p>Reliably getting advanced systems to do what we intend — and understanding what happens inside them — are research questions we haven't solved yet.</p>
-        </div>
-        <div class="why-card">
-          <span class="why-num">03</span>
-          <h3>The stakes are shared</h3>
-          <p>Mistakes or misuse could affect everyone. That's why technical research, good governance and informed public debate matter now, not later.</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -97,7 +45,7 @@
       <p class="eyebrow">Our mission</p>
       <span class="mission-bar"></span>
     </div>
-    <p class="mission-text">To foster interdisciplinary exchange, education, and research addressing large-scale risks from AI development and deployment at Saarland University and beyond.</p>
+    <p class="mission-text">{{ home.mission | escape }}</p>
   </section>
   <hr class="rule">
 
@@ -107,39 +55,29 @@
       <div class="section-head">
         <div>
           <p class="eyebrow eyebrow-light">Programs</p>
-          <h2>Two ways to go deeper into AI safety.</h2>
+          <h2>{{ home.programs.title | escape }}</h2>
         </div>
-        <p>Start with the fundamentals, or join the advanced track and work on the problems that matter most.</p>
+        <p>{{ home.programs.intro | escape }}</p>
       </div>
 
       <div class="program-grid">
+        {% for program in home.programs.items %}
         <article class="program-card">
           <div class="card-top">
-            <h3>Introductory Fellowship</h3>
-            <span class="chip">Weekly</span>
+            <h3>{{ program.name | escape }}</h3>
+            {% if program.tag and program.tag != "" %}<span class="chip">{{ program.tag | escape }}</span>{% endif %}
           </div>
-          <p class="card-lede">Learn the fundamentals of AI Safety and Governance through a weekly reading and discussion group.</p>
+          <p class="card-lede">{{ program.summary | escape }}</p>
+          {% if program.points.size > 0 %}
           <ul>
-            <li><strong>Explore the key challenges:</strong> technical safety, governance, power dynamics, and societal impact</li>
-            <li><strong>Discuss current approaches</strong> to ensuring AI systems remain controllable and beneficial</li>
-            <li><strong>Build understanding</strong> in a supportive, interdisciplinary community</li>
+            {% for point in program.points %}
+            <li>{% if point.lead and point.lead != "" %}<strong>{{ point.lead | escape }}</strong> {% endif %}{{ point.text | escape }}</li>
+            {% endfor %}
           </ul>
-          <a href="#" class="card-link">Find out more →</a>
+          {% endif %}
+          {% if program.link and program.link != "" %}<a href="{{ program.link }}" class="card-link">Find out more →</a>{% endif %}
         </article>
-
-        <article class="program-card">
-          <div class="card-top">
-            <h3>Advanced Fellowship</h3>
-            <span class="chip">Hands-on</span>
-          </div>
-          <p class="card-lede">Go deeper into the technical methods shaping the future of AI safety through focused reading, discussion, and practice.</p>
-          <ul>
-            <li><strong>Evaluation:</strong> how we test what capabilities AI models have and how they act in certain situations</li>
-            <li><strong>Interpretability:</strong> what we can learn about AI models by looking at their internal workings</li>
-            <li><strong>Engage with active research:</strong> discuss key papers, run experiments, and hear from researchers</li>
-          </ul>
-          <a href="#" class="card-link">Find out more →</a>
-        </article>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -148,24 +86,22 @@
   <section class="security wrap" id="security">
     <div class="security-text">
       <p class="eyebrow">Sub-chapter</p>
-      <h2>AI Security Team</h2>
-      <p>Making AI safe also requires security — to stop adversaries gaining access to powerful models, individuals training secret loyalties into models, or models exfiltrating themselves. Join us if you're especially interested in the intersection of cybersecurity and AI.</p>
-      <a href="#" class="btn btn-primary btn-lg">Learn more</a>
+      <h2>{{ home.security.title | escape }}</h2>
+      <p>{{ home.security.text | escape }}</p>
+      {% if home.security.link and home.security.link != "" %}<a href="{{ home.security.link }}" class="btn btn-primary btn-lg">Learn more</a>{% endif %}
     </div>
 
     <div class="accordion">
-      <details open>
-        <summary>AI Security Reading Group <span class="chip chip-light">6 weeks</span></summary>
-        <p>A closed, in-person reading group exploring critical and neglected problems in AI security — threat models and research agendas for safeguarding advanced AI systems.</p>
+      {% for activity in home.security.activities %}
+      {% if activity.text and activity.text != "" %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ activity.name | escape }}{% if activity.tag and activity.tag != "" %} <span class="chip chip-light">{{ activity.tag | escape }}</span>{% endif %}</summary>
+        <p>{{ activity.text | escape }}</p>
       </details>
-      <details>
-        <summary>AI Security Afternoon</summary>
-        <p>[Add a short description of the AI Security Afternoon.]</p>
-      </details>
-      <details>
-        <summary>AI Security Research Sprints</summary>
-        <p>[Add a short description of the research sprints.]</p>
-      </details>
+      {% else %}
+      <div class="accordion-row">{{ activity.name | escape }}{% if activity.tag and activity.tag != "" %} <span class="chip chip-light">{{ activity.tag | escape }}</span>{% endif %}</div>
+      {% endif %}
+      {% endfor %}
     </div>
   </section>
 
@@ -174,68 +110,31 @@
     <div class="events">
       <div class="events-text">
         <p class="eyebrow">Events</p>
-        <h2>Talks, socials and exchange.</h2>
-        <p>We host regular public events with invited speakers as well as casual get-togethers to build a community. Fellows get access to further exclusive events.</p>
+        <h2>{{ home.events.title | escape }}</h2>
+        <p>{{ home.events.text | escape }}</p>
       </div>
       <div class="event-list">
-        <div class="event">
-          <div class="event-date"><span>[MON]</span><strong>[DD]</strong></div>
-          <div class="event-info"><span class="event-title">[Event title]</span><span class="event-meta">[Location · time]</span></div>
+        {% assign upcoming = site.data.events.upcoming | sort: "date" %}
+        {% for event in upcoming %}
+        {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link }}" target="_blank" rel="noopener noreferrer">{% else %}<div class="event">{% endif %}
+          <div class="event-date"><span>{{ event.date | date: "%b" }}</span><strong>{{ event.date | date: "%-d" }}</strong></div>
+          <div class="event-info"><span class="event-title">{{ event.title | escape }}</span>{% if event.details and event.details != "" %}<span class="event-meta">{{ event.details | escape }}</span>{% endif %}</div>
+        {% if event.link and event.link != "" %}</a>{% else %}</div>{% endif %}
+        {% else %}
+        <div class="event event-empty">
+          <div class="event-info"><span class="event-title">No upcoming events announced yet.</span><span class="event-meta">Join our WhatsApp community to hear about the next one first.</span></div>
         </div>
-        <div class="event">
-          <div class="event-date"><span>[MON]</span><strong>[DD]</strong></div>
-          <div class="event-info"><span class="event-title">[Event title]</span><span class="event-meta">[Location · time]</span></div>
-        </div>
-        <a href="#" class="events-link">View all events →</a>
+        {% endfor %}
+        <a href="{{ '/updates.html' | relative_url }}#recaps" class="events-link">See past events →</a>
       </div>
     </div>
   </section>
 
   <!-- Join CTA -->
   <section class="cta wrap" id="join">
-    <h2>Don't want to miss what's next?</h2>
-    <p>Join the community to hear about fellowships, reading groups and events first.</p>
-    <a href="https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join us</a>
+    <h2>{{ home.join.title | escape }}</h2>
+    <p>{{ home.join.text | escape }}</p>
+    <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join us</a>
   </section>
 
 </main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="brand-name light">AI Safety <span>Saarland</span></span>
-        <p>Contact us at <a href="mailto:info@ais-saarland.org">info@ais-saarland.org</a></p>
-        <div class="social">
-          <a href="https://www.instagram.com/aiss_saarland/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
-          <a href="https://www.linkedin.com/company/ai-safety-saarland/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
-        </div>
-      </div>
-
-      <form class="newsletter" id="newsletter">
-        <label for="newsletter-email">Sign up to our newsletter</label>
-        <div class="newsletter-row">
-          <input id="newsletter-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
-          <button type="submit">Sign up</button>
-        </div>
-        <p class="newsletter-note">By signing up to this mailing list, you agree to our <a href="privacy-notice.html">Privacy Policy</a> and <a href="terms-and-conditions.html">T&amp;Cs</a>.</p>
-        <p class="newsletter-status" id="newsletter-status" role="status"></p>
-      </form>
-
-      <nav class="legal-nav" aria-label="Legal">
-        <a href="privacy-notice.html">Privacy Policy</a>
-        <a href="#">Imprint</a>
-        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-      </nav>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 AI Safety Saarland. All rights reserved.</span>
-      <span>Saarland University · Saarbrücken</span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/main.js?v=3"></script>
-</body>
-</html>
