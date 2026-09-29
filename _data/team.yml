@@ -1,2 +1,9 @@
-# Team members on the Team page — edit in the editor at /admin (Site content → Team).
-members: []
+members:
+  - name: Apoorva Batham
+    role: Admin
+    photo: ''
+    link: ''
+  - name: ''
+    role: ''
+    photo: ''
+    link: ''
