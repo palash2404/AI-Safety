@@ -23,13 +23,14 @@ Fonts: Bricolage Grotesque (headings) and Figtree (body). They're self-hosted in
 
 - `index.html` — homepage: About → Why AI safety → Mission → Programs → AI Security → Events → Join
 - `team.html` — Meet the team
+- `updates.html` — Updates: event recaps, contributors and current projects
 - `privacy-notice.html` — Privacy Notice
 - `terms-and-conditions.html` — Terms & Conditions
 - `assets/style.css` — all styling
 - `assets/main.js` — mobile menu and newsletter form
 - `assets/logo.png`, `assets/favicon.png`, `assets/apple-touch-icon.png` — logo and icons
 
-The header and footer are repeated in each page, so a change to them needs to be made in all four files.
+The header and footer are repeated in each page, so a change to them needs to be made in all five files.
 
 ## Adding a team member
 
@@ -40,6 +41,6 @@ In `team.html`, replace a placeholder card's `<svg>` with `<img src="assets/team
 - Imprint page (required in Germany) — the footer link is a placeholder
 - Newsletter service — for now the sign-up form opens an email to info@ais-saarland.org
 - Update the Privacy Notice's list of processors (Squarespace → GitHub Pages and the new newsletter tool)
-- Replace placeholders in `[square brackets]` (events, AI Security Afternoon and Research Sprints, team)
-- Fill in links still set to `#` (Blog, fellowship "Find out more", "Learn more", "View all events", "Join the team")
+- Replace placeholders in `[square brackets]` (events, AI Security Afternoon and Research Sprints, team, updates)
+- Fill in links still set to `#` (fellowship "Find out more", "Learn more", "View all events", "Join the team")
 - Connect the ais-saarland.org domain once the registrar hold is cleared
