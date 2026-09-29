@@ -325,7 +325,7 @@ a:hover { color: var(--forest-800); }
 .recap-meta { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--text-muted); }
 .recap h3 { font-size: 1.5rem; }
 .recap p { color: var(--text-muted); }
-.recap a { font-weight: 600; font-size: 0.95rem; }
+.recap > a { font-weight: 600; font-size: 0.95rem; }
 
 .contributor-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .contributor {
@@ -387,6 +387,24 @@ a:hover { color: var(--forest-800); }
   .contributor-grid { grid-template-columns: minmax(0, 1fr); }
   .share-box .btn { width: 100%; }
 }
+
+/* ---------- Content from the editor (empty states, links, recap pages) ---------- */
+.accordion-row {
+  display: flex; align-items: center; gap: 12px; padding: 28px 0; min-height: 44px;
+  border-bottom: 1px solid var(--mint-200);
+  font-family: var(--font-display); font-weight: 700; font-size: 1.375rem; color: var(--forest-950);
+}
+.empty-note { padding: 28px 32px; border-radius: 20px; border: 1.5px dashed var(--mint-200); color: var(--text-muted); }
+.empty-note.on-dark { border-color: var(--forest-800); color: var(--on-dark); }
+a.event-link { text-decoration: none; transition: background .15s ease; }
+a.event-link:hover { background: #fff; }
+.event-empty { padding: 24px; }
+.recap h3 a, .member-name a { color: inherit; text-decoration: none; }
+.recap h3 a:hover, .member-name a:hover { color: var(--leaf-700); }
+.recap-page h1 { margin-bottom: 0; }
+.recap-page .lede { font-size: 1.1875rem; }
+.recap-hero { width: 100%; height: auto; border-radius: 20px; display: block; margin: 8px 0; }
+.legal img { max-width: 100%; height: auto; border-radius: 16px; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--forest-950); color: var(--on-dark); padding: 72px 0 40px; font-size: 0.95rem; }

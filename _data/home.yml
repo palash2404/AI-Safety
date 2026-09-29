@@ -1,0 +1,68 @@
+# Homepage texts — edit in the editor at /admin (Site content → Homepage texts)
+about:
+  eyebrow: About AI Safety Saarland
+  title: Students from Saarland University working to make AI go well.
+  intro: We are a student-led initiative passionate about driving change. Through reading groups, fellowships and events, we bring people from every discipline together to understand the risks from advanced AI — and to work on reducing them.
+
+why:
+  title: Why AI safety is important.
+  intro: AI systems are getting more capable every year and are being built into more of the world. Making sure they stay safe, controllable and beneficial is one of the defining challenges of our generation.
+  reasons:
+    - title: Capabilities are moving fast
+      text: Each new generation of models can do more, and they're being deployed into research, business and public life before we fully understand them.
+    - title: Safety is still an open problem
+      text: Reliably getting advanced systems to do what we intend — and understanding what happens inside them — are research questions we haven't solved yet.
+    - title: The stakes are shared
+      text: Mistakes or misuse could affect everyone. That's why technical research, good governance and informed public debate matter now, not later.
+
+mission: To foster interdisciplinary exchange, education, and research addressing large-scale risks from AI development and deployment at Saarland University and beyond.
+
+programs:
+  title: Two ways to go deeper into AI safety.
+  intro: Start with the fundamentals, or join the advanced track and work on the problems that matter most.
+  items:
+    - name: Introductory Fellowship
+      tag: Weekly
+      summary: Learn the fundamentals of AI Safety and Governance through a weekly reading and discussion group.
+      points:
+        - lead: "Explore the key challenges:"
+          text: technical safety, governance, power dynamics, and societal impact
+        - lead: Discuss current approaches
+          text: to ensuring AI systems remain controllable and beneficial
+        - lead: Build understanding
+          text: in a supportive, interdisciplinary community
+      link: ""
+    - name: Advanced Fellowship
+      tag: Hands-on
+      summary: Go deeper into the technical methods shaping the future of AI safety through focused reading, discussion, and practice.
+      points:
+        - lead: "Evaluation:"
+          text: how we test what capabilities AI models have and how they act in certain situations
+        - lead: "Interpretability:"
+          text: what we can learn about AI models by looking at their internal workings
+        - lead: "Engage with active research:"
+          text: discuss key papers, run experiments, and hear from researchers
+      link: ""
+
+security:
+  title: AI Security Team
+  text: Making AI safe also requires security — to stop adversaries gaining access to powerful models, individuals training secret loyalties into models, or models exfiltrating themselves. Join us if you're especially interested in the intersection of cybersecurity and AI.
+  link: ""
+  activities:
+    - name: AI Security Reading Group
+      tag: 6 weeks
+      text: A closed, in-person reading group exploring critical and neglected problems in AI security — threat models and research agendas for safeguarding advanced AI systems.
+    - name: AI Security Afternoon
+      tag: ""
+      text: ""
+    - name: AI Security Research Sprints
+      tag: ""
+      text: ""
+
+events:
+  title: Talks, socials and exchange.
+  text: We host regular public events with invited speakers as well as casual get-togethers to build a community. Fellows get access to further exclusive events.
+
+join:
+  title: Don't want to miss what's next?
+  text: Join the community to hear about fellowships, reading groups and events first.

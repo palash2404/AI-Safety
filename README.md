@@ -1,6 +1,6 @@
 # AI Safety Saarland — website
 
-Static website for AI Safety Saarland, the student AI safety initiative at Saarland University. Plain HTML + CSS, no build step — it runs directly on GitHub Pages.
+Website for AI Safety Saarland, the student AI safety initiative at Saarland University. Built with Jekyll, which GitHub Pages runs automatically on every change — there's nothing to install.
 
 ## Colour palette
 
@@ -19,28 +19,35 @@ Every colour is a shade of the two greens in the logo (forest `#0d2a1e` and leaf
 
 Fonts: Bricolage Grotesque (headings) and Figtree (body). They're self-hosted in `assets/fonts/` (SIL Open Font License), so the site makes no requests to Google Fonts — a GDPR issue in Germany.
 
+## Editing the website (for team members)
+
+Go to **https://ais-saarland.org/admin/** and sign in with your GitHub account. You can:
+
+- add **event recaps** (Updates page) — with a photo, a short summary and optionally a full write-up that gets its own page
+- update **upcoming events** (homepage), the **team**, **contributors** and **current projects**
+- change the **homepage texts**
+
+When you save, your change becomes a draft. Move it to **In review** when it's ready. It goes live only after Palash approves it — nothing you do in the editor can break the live site.
+
+You need to be added to the repository as a collaborator first — ask Palash.
+
+## For Palash: approving changes
+
+Each draft appears as a pull request under **Pull requests** on GitHub. Open it, check the changes, then click **Merge pull request**. The site updates about a minute later.
+
 ## Files
 
-- `index.html` — homepage: About → Why AI safety → Mission → Programs → AI Security → Events → Join
-- `team.html` — Meet the team
-- `updates.html` — Updates: event recaps, contributors and current projects
-- `privacy-notice.html` — Privacy Notice
-- `terms-and-conditions.html` — Terms & Conditions
-- `assets/style.css` — all styling
-- `assets/main.js` — mobile menu and newsletter form
-- `assets/logo.png`, `assets/favicon.png`, `assets/apple-touch-icon.png` — logo and icons
-
-The header and footer are repeated in each page, so a change to them needs to be made in all five files.
-
-## Adding a team member
-
-In `team.html`, replace a placeholder card's `<svg>` with `<img src="assets/team/firstname.jpg" alt="Full name">` (square-ish photos work best), then fill in `[Name]` and `[Role]`. Copy a whole `<div class="member">` block to add more people.
+- `_data/` — the editable content: `home.yml`, `events.yml`, `team.yml`, `contributors.yml`, `projects.yml`
+- `_recaps/` — one file per event recap
+- `index.html`, `team.html`, `updates.html` — page templates that read from `_data/` and `_recaps/`
+- `privacy-notice.html`, `terms-and-conditions.html` — legal pages (edit these directly)
+- `_layouts/`, `_includes/` — the shared page frame, header and footer
+- `admin/` — the editor (Sveltia CMS) and its settings in `admin/config.yml`
+- `assets/` — styles, scripts, fonts, logo; photos uploaded in the editor go to `assets/uploads/`
 
 ## Still to do
 
 - Imprint page (required in Germany) — the footer link is a placeholder
 - Newsletter service — for now the sign-up form opens an email to info@ais-saarland.org
 - Update the Privacy Notice's list of processors (Squarespace → GitHub Pages and the new newsletter tool)
-- Replace placeholders in `[square brackets]` (events, AI Security Afternoon and Research Sprints, team, updates)
-- Fill in links still set to `#` (fellowship "Find out more", "Learn more", "View all events", "Join the team")
-- Connect the ais-saarland.org domain once the registrar hold is cleared
+- Add content through the editor: team, events, recaps, contributors, projects, AI Security Afternoon and Research Sprints descriptions, program links

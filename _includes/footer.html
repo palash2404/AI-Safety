@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name light">AI Safety <span>Saarland</span></span>
+        <p>Contact us at <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <div class="social">
+          <a href="{{ site.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
+          <a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
+        </div>
+      </div>
+
+      <form class="newsletter" id="newsletter">
+        <label for="newsletter-email">Sign up to our newsletter</label>
+        <div class="newsletter-row">
+          <input id="newsletter-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </div>
+        <p class="newsletter-note">By signing up to this mailing list, you agree to our <a href="{{ '/privacy-notice.html' | relative_url }}">Privacy Policy</a> and <a href="{{ '/terms-and-conditions.html' | relative_url }}">T&amp;Cs</a>.</p>
+        <p class="newsletter-status" id="newsletter-status" role="status"></p>
+      </form>
+
+      <nav class="legal-nav" aria-label="Legal">
+        <a href="{{ '/privacy-notice.html' | relative_url }}">Privacy Policy</a>
+        <a href="#">Imprint</a>
+        <a href="{{ '/terms-and-conditions.html' | relative_url }}">Terms &amp; Conditions</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 AI Safety Saarland. All rights reserved.</span>
+      <span>Saarland University · Saarbrücken</span>
+    </div>
+  </div>
+</footer>

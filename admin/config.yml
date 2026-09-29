@@ -1,0 +1,195 @@
+# Settings for the website editor at https://ais-saarland.org/admin/
+# Docs: https://sveltiacms.app/en/docs
+
+backend:
+  name: github
+  repo: palash2404/AI-Safety
+  branch: main
+  # After the one-time login setup, uncomment the next line and put in your Cloudflare Worker address:
+  # base_url: https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
+
+# Every change becomes a draft (a pull request on GitHub). Nothing goes live
+# until Palash merges it. "publish: false" on each collection hides the
+# Publish button, so editors can only send changes for review.
+publish_mode: editorial_workflow
+
+site_url: https://ais-saarland.org
+display_url: https://ais-saarland.org
+logo_url: /assets/logo.png
+
+# Photos uploaded in the editor are saved here
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ---------- Event recaps (Updates page) ----------
+  - name: recaps
+    label: Event recaps
+    label_singular: Event recap
+    description: Recaps of events we've hosted. They appear on the Updates page, newest first.
+    folder: _recaps
+    extension: md
+    format: frontmatter
+    create: true
+    publish: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} · {{date}}"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date of the event, name: date, widget: datetime, type: date, format: YYYY-MM-DD }
+      - label: Type
+        name: type
+        widget: select
+        options: [Talk, Workshop, Reading group, Fellowship, Social, Hackathon, Other]
+      - { label: Photo, name: photo, widget: image, required: false, hint: "Landscape photos work best. Only use photos where people agreed to be online." }
+      - { label: Short summary, name: summary, widget: text, hint: "Two or three sentences shown on the Updates page." }
+      - { label: Full recap (optional), name: body, widget: markdown, required: false, hint: "If you write something here, the event gets its own page with a 'Read the recap' link." }
+
+  # ---------- Everything else on the site ----------
+  - name: site
+    label: Site content
+    description: Upcoming events, team, contributors, projects and homepage texts.
+    publish: false
+    files:
+      - name: events
+        label: Upcoming events
+        file: _data/events.yml
+        fields:
+          - label: Upcoming events (homepage)
+            name: upcoming
+            widget: list
+            required: false
+            hint: "Remove events once they've happened, and add an event recap instead."
+            summary: "{{fields.date}} · {{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Date, name: date, widget: datetime, type: date, format: YYYY-MM-DD }
+              - { label: Place and time, name: details, widget: string, required: false, hint: "e.g. Campus E1 3, HS 002 · 18:15" }
+              - { label: Sign-up or info link, name: link, widget: string, required: false }
+
+      - name: team
+        label: Team
+        file: _data/team.yml
+        fields:
+          - label: Team members
+            name: members
+            widget: list
+            required: false
+            summary: "{{fields.name}} · {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false, hint: "Square photos work best." }
+              - { label: LinkedIn or website, name: link, widget: string, required: false }
+
+      - name: contributors
+        label: Contributors
+        file: _data/contributors.yml
+        fields:
+          - label: Contributors (Updates page)
+            name: people
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: When, name: when, widget: string, required: false, hint: "e.g. Summer 2026" }
+              - { label: What they contributed, name: contribution, widget: text }
+              - { label: Photo, name: photo, widget: image, required: false }
+
+      - name: projects
+        label: Current projects
+        file: _data/projects.yml
+        fields:
+          - label: Current projects (Updates page)
+            name: projects
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Project title, name: title, widget: string }
+              - { label: Topic, name: topic, widget: string, required: false, hint: "e.g. Research, Governance, Outreach" }
+              - { label: Status, name: status, widget: select, options: [In progress, Just started, Wrapping up, Paused], default: In progress }
+              - { label: Description, name: description, widget: text }
+              - { label: People working on it, name: people, widget: list, required: false, field: { label: Name, name: name, widget: string } }
+
+      - name: home
+        label: Homepage texts
+        file: _data/home.yml
+        fields:
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Big heading, name: title, widget: string }
+              - { label: Intro text, name: intro, widget: text }
+          - label: Why AI safety is important
+            name: why
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Intro text, name: intro, widget: text }
+              - label: Reasons
+                name: reasons
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+          - { label: Our mission, name: mission, widget: text }
+          - label: Programs
+            name: programs
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Intro text, name: intro, widget: text }
+              - label: Programs
+                name: items
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Tag, name: tag, widget: string, required: false, hint: "e.g. Weekly" }
+                  - { label: Summary, name: summary, widget: text }
+                  - label: Bullet points
+                    name: points
+                    widget: list
+                    required: false
+                    summary: "{{fields.lead}} {{fields.text}}"
+                    fields:
+                      - { label: Bold start, name: lead, widget: string, required: false }
+                      - { label: Rest of the sentence, name: text, widget: string }
+                  - { label: '"Find out more" link', name: link, widget: string, required: false, hint: "Leave empty to hide the link." }
+          - label: AI Security Team
+            name: security
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: '"Learn more" link', name: link, widget: string, required: false, hint: "Leave empty to hide the button." }
+              - label: Activities
+                name: activities
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Tag, name: tag, widget: string, required: false, hint: "e.g. 6 weeks" }
+                  - { label: Description, name: text, widget: text, required: false, hint: "Leave empty and the row won't open." }
+          - label: Events section
+            name: events
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Join section
+            name: join
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Text, name: text, widget: text }

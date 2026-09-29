@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<main class="legal-main">
+  <article class="legal recap-page">
+    <a class="back-link" href="{{ '/updates.html' | relative_url }}#recaps">← All updates</a>
+    <div class="recap-meta">{% if page.type and page.type != "" %}<span class="chip chip-light">{{ page.type | escape }}</span>{% endif %}<span>{{ page.date | date: "%-d %B %Y" }}</span></div>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.summary and page.summary != "" %}<p class="lede">{{ page.summary | escape }}</p>{% endif %}
+    {% if page.photo and page.photo != "" %}
+    <img class="recap-hero" src="{{ page.photo | relative_url }}" alt="{{ page.title | escape }}">
+    {% endif %}
+    {{ content }}
+  </article>
+</main>

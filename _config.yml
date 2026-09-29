@@ -1,0 +1,37 @@
+# Site settings — used by GitHub Pages (Jekyll) to build the website.
+title: AI Safety Saarland
+description: AI Safety Saarland is a student initiative at Saarland University working to make AI go well through reading groups, fellowships and events.
+url: https://ais-saarland.org
+baseurl: ""
+
+# Links used in the header and footer
+email: info@ais-saarland.org
+whatsapp: https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM
+instagram: https://www.instagram.com/aiss_saarland/
+linkedin: https://www.linkedin.com/company/ai-safety-saarland/
+
+markdown: kramdown
+timezone: Europe/Berlin
+
+# Event recaps are written in the editor (/admin) and each gets its own page
+collections:
+  recaps:
+    output: true
+    permalink: /updates/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: recaps
+    values:
+      layout: recap
+      nav: updates
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
