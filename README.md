@@ -17,18 +17,29 @@ Every colour is a shade of the two greens in the logo (forest `#0d2a1e` and leaf
 | Mint 100 | `#e3efdd` | Panels and highlights |
 | Mint 50 | `#f4f8f1` | Page background |
 
-Fonts: Bricolage Grotesque (headings) and Figtree (body), both from Google Fonts.
+Fonts: Bricolage Grotesque (headings) and Figtree (body). They're self-hosted in `assets/fonts/` (SIL Open Font License), so the site makes no requests to Google Fonts — a GDPR issue in Germany.
 
 ## Files
 
-- `index.html` — the homepage
+- `index.html` — homepage: About → Why AI safety → Mission → Programs → AI Security → Events → Join
+- `team.html` — Meet the team
+- `privacy-notice.html` — Privacy Notice
+- `terms-and-conditions.html` — Terms & Conditions
 - `assets/style.css` — all styling
-- `assets/logo.png` — logo (purple export border removed, transparent background)
+- `assets/main.js` — mobile menu and newsletter form
+- `assets/logo.png`, `assets/favicon.png`, `assets/apple-touch-icon.png` — logo and icons
+
+The header and footer are repeated in each page, so a change to them needs to be made in all four files.
+
+## Adding a team member
+
+In `team.html`, replace a placeholder card's `<svg>` with `<img src="assets/team/firstname.jpg" alt="Full name">` (square-ish photos work best), then fill in `[Name]` and `[Role]`. Copy a whole `<div class="member">` block to add more people.
 
 ## Still to do
 
-- Replace placeholders in `[square brackets]` (event dates/titles, AI Security Afternoon and Research Sprints descriptions, blog posts)
-- Fill in real links (Instagram, LinkedIn, "Join us" form, fellowship pages)
-- Split into separate pages (About, Get involved, AI Security, Events, Blog)
-- Set up branch protection so changes go through pull requests
-- Connect the ais-saarland.org domain once DNS access is sorted
+- Imprint page (required in Germany) — the footer link is a placeholder
+- Newsletter service — for now the sign-up form opens an email to info@ais-saarland.org
+- Update the Privacy Notice's list of processors (Squarespace → GitHub Pages and the new newsletter tool)
+- Replace placeholders in `[square brackets]` (events, AI Security Afternoon and Research Sprints, team)
+- Fill in links still set to `#` (Blog, fellowship "Find out more", "Learn more", "View all events", "Join the team")
+- Connect the ais-saarland.org domain once the registrar hold is cleared

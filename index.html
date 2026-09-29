@@ -4,68 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Safety Saarland</title>
-<meta name="description" content="AI Safety Saarland is a student initiative at Saarland University tackling the technical, governance and societal challenges of advanced AI through research, education, and collaboration.">
+<meta name="description" content="AI Safety Saarland is a student initiative at Saarland University working to make AI go well through reading groups, fellowships and events.">
 <meta name="theme-color" content="#0d2a1e">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=2">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#" class="brand">
+    <a href="#about" class="brand">
       <img src="assets/logo.png" alt="" class="brand-mark" width="55" height="48">
       <span class="brand-name">AI Safety <span>Saarland</span></span>
     </a>
 
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
     </button>
 
-    <nav class="site-nav" id="site-nav">
-      <a href="#about">About us</a>
-      <a href="#programs">Get involved</a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="team.html">Team</a>
+      <a href="#programs">Programs</a>
       <a href="#security">AI Security</a>
       <a href="#events">Events</a>
-      <a href="#blog">Blog</a>
+      <a href="#">Blog</a>
+      <a href="https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-join">Join us</a>
+      <div class="nav-social">
+        <a href="https://www.instagram.com/aiss_saarland/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
+        <a href="https://www.linkedin.com/company/ai-safety-saarland/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
+      </div>
     </nav>
 
     <div class="header-actions">
-      <a href="#" class="icon-link" aria-label="Instagram">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg>
-      </a>
-      <a href="#" class="icon-link" aria-label="LinkedIn">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg>
-      </a>
-      <a href="#join" class="btn btn-primary">Join us</a>
+      <a href="https://www.instagram.com/aiss_saarland/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
+      <a href="https://www.linkedin.com/company/ai-safety-saarland/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
+      <a href="https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join us</a>
     </div>
   </div>
 </header>
 
 <main>
 
-  <!-- Hero -->
-  <section class="hero wrap" id="about">
-    <div class="hero-text">
-      <p class="eyebrow">Student initiative · Saarland University</p>
-      <h1>Making AI safe, starting in&nbsp;Saarland.</h1>
-      <p class="lede">We are a student community tackling the technical, governance and societal challenges of advanced AI through research, education, and collaboration.</p>
-      <div class="actions">
-        <a href="#programs" class="btn btn-primary btn-lg">Join a fellowship</a>
-        <a href="#events" class="btn btn-outline btn-lg">See upcoming events</a>
-      </div>
+  <!-- About -->
+  <section class="about wrap" id="about">
+    <div class="about-text">
+      <p class="eyebrow">About AI Safety Saarland</p>
+      <h1>Students from Saarland University working to make AI go&nbsp;well.</h1>
+      <p class="lede">We are a student-led initiative passionate about driving change. Through reading groups, fellowships and events, we bring people from every discipline together to understand the risks from advanced AI — and to work on reducing them.</p>
+      <a href="team.html" class="btn btn-outline">Meet the team <span aria-hidden="true">→</span></a>
     </div>
-    <div class="hero-art">
+    <div class="about-art">
       <img src="assets/logo.png" alt="AI Safety Saarland logo — the outline of Saarland" width="460" height="398">
     </div>
   </section>
 
+  <!-- Why AI safety -->
+  <section class="dark" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow eyebrow-light">Why it matters</p>
+          <h2>Why AI safety is important.</h2>
+        </div>
+        <p>AI systems are getting more capable every year and are being built into more of the world. Making sure they stay safe, controllable and beneficial is one of the defining challenges of our generation.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-num">01</span>
+          <h3>Capabilities are moving fast</h3>
+          <p>Each new generation of models can do more, and they're being deployed into research, business and public life before we fully understand them.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">02</span>
+          <h3>Safety is still an open problem</h3>
+          <p>Reliably getting advanced systems to do what we intend — and understanding what happens inside them — are research questions we haven't solved yet.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">03</span>
+          <h3>The stakes are shared</h3>
+          <p>Mistakes or misuse could affect everyone. That's why technical research, good governance and informed public debate matter now, not later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="mission wrap" id="mission">
+    <div class="mission-label">
+      <p class="eyebrow">Our mission</p>
+      <span class="mission-bar"></span>
+    </div>
+    <p class="mission-text">To foster interdisciplinary exchange, education, and research addressing large-scale risks from AI development and deployment at Saarland University and beyond.</p>
+  </section>
+  <hr class="rule">
+
   <!-- Programs -->
-  <section class="programs" id="programs">
+  <section class="dark programs" id="programs">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -135,7 +172,7 @@
   <!-- Events -->
   <section class="wrap" id="events">
     <div class="events">
-      <div>
+      <div class="events-text">
         <p class="eyebrow">Events</p>
         <h2>Talks, socials and exchange.</h2>
         <p>We host regular public events with invited speakers as well as casual get-togethers to build a community. Fellows get access to further exclusive events.</p>
@@ -143,57 +180,62 @@
       <div class="event-list">
         <div class="event">
           <div class="event-date"><span>[MON]</span><strong>[DD]</strong></div>
-          <div><p class="event-title">[Event title]</p><p class="event-meta">[Location · time]</p></div>
+          <div class="event-info"><span class="event-title">[Event title]</span><span class="event-meta">[Location · time]</span></div>
         </div>
         <div class="event">
           <div class="event-date"><span>[MON]</span><strong>[DD]</strong></div>
-          <div><p class="event-title">[Event title]</p><p class="event-meta">[Location · time]</p></div>
+          <div class="event-info"><span class="event-title">[Event title]</span><span class="event-meta">[Location · time]</span></div>
         </div>
-        <a href="#" class="card-link dark">View all events →</a>
+        <a href="#" class="events-link">View all events →</a>
       </div>
     </div>
-  </section>
-
-  <!-- Blog placeholder -->
-  <section class="wrap blog" id="blog">
-    <p class="eyebrow">Blog</p>
-    <h2>From the blog</h2>
-    <p class="muted">[Posts will appear here.]</p>
   </section>
 
   <!-- Join CTA -->
   <section class="cta wrap" id="join">
     <h2>Don't want to miss what's next?</h2>
     <p>Join the community to hear about fellowships, reading groups and events first.</p>
-    <a href="#" class="btn btn-primary btn-xl">Join us</a>
+    <a href="https://chat.whatsapp.com/GxmhCN5r8cU3ESduqJorAM" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join us</a>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <span class="brand-name light">AI Safety <span>Saarland</span></span>
-    <nav class="footer-links">
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Contact</a>
-    </nav>
-    <span>© 2026 AI Safety Saarland</span>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name light">AI Safety <span>Saarland</span></span>
+        <p>Contact us at <a href="mailto:info@ais-saarland.org">info@ais-saarland.org</a></p>
+        <div class="social">
+          <a href="https://www.instagram.com/aiss_saarland/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6"/></svg></a>
+          <a href="https://www.linkedin.com/company/ai-safety-saarland/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="10.5" x2="8" y2="17"/><circle cx="8" cy="7.3" r="0.6"/><path d="M12 17v-6.5M12 13.5c0-2 1.3-3 2.8-3s2.2 1 2.2 3V17"/></svg></a>
+        </div>
+      </div>
+
+      <form class="newsletter" id="newsletter">
+        <label for="newsletter-email">Sign up to our newsletter</label>
+        <div class="newsletter-row">
+          <input id="newsletter-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </div>
+        <p class="newsletter-note">By signing up to this mailing list, you agree to our <a href="privacy-notice.html">Privacy Policy</a> and <a href="terms-and-conditions.html">T&amp;Cs</a>.</p>
+        <p class="newsletter-status" id="newsletter-status" role="status"></p>
+      </form>
+
+      <nav class="legal-nav" aria-label="Legal">
+        <a href="privacy-notice.html">Privacy Policy</a>
+        <a href="#">Imprint</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 AI Safety Saarland. All rights reserved.</span>
+      <span>Saarland University · Saarbrücken</span>
+    </div>
   </div>
 </footer>
 
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.getElementById('site-nav');
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  });
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
-</script>
+<script src="assets/main.js?v=2"></script>
 </body>
 </html>
