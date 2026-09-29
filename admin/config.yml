@@ -5,8 +5,8 @@ backend:
   name: github
   repo: palash2404/AI-Safety
   branch: main
-  # After the one-time login setup, uncomment the next line and put in your Cloudflare Worker address:
-  # base_url: https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  # Login helper (Cloudflare Worker running sveltia-cms-auth)
+  base_url: https://sveltia-cms-auth.pana00002.workers.dev
 
 # Every change becomes a draft (a pull request on GitHub). Nothing goes live
 # until Palash merges it. "publish: false" on each collection hides the
