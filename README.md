@@ -42,7 +42,7 @@ You don't need to know any code. Every change is saved as a draft and only goes 
   - **Current projects** — what members are working on.
   - **Homepage texts** — About, Why AI safety, Mission, Programs, AI Security and the Join section.
 - **AI Security page** — the sub-initiative page: threats, who it's for, and initiatives (reading group, AI Security Afternoon, research sprints) with logistics and application links.
-- **Programs** — the Introductory and Advanced Fellowship pages: key dates, prerequisites, schedule, FAQs and the application link. When applications open, paste the form link into **Application link** and an "Apply now" button appears.
+- **Programs** — the Introductory and Advanced Fellowship pages: key dates, prerequisites, schedule, FAQs and the application link. When applications open, paste the form link into **Application link** and an "Apply now" button appears. Each program has a **Show on website** switch: turning it off hides the program page and every link to it, but keeps its content. The Advanced Fellowship is switched off for now — when you turn it back on, also update the Programs heading in **Homepage texts** (it currently talks about one program).
 
 Photos: only upload photos of people who agreed to appear online (our Privacy Notice promises this). Landscape photos work best for recaps, square ones for team members.
 

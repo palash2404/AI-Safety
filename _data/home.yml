@@ -18,10 +18,11 @@ why:
 mission: To foster interdisciplinary exchange, education, and research addressing large-scale risks from AI development and deployment at Saarland University and beyond.
 
 programs:
-  title: Two ways to go deeper into AI safety.
-  intro: Start with the fundamentals, or join the advanced track and work on the problems that matter most.
+  title: Go deeper into AI safety.
+  intro: Start with the fundamentals in our weekly Introductory Fellowship — no prior experience needed.
   items:
     - name: Introductory Fellowship
+      program: introductory
       tag: Weekly
       summary: Learn the fundamentals of AI Safety and Governance through a weekly reading and discussion group.
       points:
@@ -33,6 +34,7 @@ programs:
           text: in a supportive, interdisciplinary community
       link: "/introductory-fellowship/"
     - name: Advanced Fellowship
+      program: advanced
       tag: Hands-on
       summary: Go deeper into the technical methods shaping the future of AI safety through focused reading, discussion, and practice.
       points:

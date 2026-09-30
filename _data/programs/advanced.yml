@@ -1,4 +1,5 @@
 # Advanced Fellowship page — edit in the editor at /admin (Programs → Advanced Fellowship)
+live: false  # false = hidden from the website (the page and all links to it), but kept here
 name: Advanced Fellowship
 tag: Hands-on
 tagline: Evaluate. Steer. Control. Align future models.

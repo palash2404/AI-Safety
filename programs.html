@@ -16,9 +16,11 @@ permalink: /programs/
 
   <section class="wrap programs-overview">
     <div class="program-grid">
-      {% assign list = "introductory-fellowship,advanced-fellowship" | split: "," %}
-      {% for slug in list %}
-      {% if forloop.first %}{% assign p = intro %}{% else %}{% assign p = adv %}{% endif %}
+      {% assign list = "introductory,advanced" | split: "," %}
+      {% for key in list %}
+      {% assign p = site.data.programs[key] %}
+      {% if p.live == false %}{% continue %}{% endif %}
+      {% assign slug = key | append: "-fellowship" %}
       <a class="program-choice" href="{{ '/' | append: slug | append: '/' | relative_url }}">
         <div class="card-top">
           <h2>{{ p.name | escape }}</h2>
@@ -36,6 +38,7 @@ permalink: /programs/
       {% endfor %}
     </div>
 
+    {% if intro.live != false and adv.live != false %}
     <div class="share-box">
       <div>
         <p class="share-title">Not sure which one is for you?</p>
@@ -43,5 +46,6 @@ permalink: /programs/
       </div>
       <a href="mailto:{{ site.email }}" class="btn btn-primary btn-lg">Ask us</a>
     </div>
+    {% endif %}
   </section>
 </main>
