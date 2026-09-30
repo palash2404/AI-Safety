@@ -179,6 +179,54 @@ collections:
               - { label: Description, name: description, widget: text }
               - { label: People working on it, name: people, widget: list, required: false, field: { label: Name, name: name, widget: string } }
 
+      - name: ai_security
+        label: AI Security page
+        file: _data/ai_security.yml
+        fields:
+          - { label: Small heading, name: eyebrow, widget: string }
+          - { label: Page title, name: title, widget: string }
+          - { label: Intro text, name: intro, widget: text }
+          - { label: '"Why" heading', name: why_title, widget: string }
+          - { label: '"Why" intro', name: why_intro, widget: text }
+          - label: Threats (cards)
+            name: threats
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: '"Who this is for" heading', name: audience_title, widget: string }
+          - { label: Who this is for, name: audience, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: Highlighted note, name: audience_note, widget: text, required: false }
+          - { label: Initiatives heading, name: initiatives_title, widget: string }
+          - label: Initiatives
+            name: initiatives
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Small line above the name, name: meta, widget: string, required: false, hint: "e.g. In-person reading group · 6 weeks · Saarland University" }
+              - { label: Description, name: text, widget: text }
+              - { label: Topics heading, name: topics_title, widget: string, required: false, hint: "e.g. Learn about" }
+              - label: Topics
+                name: topics
+                widget: list
+                required: false
+                summary: "{{fields.lead}}"
+                fields:
+                  - { label: Bold start, name: lead, widget: string, required: false }
+                  - { label: Text, name: text, widget: string }
+              - label: Logistics
+                name: logistics
+                widget: list
+                required: false
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: Label, name: label, widget: string, hint: "e.g. Starts" }
+                  - { label: Value, name: value, widget: string, hint: "e.g. Wednesday, May 13th" }
+              - { label: Application link, name: apply_link, widget: string, required: false, hint: "Leave empty to hide the button." }
+              - { label: Button text, name: apply_label, widget: string, required: false, hint: "e.g. Apply by May 10th" }
+
       - name: home
         label: Homepage texts
         file: _data/home.yml

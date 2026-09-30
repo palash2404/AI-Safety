@@ -1,0 +1,62 @@
+# AI Security page — edit in the editor at /admin (Site content → AI Security page)
+eyebrow: Sub-initiative of AI Safety Saarland
+title: AI Security
+intro: A community for students and researchers working at the intersection of cybersecurity and AI safety. We explore the technical and policy problems that arise when advanced AI systems become targets, tools, or threats.
+why_title: Why AI security
+why_intro: As AI systems become more capable and widely deployed, the security questions around them change in kind, not just degree. The threats are concrete, and they sit at the intersection of machine learning, systems security, hardware, and international governance.
+threats:
+- title: Confidentiality
+  text: Model weights can be stolen and used without safety constraints, including by actors with no access to the original developer's oversight infrastructure.
+- title: Authorization
+  text: Once models are open-source or disconnected, the guardrails enforced by APIs no longer apply. Preventing misuse then requires different technical approaches.
+- title: Integrity
+  text: Training pipelines can be poisoned to introduce hidden backdoors, enabling adversaries to trigger harmful behavior after deployment in critical systems.
+- title: Control
+  text: Once models are open-source or disconnected, the guardrails enforced by APIs no longer apply. Preventing misuse then requires different technical approaches.
+audience_title: Who this is for
+audience:
+- Students with a background or strong interest in cybersecurity, computer systems, or machine learning
+- Those who want to understand AI safety from a security-engineering perspective, not just a theoretical one
+- Students curious about how technical design shapes policy and governance outcomes
+- Anyone considering research or a career at the boundary of AI and security
+audience_note: You don't need to be an expert. You do need to be willing to engage seriously with technical material and think carefully about hard trade-offs.
+initiatives_title: Our initiatives
+initiatives:
+- name: Critical Problems in AI Security
+  meta: In-person reading group · 6 weeks · Saarland University
+  text: A cohort-based reading group working through a curated set of research frameworks on the most critical and under-explored problems in AI security. Each session focuses on a distinct threat model, combining assigned reading with structured in-person discussion. We keep it small to make substantive conversation possible.
+  topics_title: Learn about
+  topics:
+  - lead: Confidentiality & integrity
+    text: Model weight protection and backdoor defence
+  - lead: Authorisation & compute
+    text: Misuse prevention and verification
+  - lead: Labour & deployments
+    text: Untrusted AI protocols and rogue detection
+  logistics:
+  - label: Starts
+    value: Wednesday, May 13th
+  - label: Time
+    value: 5:00 PM – 6:30 PM
+  - label: Duration
+    value: 6 weeks
+  - label: Format
+    value: In person, application required
+  apply_link: https://tally.so/r/rjrDVX
+  apply_label: Apply by May 10th
+- name: AI Security Afternoon
+  meta: Twice a year · Expert talks & student networking
+  text: Once a semester, we bring together researchers, practitioners, and students for a half-day event. The format combines invited talks from people working on these problems professionally with time for students to connect and ask questions. Details for the next edition will be announced here.
+  topics_title: ''
+  topics: []
+  logistics: []
+  apply_link: ''
+  apply_label: ''
+- name: AI Security Research Sprints
+  meta: Moving from reading to doing
+  text: Structured sprint formats to support students who want to move from reading about AI security to working on it. More details to be announced.
+  topics_title: ''
+  topics: []
+  logistics: []
+  apply_link: ''
+  apply_label: ''
