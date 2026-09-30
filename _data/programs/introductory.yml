@@ -1,4 +1,5 @@
 # Introductory Fellowship page — edit in the editor at /admin (Programs → Introductory Fellowship)
+live: true  # false = hidden from the website (the page and all links to it), but kept here
 name: Introductory Fellowship
 tag: Weekly
 tagline: Learn. Discuss. Reflect. Shape the future of AI.
@@ -53,7 +54,7 @@ offers:
     text: |
       The Introductory Fellowship is more than a course: it's your entry point into the AI Safety Saarland community. You'll meet like-minded peers who share your curiosity and commitment to responsible AI. Beyond the sessions, we encourage you to join community socials and other public events.
 
-      By the end of the program, you'll have not only a strong foundation in AI Safety, but also a network of people supporting your continued growth — whether you go on to join our [Advanced Fellowship](/advanced-fellowship/), start your own project, or contribute to AI Safety initiatives worldwide.
+      By the end of the program, you'll have not only a strong foundation in AI Safety, but also a network of people supporting your continued growth — whether you go on to join another of our programs, start your own project, or contribute to AI Safety initiatives worldwide.
 
 schedule_title: Fellowship schedule 2025–26
 schedule:

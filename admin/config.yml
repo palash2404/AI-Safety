@@ -60,6 +60,7 @@ collections:
         label: Introductory Fellowship
         file: _data/programs/introductory.yml
         fields: &program_fields
+          - { label: Show on website, name: live, widget: boolean, default: true, hint: "Turn off to hide this program everywhere on the site. Its content is kept." }
           - { label: Name, name: name, widget: string }
           - { label: Tag, name: tag, widget: string, required: false, hint: "Short label on the Programs page, e.g. Weekly" }
           - { label: Tagline (big heading), name: tagline, widget: string }

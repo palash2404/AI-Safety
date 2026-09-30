@@ -556,6 +556,8 @@ a.event-link:hover { background: #fff; }
   .contributors-light { padding: 24px 0 72px; }
 }
 
+.program-grid > :only-child { grid-column: 1 / -1; }
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--forest-950); color: var(--on-dark); padding: 72px 0 40px; font-size: 0.95rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px; align-items: start; }
