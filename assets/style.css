@@ -531,6 +531,28 @@ a.event-link:hover { background: #fff; }
   .initiative-side .btn { width: 100%; }
 }
 
+/* Updates page: contributors and recaps share one dark band */
+.contributors-dark { padding-bottom: 72px; }
+.recaps-dark { padding-top: 0; }
+.dark-divider { border: 0; border-top: 1px solid var(--forest-800); margin: 0 0 72px; }
+.recaps-dark .block-head h2 { color: #fff; }
+.recaps-dark .recap {
+  padding: 20px 20px 28px; border-radius: 24px;
+  background: var(--forest-900); border: 1px solid var(--forest-800);
+}
+.recaps-dark .recap-photo { border-radius: 16px; background: var(--forest-800); color: var(--leaf-500); }
+.recaps-dark .recap-meta { color: var(--on-dark); }
+.recaps-dark .chip-light { background: var(--forest-800); color: var(--mint-100); }
+.recaps-dark .recap h3, .recaps-dark .recap h3 a { color: #fff; }
+.recaps-dark .recap h3 a:hover { color: var(--leaf-300); }
+.recaps-dark .recap p { color: var(--on-dark-2); }
+.recaps-dark .recap > a { color: var(--leaf-300); }
+.recaps-dark .recap > a:hover { color: #fff; }
+@media (max-width: 960px) {
+  .contributors-dark { padding-bottom: 56px; }
+  .dark-divider { margin-bottom: 56px; }
+}
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--forest-950); color: var(--on-dark); padding: 72px 0 40px; font-size: 0.95rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px; align-items: start; }
