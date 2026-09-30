@@ -406,6 +406,86 @@ a.event-link:hover { background: #fff; }
 .recap-hero { width: 100%; height: auto; border-radius: 20px; display: block; margin: 8px 0; }
 .legal img { max-width: 100%; height: auto; border-radius: 16px; }
 
+/* ---------- Programs & fellowship pages ---------- */
+.program-hero { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; padding-top: 88px; padding-bottom: 72px; }
+.program-hero h1 { max-width: 900px; }
+.program-hero .lede { max-width: 680px; }
+.fact-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.fact-list li {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px;
+  border-radius: 999px; background: var(--mint-100); color: var(--forest-800); font-weight: 600; font-size: 0.9rem;
+}
+.fact-list li::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--leaf-500); }
+.program-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
+.closed-note { max-width: 420px; font-size: 0.95rem; color: var(--text-muted); }
+
+.program-about {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 72px; align-items: start;
+  padding-top: 72px; padding-bottom: 104px; border-top: 1px solid var(--mint-150);
+}
+.program-body h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); margin-bottom: 24px; }
+.program-details { position: sticky; top: 104px; }
+.program-details summary { font-size: 1.25rem; padding: 22px 0; }
+.program-details .prose { padding-bottom: 22px; }
+
+.prose { color: var(--text-muted); font-size: 1.0625rem; line-height: 1.7; }
+.prose > * + * { margin-top: 14px; }
+.prose ul, .prose ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.prose strong { color: var(--forest-950); font-weight: 600; }
+.prose a { font-weight: 600; }
+.dark .prose { color: var(--on-dark-2); }
+.dark .prose strong { color: #fff; }
+.dark .prose a { color: var(--leaf-300); }
+.dark .prose a:hover { color: #fff; }
+
+.offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.offer-card { padding: 40px; border-radius: 24px; background: var(--forest-900); border: 1px solid var(--forest-800); display: flex; flex-direction: column; gap: 18px; }
+.offer-card h3 { color: var(--leaf-300); }
+.dark .block-head h2 { color: #fff; }
+
+.program-schedule { padding-top: 104px; padding-bottom: 40px; }
+.schedule-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.schedule-item {
+  display: flex; gap: 24px; padding: 24px 28px; border-radius: 20px; background: #fff; border: 1px solid var(--mint-150);
+}
+.schedule-when { display: flex; flex-direction: column; gap: 2px; min-width: 104px; flex-shrink: 0; }
+.schedule-when span { font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--leaf-700); }
+.schedule-when strong { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--forest-950); }
+.schedule-what { display: flex; flex-direction: column; gap: 8px; }
+.schedule-what h3 { font-size: 1.3rem; }
+.schedule-what p { font-size: 0.975rem; color: var(--text-muted); }
+
+.program-faq { padding-top: 80px; padding-bottom: 24px; }
+.program-faq .accordion { max-width: 880px; }
+.program-faq summary { font-size: 1.2rem; }
+.program-faq .prose { padding-bottom: 26px; }
+
+.programs-overview { padding-bottom: 112px; }
+.program-choice {
+  display: flex; flex-direction: column; gap: 16px; padding: 40px; border-radius: 24px;
+  background: #fff; border: 1px solid var(--mint-150); text-decoration: none; color: var(--text);
+  transition: border-color .15s ease, transform .15s ease;
+}
+.program-choice:hover { border-color: var(--leaf-500); transform: translateY(-2px); color: var(--text); }
+.program-choice h2 { font-size: clamp(1.6rem, 2.4vw, 2rem); }
+.program-choice-tagline { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--leaf-700); }
+.program-choice > p:not(.program-choice-tagline) { color: var(--text-muted); }
+.program-choice-link { margin-top: auto; padding-top: 8px; font-weight: 600; color: var(--leaf-700); }
+
+@media (max-width: 960px) {
+  .program-hero { padding-top: 48px; padding-bottom: 48px; }
+  .program-about { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 48px; padding-bottom: 72px; }
+  .program-details { position: static; }
+  .offer-grid, .schedule-list { grid-template-columns: minmax(0, 1fr); }
+  .offer-card, .program-choice { padding: 28px; }
+  .program-schedule { padding-top: 72px; }
+  .program-faq { padding-top: 56px; }
+}
+@media (max-width: 520px) {
+  .schedule-item { flex-direction: column; gap: 10px; padding: 22px; }
+  .program-cta .btn { width: 100%; }
+}
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--forest-950); color: var(--on-dark); padding: 72px 0 40px; font-size: 0.95rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px; align-items: start; }

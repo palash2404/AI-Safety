@@ -60,6 +60,7 @@ nav: updates
       {% if people.size > 0 %}
       <div class="contributor-grid">
         {% for person in people %}
+    {% if person.name == nil or person.name == "" %}{% continue %}{% endif %}
         <div class="contributor">
           <div class="contributor-photo">
             {% if person.photo and person.photo != "" %}
@@ -88,6 +89,7 @@ nav: updates
     {% if projects.size > 0 %}
     <div class="project-grid">
       {% for project in projects %}
+    {% if project.title == nil or project.title == "" %}{% continue %}{% endif %}
       <article class="project">
         <div class="project-top">
           <span class="status"><span class="status-dot"></span>{{ project.status | default: "In progress" | escape }}</span>

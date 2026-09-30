@@ -116,6 +116,7 @@ nav: home
       <div class="event-list">
         {% assign upcoming = site.data.events.upcoming | sort: "date" %}
         {% for event in upcoming %}
+        {% if event.title == nil or event.title == "" %}{% continue %}{% endif %}
         {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link }}" target="_blank" rel="noopener noreferrer">{% else %}<div class="event">{% endif %}
           <div class="event-date"><span>{{ event.date | date: "%b" }}</span><strong>{{ event.date | date: "%-d" }}</strong></div>
           <div class="event-info"><span class="event-title">{{ event.title | escape }}</span>{% if event.details and event.details != "" %}<span class="event-meta">{{ event.details | escape }}</span>{% endif %}</div>
