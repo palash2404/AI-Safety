@@ -31,7 +31,7 @@ programs:
           text: to ensuring AI systems remain controllable and beneficial
         - lead: Build understanding
           text: in a supportive, interdisciplinary community
-      link: ""
+      link: "/introductory-fellowship/"
     - name: Advanced Fellowship
       tag: Hands-on
       summary: Go deeper into the technical methods shaping the future of AI safety through focused reading, discussion, and practice.
@@ -42,7 +42,7 @@ programs:
           text: what we can learn about AI models by looking at their internal workings
         - lead: "Engage with active research:"
           text: discuss key papers, run experiments, and hear from researchers
-      link: ""
+      link: "/advanced-fellowship/"
 
 security:
   title: AI Security Team

@@ -17,6 +17,7 @@ nav: team
   {% if members.size > 0 %}
   <div class="team-grid">
     {% for member in members %}
+    {% if member.name == nil or member.name == "" %}{% continue %}{% endif %}
     <div class="member">
       <div class="member-photo">
         {% if member.photo and member.photo != "" %}

@@ -1,0 +1,107 @@
+---
+layout: default
+---
+{% assign p = site.data.programs[page.program] %}
+<main>
+  <!-- Hero -->
+  <section class="wrap program-hero">
+    <a href="{{ '/programs/' | relative_url }}" class="back-link">← All programs</a>
+    <p class="eyebrow">{{ p.name | escape }}</p>
+    <h1>{{ p.tagline | escape }}</h1>
+    <p class="lede">{{ p.intro | escape }}</p>
+    {% if p.facts.size > 0 %}
+    <ul class="fact-list">
+      {% for fact in p.facts %}{% if fact != "" %}<li>{{ fact | escape }}</li>{% endif %}{% endfor %}
+    </ul>
+    {% endif %}
+    <div class="program-cta">
+      {% if p.apply_link and p.apply_link != "" %}
+      <a href="{{ p.apply_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Apply now</a>
+      {% else %}
+      <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Get notified</a>
+      {% if p.closed_note and p.closed_note != "" %}<p class="closed-note">{{ p.closed_note | escape }}</p>{% endif %}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- About + practical details -->
+  <section class="wrap program-about">
+    <div class="program-body">
+      <h2>{{ p.about_title | escape }}</h2>
+      <div class="prose">{{ p.about | markdownify }}</div>
+    </div>
+    {% if p.details.size > 0 %}
+    <div class="accordion program-details">
+      {% for item in p.details %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ item.title | escape }}</summary>
+        <div class="prose">{{ item.text | markdownify }}</div>
+      </details>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+
+  {% if p.offers.size > 0 %}
+  <!-- What we offer -->
+  <section class="dark">
+    <div class="wrap">
+      <div class="block-head"><h2>{{ p.offers_title | escape }}</h2></div>
+      <div class="offer-grid">
+        {% for offer in p.offers %}
+        <div class="offer-card">
+          <h3>{{ offer.title | escape }}</h3>
+          <div class="prose">{{ offer.text | markdownify }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if p.schedule.size > 0 %}
+  <!-- Schedule -->
+  <section class="wrap program-schedule" id="schedule">
+    <div class="block-head">
+      <p class="eyebrow">Schedule</p>
+      <h2>{{ p.schedule_title | escape }}</h2>
+    </div>
+    <ol class="schedule-list">
+      {% for s in p.schedule %}
+      <li class="schedule-item">
+        <div class="schedule-when"><span>{{ s.week | escape }}</span>{% if s.dates and s.dates != "" %}<strong>{{ s.dates | escape }}</strong>{% endif %}</div>
+        <div class="schedule-what">
+          <h3>{{ s.title | escape }}</h3>
+          <p>{{ s.text | escape }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  {% if p.faqs.size > 0 %}
+  <!-- FAQs -->
+  <section class="wrap program-faq" id="faq">
+    <div class="block-head">
+      <p class="eyebrow">FAQs</p>
+      <h2>Questions you might have.</h2>
+    </div>
+    <div class="accordion">
+      {% for f in p.faqs %}
+      <details>
+        <summary>{{ f.question | escape }}</summary>
+        <div class="prose">{{ f.answer | markdownify }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Closing CTA -->
+  <section class="cta wrap">
+    <h2>Questions about the {{ p.name | escape }}?</h2>
+    <p>Write to us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or join our community to hear about the next round first.</p>
+    <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join us</a>
+  </section>
+</main>

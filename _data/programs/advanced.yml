@@ -1,0 +1,62 @@
+# Advanced Fellowship page — edit in the editor at /admin (Programs → Advanced Fellowship)
+name: Advanced Fellowship
+tag: Hands-on
+tagline: Evaluate. Steer. Control. Align future models.
+intro: Interrogate the leading techniques to keep machine intelligence safe.
+summary: Go deeper into the technical methods shaping the future of AI safety through focused reading, discussion, and practice.
+facts:
+  - 10 weeks
+  - About 2 hours per week
+  - Fridays, 10:00–12:00, in person
+  - Deep learning and Python basics
+apply_link: ""
+closed_note: Applications are currently closed. Join our WhatsApp community to hear first when the next round opens.
+
+about_title: What you'll explore
+about: |
+  Mitigating [risks from advanced AI](https://aistatement.org) is possibly the most pressing problem of our time.
+
+  The 10-week **Advanced Fellowship** explores the most promising technical approaches to understanding highly capable models, which we consider broadly useful for addressing many different problems, such as misalignment or misuse.
+
+  We focus on two important topics:
+
+  - **Evaluation:** How can we test what capabilities AI models have and how they will act in certain situations?
+  - **Interpretability:** Can we learn more about AI models by looking at their internal workings?
+
+  In the first session, we'll have a broad recap and a discussion about possible sources of risk. Then we'll have four sessions on each of the two technical topics:
+
+  1. General introduction
+  2. Paper discussion
+  3. Hands-on experiments
+  4. Q&A with a researcher
+
+  Among other things, we'll discuss how we know that [refusal is mediated by a single direction](https://arxiv.org/abs/2406.11717), and what can be said about [the length of tasks AI can do](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) over time.
+
+  Finally, we'll have a session on career progression with these problems in mind.
+
+  **If this sounds interesting to you, don't hesitate to apply!**
+
+details:
+  - title: Key dates
+    text: |
+      - **April 30th:** Application deadline
+      - **May 3rd:** Application decisions
+      - **May 8th:** Fellowship kick-off
+  - title: Prerequisites
+    text: |
+      - Basic understanding of deep learning and Python
+      - Interest in technical work
+
+      Applications from non-CS backgrounds and underrepresented groups, such as women, are highly encouraged!
+  - title: Time commitment
+    text: |-
+      We expect fellows to commit **around 2 hours per week** by attending our in-person session on **Fridays, 10am to 12pm**.
+  - title: Questions and contact
+    text: |-
+      If you have any questions about the fellowship, feel free to contact us at [info@ais-saarland.org](mailto:info@ais-saarland.org).
+
+offers_title: ""
+offers: []
+schedule_title: ""
+schedule: []
+faqs: []

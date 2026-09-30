@@ -1,0 +1,129 @@
+# Introductory Fellowship page — edit in the editor at /admin (Programs → Introductory Fellowship)
+name: Introductory Fellowship
+tag: Weekly
+tagline: Learn. Discuss. Reflect. Shape the future of AI.
+intro: Begin your journey into AI Safety and help shape technology that truly benefits humanity.
+summary: Learn the fundamentals of AI Safety and Governance through a weekly reading and discussion group.
+facts:
+  - 10 weeks
+  - About 4 hours per week
+  - In person in Saarbrücken
+  - No prior experience needed
+apply_link: ""
+closed_note: Applications are currently closed. Join our WhatsApp community to hear first when the next round opens.
+
+about_title: Why join the fellowship?
+about: |
+  AI is transforming every aspect of society, from healthcare to governance. Ensuring these systems act safely and align with human values remains one of the most important challenges of our time.
+
+  This 10-week Introductory Fellowship helps you understand the key problems, approaches, and open questions in AI Safety, and gives you the chance to engage in lively, in-person discussions with an interdisciplinary community of peers.
+
+details:
+  - title: Key dates
+    text: |
+      - **May 2nd:** Application deadline
+      - **May 3rd:** Application decisions sent out
+      - **May 7th:** Fellowship kick-off
+  - title: Prerequisites
+    text: |
+      No prior technical experience is required. We welcome applicants from all backgrounds who share a curiosity about one central question: **How can we make AI beneficial to humanity?**
+
+      This program is offered both in person and online. Depending on capacity and location, you may be placed in either an in-person or an online group. You do *not* have to be a student at Saarland University.
+
+      Applications from non-CS backgrounds and underrepresented groups, such as women, are highly encouraged!
+  - title: Time commitment
+    text: |
+      The fellowship is designed to build strong foundations in AI Safety through consistent engagement. We therefore expect fellows to commit **around 4 hours per week**:
+
+      - 2 hours attending the in-person reading and discussion session in Saarbrücken
+      - 1–2 hours for independent reading and reflection on the weekly materials
+
+      Cohorts meet weekly, and we aim to choose a schedule that suits as many participants as possible. You may miss a maximum of two sessions over the 10-week period.
+
+offers_title: What we offer you
+offers:
+  - title: Learn the fundamentals
+    text: |
+      Building your understanding of AI progress, risks, and safety challenges can feel overwhelming at first. Our fellowship provides a guided and structured way to build these foundations.
+
+      In weekly in-person sessions, you will explore key ideas from the [AI Safety Atlas](https://ai-safety-atlas.com/chapters) through discussion, activities, and reflection. Each week focuses on one chapter, covering topics such as alignment, goal misgeneralization, oversight, and governance.
+
+      You'll leave with a clear picture of the landscape of AI Safety, the main problem areas, promising research directions, and practical pathways for contribution.
+  - title: Benefit from a supportive community
+    text: |
+      The Introductory Fellowship is more than a course: it's your entry point into the AI Safety Saarland community. You'll meet like-minded peers who share your curiosity and commitment to responsible AI. Beyond the sessions, we encourage you to join community socials and other public events.
+
+      By the end of the program, you'll have not only a strong foundation in AI Safety, but also a network of people supporting your continued growth — whether you go on to join our [Advanced Fellowship](/advanced-fellowship/), start your own project, or contribute to AI Safety initiatives worldwide.
+
+schedule_title: Fellowship schedule 2025–26
+schedule:
+  - week: Week 1
+    dates: May 14
+    title: Introduction
+    text: |-
+      This session gives you an overview of what "AI safety" means, why it matters, what kinds of failures or undesirable outcomes we're worried about, and how this field fits into both technical and societal contexts.
+  - week: Week 2
+    dates: May 18–22
+    title: Capabilities
+    text: |-
+      Here you explore how AI systems become more capable and what kinds of capabilities matter for safety. It covers questions like "How good are current systems?", "What might future systems be able to do?", and how capabilities growth drives safety research.
+  - week: Week 3
+    dates: May 25–29
+    title: Risks
+    text: |-
+      This chapter looks at the different ways AI systems can cause harm — from misuse, misalignment and emergent behaviours to systemic effects. It also introduces scenarios, likelihoods and categories of risk, to help you understand what we're trying to prevent.
+  - week: Week 4
+    dates: Jun 1–5
+    title: Strategies
+    text: |-
+      Having explored the risks, this chapter surveys how we might respond: technical safety methods, institutional and governance-level strategies, and coordination and alignment agendas. It connects risks to possible mitigation pathways.
+  - week: Week 5
+    dates: Jun 8–12
+    title: Governance
+    text: |-
+      Focuses on how societies, organisations and regulatory regimes can shape the safe development, deployment and oversight of AI. It examines policy, regulation, norms, incentives and how governance interactions affect safety.
+  - week: Week 6
+    dates: Jun 15–19
+    title: Evaluations
+    text: |-
+      This chapter explores how we test, measure and monitor the safety of AI systems — how do we know if a system is "safe enough", or at what point scaling becomes riskier? Topics include benchmarks, evaluation design and behavioural tests.
+  - week: Week 7
+    dates: Jun 22–26
+    title: Misspecification
+    text: |-
+      This deals with the problem of AI systems learning or pursuing the wrong objectives because the specification (goal, reward, constraint) is imperfect. It examines how even a well-intentioned system can go astray if its "goal" is misspecified or incomplete.
+  - week: Week 8
+    dates: Jun 29 – Jul 3
+    title: Goal misgeneralization
+    text: |-
+      This picks up from misspecification and considers how an AI may correctly optimise for a goal in one context but generalise incorrectly in new contexts.
+  - week: Week 9
+    dates: Jul 6–10
+    title: Scalable oversight
+    text: |-
+      This chapter explores how humans can supervise and align increasingly capable AI systems through scalable feedback, AI-assisted evaluation, and recursive oversight methods.
+  - week: Week 10
+    dates: Jul 13–17
+    title: Interpretability
+    text: |-
+      The last chapter focuses on making the internal processes of AI systems more transparent, understandable and auditable, so that we can foresee, detect or prevent undesirable behaviours. It discusses techniques, trade-offs and the role of interpretability for alignment and oversight.
+
+faqs:
+  - question: Do I need to know about AI safety or governance to apply?
+    answer: |-
+      No. While it's beneficial, we don't expect you to have prior knowledge — our sessions will provide it. However, we do expect a genuine interest in making AI safe and beneficial for everyone.
+  - question: How is the fellowship structured?
+    answer: |-
+      It's a **10-week program** with one 2-hour in-person discussion each week in Saarbrücken. Each session covers a new topic from the AI Safety Atlas. You'll also have 1–2 hours of optional reading or reflection between meetings.
+  - question: Do I get ECTS for this fellowship?
+    answer: |-
+      No — we are an independent organisation aiming to provide a pipeline for people into impactful AI safety or governance work. However, you will receive a certificate from us when you successfully complete the program.
+  - question: Is attendance required for all sessions to receive a certificate?
+    answer: |-
+      Regular attendance is expected, but you may miss up to **two sessions** during the 10-week program and still receive a certificate of participation. Since each session builds on the previous one, we strongly encourage consistent engagement to get the full benefit of the fellowship.
+  - question: How is the Research Incubator different from the Introductory Fellowship?
+    answer: |-
+      Neither program assumes prior AI safety or governance experience, but the Research Incubator is our more intensive flagship program. It gives you access to a highly skilled research mentor, career advice and exclusive community support.
+  - question: I have another question!
+    answer: |-
+      Send us an email at [info@ais-saarland.org](mailto:info@ais-saarland.org) and we will get back to you as quickly as possible!

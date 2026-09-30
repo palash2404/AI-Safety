@@ -50,6 +50,67 @@ collections:
       - { label: Short summary, name: summary, widget: text, hint: "Two or three sentences shown on the Updates page." }
       - { label: Full recap (optional), name: body, widget: markdown, required: false, hint: "If you write something here, the event gets its own page with a 'Read the recap' link." }
 
+  # ---------- Fellowship pages ----------
+  - name: programs
+    label: Programs
+    description: The Introductory and Advanced Fellowship pages. Update key dates, the schedule and the application link here.
+    publish: false
+    files:
+      - name: introductory
+        label: Introductory Fellowship
+        file: _data/programs/introductory.yml
+        fields: &program_fields
+          - { label: Name, name: name, widget: string }
+          - { label: Tag, name: tag, widget: string, required: false, hint: "Short label on the Programs page, e.g. Weekly" }
+          - { label: Tagline (big heading), name: tagline, widget: string }
+          - { label: Intro sentence, name: intro, widget: text }
+          - { label: Summary (Programs page card), name: summary, widget: text }
+          - { label: Quick facts, name: facts, widget: list, required: false, hint: "Short chips under the heading, e.g. 10 weeks", field: { label: Fact, name: fact, widget: string } }
+          - { label: Application link, name: apply_link, widget: string, required: false, hint: "Paste the application form link when applications open. Leave empty when they're closed." }
+          - { label: Note when applications are closed, name: closed_note, widget: text, required: false }
+          - { label: Main section heading, name: about_title, widget: string }
+          - { label: Main section text, name: about, widget: markdown }
+          - label: Practical details (key dates, prerequisites …)
+            name: details
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: markdown }
+          - { label: '"What we offer" heading', name: offers_title, widget: string, required: false }
+          - label: What we offer
+            name: offers
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: markdown }
+          - { label: Schedule heading, name: schedule_title, widget: string, required: false }
+          - label: Schedule
+            name: schedule
+            widget: list
+            required: false
+            summary: "{{fields.week}} · {{fields.title}}"
+            fields:
+              - { label: Week, name: week, widget: string, hint: "e.g. Week 1" }
+              - { label: Dates, name: dates, widget: string, required: false, hint: "e.g. May 18–22" }
+              - { label: Topic, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+          - label: FAQs
+            name: faqs
+            widget: list
+            required: false
+            summary: "{{fields.question}}"
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: markdown }
+      - name: advanced
+        label: Advanced Fellowship
+        file: _data/programs/advanced.yml
+        fields: *program_fields
+
   # ---------- Everything else on the site ----------
   - name: site
     label: Site content
