@@ -10,7 +10,6 @@
     </button>
 
     <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="{{ '/team.html' | relative_url }}"{% if page.nav == 'team' %} aria-current="page"{% endif %}>Team</a>
       <a href="{{ '/programs/' | relative_url }}"{% if page.nav == 'programs' %} aria-current="page"{% endif %}>Programs</a>
       <a href="{{ '/ai-security/' | relative_url }}"{% if page.nav == 'security' %} aria-current="page"{% endif %}>AI Security</a>
       <a href="{{ '/' | relative_url }}#events">Events</a>
