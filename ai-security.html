@@ -1,0 +1,106 @@
+---
+title: AI Security
+description: A community at Saarland University for students and researchers working at the intersection of cybersecurity and AI safety.
+nav: security
+permalink: /ai-security/
+---
+{% assign s = site.data.ai_security %}
+<main>
+  <!-- Hero -->
+  <section class="wrap program-hero">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Back to home</a>
+    <p class="eyebrow">{{ s.eyebrow | escape }}</p>
+    <h1>{{ s.title | escape }}</h1>
+    <p class="lede">{{ s.intro | escape }}</p>
+    <div class="program-cta">
+      <a href="#initiatives" class="btn btn-primary btn-lg">See our initiatives</a>
+      <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Join the community</a>
+    </div>
+  </section>
+
+  <!-- Why AI security -->
+  {% if s.threats.size > 0 %}
+  <section class="dark" id="why-security">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow eyebrow-light">Why it matters</p>
+          <h2>{{ s.why_title | escape }}</h2>
+        </div>
+        <p>{{ s.why_intro | escape }}</p>
+      </div>
+      <div class="threat-grid">
+        {% for t in s.threats %}
+        {% if t.title == nil or t.title == "" %}{% continue %}{% endif %}
+        <div class="why-card">
+          <span class="why-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <h3>{{ t.title | escape }}</h3>
+          <p>{{ t.text | escape }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Who this is for -->
+  <section class="wrap security-audience">
+    <div class="block-head">
+      <p class="eyebrow">Audience</p>
+      <h2>{{ s.audience_title | escape }}</h2>
+    </div>
+    <div class="audience-grid">
+      <ul class="check-list">
+        {% for a in s.audience %}{% if a != "" %}<li>{{ a | escape }}</li>{% endif %}{% endfor %}
+      </ul>
+      {% if s.audience_note and s.audience_note != "" %}<p class="audience-note">{{ s.audience_note | escape }}</p>{% endif %}
+    </div>
+  </section>
+
+  <!-- Initiatives -->
+  <section class="wrap security-initiatives" id="initiatives">
+    <div class="block-head">
+      <p class="eyebrow">Initiatives</p>
+      <h2>{{ s.initiatives_title | escape }}</h2>
+    </div>
+    <div class="initiative-list">
+      {% for i in s.initiatives %}
+      {% if i.name == nil or i.name == "" %}{% continue %}{% endif %}
+      <article class="initiative{% if forloop.first %} initiative-featured{% endif %}">
+        <div class="initiative-main">
+          {% if i.meta and i.meta != "" %}<p class="initiative-meta">{{ i.meta | escape }}</p>{% endif %}
+          <h3>{{ i.name | escape }}</h3>
+          <p>{{ i.text | escape }}</p>
+          {% if i.topics.size > 0 %}
+          <div class="initiative-topics">
+            {% if i.topics_title and i.topics_title != "" %}<h4>{{ i.topics_title | escape }}</h4>{% endif %}
+            <ul>
+              {% for t in i.topics %}<li>{% if t.lead and t.lead != "" %}<strong>{{ t.lead | escape }}:</strong> {% endif %}{{ t.text | escape }}</li>{% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+        {% if i.logistics.size > 0 or i.apply_link != "" %}
+        <aside class="initiative-side">
+          {% if i.logistics.size > 0 %}
+          <dl class="logistics">
+            {% for l in i.logistics %}<div><dt>{{ l.label | escape }}</dt><dd>{{ l.value | escape }}</dd></div>{% endfor %}
+          </dl>
+          {% endif %}
+          {% if i.apply_link and i.apply_link != "" %}
+          <a href="{{ i.apply_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">{{ i.apply_label | default: "Apply now" | escape }}</a>
+          {% endif %}
+        </aside>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="cta wrap">
+    <h2>Interested in AI security?</h2>
+    <p>Write to us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or join our community to hear about the next reading group and events first.</p>
+    <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join us</a>
+  </section>
+</main>

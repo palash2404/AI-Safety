@@ -41,6 +41,7 @@ You don't need to know any code. Every change is saved as a draft and only goes 
   - **Contributors** — people we thank on the Updates page.
   - **Current projects** — what members are working on.
   - **Homepage texts** — About, Why AI safety, Mission, Programs, AI Security and the Join section.
+- **AI Security page** — the sub-initiative page: threats, who it's for, and initiatives (reading group, AI Security Afternoon, research sprints) with logistics and application links.
 - **Programs** — the Introductory and Advanced Fellowship pages: key dates, prerequisites, schedule, FAQs and the application link. When applications open, paste the form link into **Application link** and an "Apply now" button appears.
 
 Photos: only upload photos of people who agreed to appear online (our Privacy Notice promises this). Landscape photos work best for recaps, square ones for team members.
@@ -89,9 +90,10 @@ The editor ([Sveltia CMS](https://sveltiacms.app)) signs people in through a sma
 
 ## Files
 
-- `_data/` — the editable content: `home.yml`, `events.yml`, `team.yml`, `contributors.yml`, `projects.yml`, and `programs/introductory.yml` + `programs/advanced.yml`
+- `_data/` — the editable content: `home.yml`, `events.yml`, `team.yml`, `contributors.yml`, `projects.yml`, and `ai_security.yml`, and `programs/introductory.yml` + `programs/advanced.yml`
 - `_recaps/` — one file per event recap
 - `index.html`, `team.html`, `updates.html`, `programs.html` — page templates that read from `_data/` and `_recaps/`
+- `ai-security.html` — the AI Security page
 - `introductory-fellowship.html`, `advanced-fellowship.html` — the fellowship pages (layout in `_layouts/program.html`)
 - `ai-security-1.html`, `get-involved-1.html` — redirects so old Squarespace links still work
 - `privacy-notice.html`, `terms-and-conditions.html` — legal pages (edit these directly)

@@ -47,17 +47,17 @@ programs:
 security:
   title: AI Security Team
   text: Making AI safe also requires security — to stop adversaries gaining access to powerful models, individuals training secret loyalties into models, or models exfiltrating themselves. Join us if you're especially interested in the intersection of cybersecurity and AI.
-  link: ""
+  link: "/ai-security/"
   activities:
     - name: AI Security Reading Group
       tag: 6 weeks
       text: A closed, in-person reading group exploring critical and neglected problems in AI security — threat models and research agendas for safeguarding advanced AI systems.
     - name: AI Security Afternoon
-      tag: ""
-      text: ""
+      tag: Once a semester
+      text: A half-day event with invited talks from people working on AI security professionally, plus time for students to connect and ask questions.
     - name: AI Security Research Sprints
-      tag: ""
-      text: ""
+      tag: Coming soon
+      text: Structured sprints for students who want to move from reading about AI security to working on it. More details to be announced.
 
 events:
   title: Talks, socials and exchange.

@@ -12,7 +12,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="{{ '/team.html' | relative_url }}"{% if page.nav == 'team' %} aria-current="page"{% endif %}>Team</a>
       <a href="{{ '/programs/' | relative_url }}"{% if page.nav == 'programs' %} aria-current="page"{% endif %}>Programs</a>
-      <a href="{{ '/' | relative_url }}#security">AI Security</a>
+      <a href="{{ '/ai-security/' | relative_url }}"{% if page.nav == 'security' %} aria-current="page"{% endif %}>AI Security</a>
       <a href="{{ '/' | relative_url }}#events">Events</a>
       <a href="{{ '/updates.html' | relative_url }}"{% if page.nav == 'updates' %} aria-current="page"{% endif %}>Updates</a>
       <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-join">Join us</a>
