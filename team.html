@@ -19,13 +19,15 @@ nav: team
     {% for member in members %}
     {% if member.name == nil or member.name == "" %}{% continue %}{% endif %}
     <div class="member">
-      <div class="member-photo">
+      {% assign has_link = false %}{% if member.link and member.link != "" %}{% assign has_link = true %}{% endif %}
+      {% if has_link %}<a class="member-photo" href="{{ member.link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ member.name | escape }} on LinkedIn">{% else %}<div class="member-photo">{% endif %}
         {% if member.photo and member.photo != "" %}
-        <img src="{{ member.photo | relative_url }}" alt="{{ member.name | escape }}" loading="lazy">
+        <img src="{{ member.photo | relative_url }}" alt="{% unless has_link %}{{ member.name | escape }}{% endunless %}" loading="lazy">
         {% else %}
         <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
         {% endif %}
-      </div>
+        {% if has_link %}<span class="member-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3V9.75zm6.5 0h3.8v1.6h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.88 2.5 4.88 5.9V21h-4v-5.1c0-1.3-.03-2.9-1.85-2.9-1.85 0-2.15 1.4-2.15 2.8V21h-4V9.75z"/></svg></span>{% endif %}
+      {% if has_link %}</a>{% else %}</div>{% endif %}
       <div>
         <div class="member-name">{% if member.link and member.link != "" %}<a href="{{ member.link }}" target="_blank" rel="noopener noreferrer">{{ member.name | escape }}</a>{% else %}{{ member.name | escape }}{% endif %}</div>
         <div class="member-role">{{ member.role | escape }}</div>
