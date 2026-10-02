@@ -753,3 +753,10 @@ a.member-photo:active { transform: scale(0.98); }
 @media (prefers-reduced-motion: reduce) {
   a.member-photo:hover img, a.member-photo:active { transform: none; }
 }
+
+/* Header: make room for the longer "Join our community" button on small laptops/tablets */
+@media (min-width: 861px) and (max-width: 1040px) {
+  .header-actions .icon-link { display: none; }
+  .site-nav { gap: 20px; }
+  .header-inner { gap: 20px; }
+}
