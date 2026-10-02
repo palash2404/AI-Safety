@@ -1,9 +1,29 @@
 members:
-  - name: Apoorva Batham
-    role: Admin
-    photo: ''
+  - name: Mahalakshmi Raveenthiran
+    role: Lead · Introductory Fellowship
+    photo: /assets/uploads/team/mahalakshmi-raveenthiran.jpg
     link: ''
-  - name: ''
-    role: ''
-    photo: ''
+  - name: Palash Nagwani
+    role: Head of Marketing · UI/UX · Website
+    photo: /assets/uploads/team/palash-nagwani.jpg
+    link: ''
+  - name: Apoorva Batham
+    role: Lead · Head of Events
+    photo: /assets/uploads/team/apoorva-batham.jpg
+    link: ''
+  - name: Ayushi Churiwala
+    role: Intro Fellowship Facilitator
+    photo: /assets/uploads/team/ayushi-churiwala.jpg
+    link: ''
+  - name: Shaun Paul
+    role: Intro Fellowship Facilitator
+    photo: /assets/uploads/team/shaun-paul.jpg
+    link: ''
+  - name: Julius Kamp
+    role: Advanced Fellowship
+    photo: /assets/uploads/team/julius-kamp.jpg
+    link: ''
+  - name: Manon Kempermann
+    role: Founder · Advisor
+    photo: /assets/uploads/team/manon-kempermann.jpg
     link: ''
