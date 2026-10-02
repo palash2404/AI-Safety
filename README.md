@@ -103,7 +103,6 @@ The editor ([Sveltia CMS](https://sveltiacms.app)) signs people in through a sma
 
 ## Still to do
 
-- Imprint page (required in Germany) — the footer link is a placeholder
 - Newsletter service — for now the sign-up form opens an email to info@ais-saarland.org
 - Update the Privacy Notice's list of processors (Squarespace → GitHub Pages and the new newsletter tool)
 - Add content through the editor: team, events, recaps, contributors, projects, AI Security Afternoon and Research Sprints descriptions, program links
