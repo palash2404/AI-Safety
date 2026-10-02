@@ -40,3 +40,52 @@
     if (status) status.textContent = 'Thanks! Your email app should open — just press send.';
   });
 })();
+
+// Header shadow once the page has scrolled
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  function update() { header.classList.toggle('scrolled', window.scrollY > 8); }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
+// Scroll reveals: cards fade up as they enter the screen, one after another.
+// Skipped entirely for people who prefer reduced motion or on old browsers,
+// and never applied to things already on screen when the page loads.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var groups = document.querySelectorAll(
+    '.program-grid, .contributor-grid, .project-grid, .recap-grid, .team-grid, .why-grid, .threat-grid, .audience-grid, .offer-grid, .event-list, .initiative-list, .schedule-list'
+  );
+  var items = [];
+  groups.forEach(function (group) {
+    Array.prototype.forEach.call(group.children, function (el, i) {
+      if (el.getBoundingClientRect().top < window.innerHeight) return; // already visible
+      el.style.setProperty('--i', Math.min(i, 5));
+      el.classList.add('reveal');
+      items.push(el);
+    });
+  });
+  if (!items.length) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -60px 0px' });
+  items.forEach(function (el) { io.observe(el); });
+
+  // Safety net: jumping to an anchor or a slow device should never leave things hidden
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      items.forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      });
+    }, 400);
+  });
+})();
