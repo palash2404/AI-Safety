@@ -824,7 +824,7 @@ a.event-link:active, .member-photo:active { transform: scale(0.98); }
   input, textarea, select, .newsletter input { font-size: 16px; }
   /* comfortable tap targets */
   .legal-nav a, .card-link, .back-link, .events-link, .recap > a, .program-choice-link { min-height: 44px; display: inline-flex; align-items: center; }
-  .footer-brand a { display: inline-block; padding: 6px 0; }
+  .footer-brand p a { display: inline-block; padding: 6px 0; } /* the email link only, not the round social buttons */
 }
 
 /* Notches and rounded corners: keep content out from under them (needs viewport-fit=cover) */
