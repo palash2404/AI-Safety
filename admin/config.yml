@@ -95,10 +95,20 @@ collections:
             required: false
             summary: "{{fields.week}} · {{fields.title}}"
             fields:
-              - { label: Week, name: week, widget: string, hint: "e.g. Week 1" }
+              - { label: Week or day, name: week, widget: string, hint: "e.g. Week 1 or Friday" }
               - { label: Dates, name: dates, widget: string, required: false, hint: "e.g. May 18–22" }
               - { label: Topic, name: title, widget: string }
               - { label: Description, name: text, widget: text }
+              - label: Detailed timetable (optional)
+                name: slots
+                widget: list
+                required: false
+                hint: "Add time slots to make this entry expandable on the page. Leave empty for a simple entry."
+                summary: "{{fields.time}} · {{fields.title}}"
+                fields:
+                  - { label: Time, name: time, widget: string, hint: "e.g. 09:30" }
+                  - { label: What, name: title, widget: string }
+                  - { label: Note, name: note, widget: string, required: false }
           - label: FAQs
             name: faqs
             widget: list

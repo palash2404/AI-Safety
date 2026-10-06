@@ -69,8 +69,31 @@ layout: default
       <p class="eyebrow">Schedule</p>
       <h2>{{ p.schedule_title | escape }}</h2>
     </div>
-    <ol class="schedule-list">
+    {% assign has_slots = false %}{% for s in p.schedule %}{% if s.slots.size > 0 %}{% assign has_slots = true %}{% endif %}{% endfor %}
+    <ol class="schedule-list{% if has_slots %} schedule-days{% endif %}">
       {% for s in p.schedule %}
+      {% if s.slots.size > 0 %}
+      <li class="schedule-item schedule-day">
+        <details{% if forloop.first %} open{% endif %}>
+          <summary>
+            <div class="schedule-when"><span>{{ s.week | escape }}</span>{% if s.dates and s.dates != "" %}<strong>{{ s.dates | escape }}</strong>{% endif %}</div>
+            <div class="schedule-what">
+              <h3>{{ s.title | escape }}</h3>
+              <p>{{ s.text | escape }}</p>
+            </div>
+          </summary>
+          <ol class="slot-list">
+            {% for slot in s.slots %}
+            <li>
+              <span class="slot-time">{{ slot.time | escape }}</span>
+              <span class="slot-title">{{ slot.title | escape }}</span>
+              {% if slot.note and slot.note != "" %}<span class="slot-note">{{ slot.note | escape }}</span>{% endif %}
+            </li>
+            {% endfor %}
+          </ol>
+        </details>
+      </li>
+      {% else %}
       <li class="schedule-item">
         <div class="schedule-when"><span>{{ s.week | escape }}</span>{% if s.dates and s.dates != "" %}<strong>{{ s.dates | escape }}</strong>{% endif %}</div>
         <div class="schedule-what">
@@ -78,6 +101,7 @@ layout: default
           <p>{{ s.text | escape }}</p>
         </div>
       </li>
+      {% endif %}
       {% endfor %}
     </ol>
   </section>

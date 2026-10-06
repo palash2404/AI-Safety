@@ -68,14 +68,95 @@ schedule:
     dates: Kick-off
     title: Welcome, core sessions and an AI game jam
     text: Arrival and introduction in the morning, core sessions through the day, then a game jam where you use AI to build a game and play each other's. Dinner with board games to finish.
+    slots:
+      - time: "09:00"
+        title: Arrival, coffee and welcome
+        note: Name tags and an intro to the weekend
+      - time: "09:30"
+        title: Introduction
+        note: ""
+      - time: "10:00"
+        title: Core session
+        note: ""
+      - time: "11:30"
+        title: Core session
+        note: ""
+      - time: "13:00"
+        title: Lunch
+        note: Time to get to know each other
+      - time: "14:00"
+        title: Core session
+        note: ""
+      - time: "16:00"
+        title: AI game jam
+        note: Build a game with AI, then play and rank each other's
+      - time: "20:00"
+        title: Dinner
+        note: Board games out
+      - time: "21:00"
+        title: End of day
+        note: ""
   - week: Saturday
     dates: Deep dives
     title: Core sessions plus optional deep dives
     text: Core sessions alternate with optional deep dives and live coding, with a discussion group as the alternative. Dinner together, then an optional evening out where non-drinkers are just as welcome.
+    slots:
+      - time: "09:00"
+        title: Coffee and reflection
+        note: ""
+      - time: "09:30"
+        title: Core session
+        note: ""
+      - time: "11:00"
+        title: Deep dive or live coding
+        note: Optional. Alternative at the same time is a discussion group
+      - time: "13:00"
+        title: Lunch
+        note: Time to get to know each other
+      - time: "14:00"
+        title: Core session
+        note: ""
+      - time: "16:00"
+        title: Deep dive or live coding
+        note: Optional. Alternative at the same time is a discussion group
+      - time: "20:00"
+        title: Dinner
+        note: ""
+      - time: "21:00"
+        title: Evening out
+        note: Optional, with non-alcoholic options
   - week: Sunday
     dates: Projects and next steps
     title: Project workshop, pitches and mentor pairing
     text: A governance and careers session in the morning. In the afternoon you work on a project proposal, pitch it, and get paired with a mentor. We close with feedback and dinner.
+    slots:
+      - time: "09:00"
+        title: Coffee and reflection
+        note: ""
+      - time: "09:30"
+        title: Core session
+        note: ""
+      - time: "11:00"
+        title: Governance and careers session
+        note: ""
+      - time: "13:00"
+        title: Lunch
+        note: Time to get to know each other
+      - time: "14:00"
+        title: Project proposal workshop
+        note: In teams or on your own
+      - time: "16:00"
+        title: Project pitches and mentor pairing
+        note: Each project gets a mentor
+      - time: "18:00"
+        title: Closing, feedback and next steps
+        note: ""
+      - time: "18:30"
+        title: Closing dinner
+        note: ""
+      - time: "20:00"
+        title: End
+        note: ""
 
 faqs:
   - question: Do I need a technical background?

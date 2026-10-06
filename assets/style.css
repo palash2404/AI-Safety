@@ -760,3 +760,34 @@ a.member-photo:active { transform: scale(0.98); }
   .site-nav { gap: 20px; }
   .header-inner { gap: 20px; }
 }
+
+/* ---------- Schedule with expandable days (used when an entry has a detailed timetable) ---------- */
+.schedule-days { grid-template-columns: minmax(0, 1fr); }
+.schedule-day { display: block; padding: 0; }
+.schedule-day summary {
+  display: flex; gap: 24px; align-items: flex-start; list-style: none; cursor: pointer;
+  padding: 24px 28px; border-radius: 20px;
+}
+.schedule-day summary::-webkit-details-marker { display: none; }
+.schedule-day summary::after {
+  content: "+"; margin-left: auto; flex-shrink: 0; font-size: 1.5rem; line-height: 1.2; font-weight: 400; color: var(--leaf-700);
+  transition: transform .2s var(--ease-out);
+}
+.schedule-day details[open] summary::after { transform: rotate(45deg); }
+.schedule-day .schedule-what { flex-grow: 1; }
+.schedule-day .schedule-when { width: 200px; }
+.slot-list { list-style: none; margin: 0 28px; padding: 4px 0 16px; border-top: 1px solid var(--mint-150); animation: reveal-down .25s var(--ease-out); }
+.slot-list li { display: grid; grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 24px; padding: 13px 0; border-bottom: 1px solid var(--mint-150); align-items: baseline; }
+.slot-list li:last-child { border-bottom: 0; }
+.slot-time { font-variant-numeric: tabular-nums; color: var(--leaf-700); font-weight: 600; }
+.slot-title { color: var(--forest-950); font-weight: 500; }
+.slot-note { color: var(--text-muted); font-size: 0.95rem; }
+@media (max-width: 720px) {
+  .schedule-day summary { padding: 22px; gap: 10px 14px; flex-wrap: wrap; }
+  .schedule-day .schedule-when { width: auto; min-width: 0; flex-basis: calc(100% - 40px); }
+  .schedule-day .schedule-what { flex-basis: 100%; order: 3; }
+  .slot-list { margin: 0 22px; }
+  .slot-list li { grid-template-columns: 56px minmax(0, 1fr); gap: 2px 16px; }
+  .slot-note { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) { .slot-list { animation: none; } .schedule-day summary::after { transition: none; } }
