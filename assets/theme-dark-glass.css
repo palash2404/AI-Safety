@@ -1,0 +1,209 @@
+/* =====================================================================
+   Dark glass theme
+   Loaded after style.css and restyles every page: near-black background
+   with soft green glows, glass cards, a floating menu, Plus Jakarta Sans
+   in medium weight (nothing bold), and buttons that change colour.
+
+   To go back to the light design, remove the one <link> line for this
+   file in _layouts/default.html.
+   ===================================================================== */
+
+/* ---------- Font (self-hosted, no Google Fonts requests) ----------
+   The weight range stops at 500 on purpose: anything the old styles ask
+   for as bold (600–800) is drawn at 500, so no text on the site is bold. */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal; font-display: swap; font-weight: 300 500;
+  src: url(fonts/plus-jakarta-sans-latin-ext-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal; font-display: swap; font-weight: 300 500;
+  src: url(fonts/plus-jakarta-sans-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root {
+  --ink:        #050806;                  /* page background */
+  --glass:      #0b130e;                  /* card surface */
+  --hair:       rgba(255, 255, 255, 0.09);/* hairlines */
+  --accent:     #7fc466;                  /* button green */
+  --accent-ink: #05130b;                  /* text on green buttons */
+  --soft-green: #c3e0b8;                  /* small labels, tags */
+  --spring:     cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* The old colour names, re-pointed for a dark page */
+  --forest-950: #ffffff;                  /* headings and strong text */
+  --forest-900: var(--glass);             /* cards */
+  --forest-800: rgba(255, 255, 255, 0.12);/* borders and chips on cards */
+  --leaf-700:   #a8d898;                  /* links and small labels */
+  --mint-200:   rgba(255, 255, 255, 0.14);
+  --mint-150:   var(--hair);
+  --mint-100:   #121c16;                  /* panels */
+  --mint-50:    var(--ink);
+  --text:       #e6efe4;
+  --text-muted: #c8d8ca;
+  --on-dark:    #c8d8ca;
+  --on-dark-2:  #c8d8ca;
+
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+html { background: var(--ink); font-synthesis: none; }
+body { background: transparent; position: relative; }
+::selection { background: rgba(127, 196, 102, 0.35); color: #fff; }
+
+/* Soft green light behind everything. Fixed, so it never repaints on scroll. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60vw 60vw at -10% -10%, rgba(94, 162, 72, 0.30), transparent 60%),
+    radial-gradient(50vw 50vw at 110% 35%, rgba(29, 120, 84, 0.24), transparent 60%),
+    radial-gradient(55vw 55vw at 0% 110%, rgba(94, 162, 72, 0.16), transparent 60%);
+}
+
+/* ---------- Type: medium weight, tighter large headings, readable small text ---------- */
+h1 { letter-spacing: -0.035em; line-height: 1.02; }
+h2 { letter-spacing: -0.025em; line-height: 1.06; }
+h3 { letter-spacing: -0.01em; }
+.cta h2 { letter-spacing: -0.035em; }
+a:hover, .back-link:hover { color: #fff; }
+
+.eyebrow {
+  align-self: flex-start; display: inline-flex; align-items: center; width: fit-content;
+  padding: 8px 16px; border-radius: 999px;
+  background: rgba(155, 197, 141, 0.12); border: 1px solid rgba(155, 197, 141, 0.26);
+  font-size: 0.875rem; letter-spacing: 0.08em; color: var(--soft-green);
+}
+.chip, .status, .newsletter-note, .event-date span, .schedule-when span, .initiative-meta, .contributor-when, .recap-meta, .project-topic, .footer-bottom { font-size: 0.875rem; }
+.initiative-meta, .schedule-when span, .event-date span, .contributors-light .contributor-when { color: var(--soft-green); }
+.newsletter-note, .footer-bottom { color: #b3c6b6; }
+
+/* ---------- Buttons: change colour, glow, and answer the press ---------- */
+.btn { transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .35s var(--spring), transform .35s var(--spring); }
+.btn:active { transform: scale(0.97); transition-duration: .1s; }
+.btn-primary, .site-nav .nav-join { background: var(--accent); color: var(--accent-ink); padding-right: 8px; gap: 12px; }
+.btn-primary::after {
+  content: "↗"; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  width: 2em; height: 2em; border-radius: 999px; background: rgba(5, 19, 11, 0.16);
+  font-size: 0.95em; line-height: 1;
+  transition: transform .35s var(--spring), background-color .25s ease;
+}
+.btn-outline { border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.04); color: #fff; }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: #fff; color: var(--accent-ink); box-shadow: 0 0 0 6px rgba(127, 196, 102, 0.22), 0 18px 50px rgba(127, 196, 102, 0.35); }
+  .btn-primary:hover::after { background: var(--accent); transform: translate(3px, -3px); }
+  .btn-outline:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+}
+@media (hover: none) {
+  .btn-primary:hover { background: var(--accent); color: var(--accent-ink); }
+  .btn-outline:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+}
+
+/* ---------- Header: a floating glass pill ---------- */
+.site-header { top: 12px; margin-top: 12px; padding: 0 16px; background: transparent; border-bottom: 0; }
+.site-header.scrolled { box-shadow: none; }
+.header-inner {
+  padding: 8px 8px 8px 12px; border-radius: 999px;
+  background: rgba(10, 18, 13, 0.72); border: 1px solid rgba(255, 255, 255, 0.10);
+  -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.brand-mark { width: 48px; height: 48px; padding: 7px; border-radius: 999px; background: #e3efdd; }
+.brand-name span { color: var(--leaf-300); }
+.icon-link { color: #c9dcc2; }
+.icon-link:hover { color: #fff; }
+.menu-toggle { border-radius: 999px; border-color: rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); }
+
+/* ---------- Cards: glass sitting in a thin outer frame ---------- */
+.why-card, .program-card, .offer-card, .project, .program-choice, .initiative, .events, .info-box,
+.recaps-dark .recap, .contributor, .contributors-light .contributor, .schedule-item, .share-box, .audience-note {
+  background: var(--glass); border: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 0 0 1px var(--hair);
+}
+.why-card, .program-card, .offer-card, .project, .program-choice, .initiative, .events {
+  border-radius: 28px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 0 0 7px rgba(255, 255, 255, 0.035), 0 0 0 8px var(--hair);
+  transition: transform .45s var(--spring), box-shadow .3s ease;
+}
+.why-card:first-child, .program-card { background: linear-gradient(160deg, #12301f, var(--glass) 70%); }
+@media (hover: hover) and (pointer: fine) {
+  .why-card:hover, .program-card:hover, .offer-card:hover, .project:hover, .program-choice:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 0 7px rgba(155, 197, 141, 0.10), 0 0 0 8px rgba(155, 197, 141, 0.40);
+  }
+}
+
+/* ---------- Sections that used to be dark green bands ---------- */
+.dark { background: rgba(255, 255, 255, 0.02); color: var(--text); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+.card-lede { color: #dbe8d6; }
+.chip { color: #e3efdd; }
+.chip-light, .status, .fact-list li { background: rgba(155, 197, 141, 0.14); color: var(--soft-green); }
+.recaps-dark .chip-light { background: rgba(155, 197, 141, 0.14); color: var(--soft-green); }
+
+/* ---------- Homepage pieces ---------- */
+.about-art { border-radius: 32px; background: radial-gradient(circle at 50% 35%, #f4f8f1, #cfe2c6); box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.035), 0 0 0 8px var(--hair); }
+.mission-text { color: #fff; }
+.events-text > p:not(.eyebrow), .share-box p, .legal { color: var(--text-muted); }
+.event, .initiative-side { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
+a.event-link:hover { background: rgba(255, 255, 255, 0.10); }
+.events-link { color: var(--leaf-300); }
+
+/* ---------- Team, updates, AI security ---------- */
+.member-badge { color: #0d2a1e; }
+.avatars span { border-color: var(--glass); color: var(--soft-green); }
+.check-list li::before { background-color: var(--soft-green); }
+
+/* ---------- Footer: a glass panel ---------- */
+.site-footer { background: transparent; padding: 0 16px 16px; }
+.site-footer > .wrap {
+  max-width: none; padding: 56px 56px 32px; border-radius: 32px; background: var(--glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 0 0 7px rgba(255, 255, 255, 0.035), 0 0 0 8px var(--hair);
+}
+.social a, .legal-nav a { color: #e3efdd; }
+.social a { transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .35s var(--spring); }
+.social a:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.newsletter-row { padding: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); }
+.newsletter input { background: transparent; border: 0; color: #fff; min-height: 44px; }
+.newsletter input::placeholder { color: #9fb3a3; }
+.newsletter input:focus-visible { box-shadow: none; }
+.newsletter-row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(127, 196, 102, 0.30); }
+.newsletter button { background: var(--accent); color: var(--accent-ink); min-height: 44px; white-space: nowrap; flex-shrink: 0; transition: background-color .25s ease, transform .35s var(--spring); }
+.newsletter button:hover { background: #fff; }
+
+/* ---------- Scroll reveals: a slightly heavier, softer rise ---------- */
+.reveal { transform: translateY(24px); }
+.reveal.in { transition: opacity .8s var(--spring), transform .8s var(--spring); }
+
+/* ---------- Phones and tablets ---------- */
+@media (max-width: 860px) {
+  .site-header { padding: 0 12px; }
+  .header-inner { padding: 6px 6px 6px 8px; }
+  .brand-mark { width: 44px; height: 44px; padding: 6px; }
+  .site-nav {
+    top: calc(100% + 8px); left: 12px; right: 12px; padding: 8px 20px 20px; border-radius: 28px;
+    background: rgba(10, 18, 13, 0.96); border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  }
+  .site-nav .nav-join { color: var(--accent-ink); justify-content: space-between; padding: 0 8px 0 22px; min-height: 52px; }
+  .site-nav .nav-social a { color: #c9dcc2; }
+  .site-footer { padding: 0 12px 12px; }
+  .site-footer > .wrap { padding: 36px 24px 24px; border-radius: 28px; }
+}
+@media (max-width: 520px) {
+  .newsletter-row { border-radius: 28px; padding: 8px; }
+  .newsletter button { border-radius: 999px; }
+  .cta .btn { justify-content: space-between; padding-left: 28px; }
+}
+
+/* ---------- People who ask for less motion or less transparency ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn-primary::after, .why-card, .program-card, .offer-card, .project, .program-choice, .social a { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+  .btn:active, .btn-primary:hover::after, .why-card:hover, .program-card:hover, .offer-card:hover, .project:hover, .program-choice:hover { transform: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .header-inner { background: #0a120d; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
