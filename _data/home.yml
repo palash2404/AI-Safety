@@ -19,7 +19,7 @@ mission: To foster interdisciplinary exchange, education, and research addressin
 
 programs:
   title: Go deeper into AI safety.
-  intro: Start with the fundamentals in our weekly Introductory Fellowship — no prior experience needed.
+  intro: Start with the fundamentals in our weekly Introductory Fellowship, or spend a weekend going hands-on at our AI Safety Bootcamp.
   items:
     - name: Introductory Fellowship
       program: introductory
@@ -33,6 +33,18 @@ programs:
         - lead: Build understanding
           text: in a supportive, interdisciplinary community
       link: "/introductory-fellowship/"
+    - name: AI Safety Bootcamp
+      program: bootcamp
+      tag: January 2027
+      summary: A weekend-long, mostly technical bootcamp covering AI safety and AI security at Saarland University.
+      points:
+        - lead: "One shared track:"
+          text: core sessions for everyone, with optional deep dives and live coding
+        - lead: "Safety and security:"
+          text: alignment, evals and red teaming, AI control, adversarial attacks, governance
+        - lead: "Leave with a project:"
+          text: a proposal of your own and a mentor to support it
+      link: "/bootcamp/"
     - name: Advanced Fellowship
       program: advanced
       tag: Hands-on

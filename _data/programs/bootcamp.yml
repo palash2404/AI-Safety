@@ -1,0 +1,92 @@
+# AI Safety Bootcamp page — edit in the editor at /admin (Programs → AI Safety Bootcamp)
+live: true  # false = hidden from the website (the page and all links to it), but kept here
+name: AI Safety Bootcamp
+tag: January 2027
+tagline: One weekend to get hands-on with AI safety and AI security.
+intro: A weekend-long, mostly technical bootcamp at Saarland University for students and researchers in Saarland and nearby. You leave with a project idea and a mentor.
+summary: A weekend-long, mostly technical bootcamp covering AI safety and AI security, ending with your own project proposal and a mentor.
+facts:
+  - January 2027, exact weekend to be announced
+  - Friday to Sunday
+  - Saarland University
+  - Lunch and dinner provided
+apply_link: ""
+closed_note: Applications are not open yet. Join our WhatsApp community to hear first when the application form goes out.
+
+about_title: Why a bootcamp?
+about: |
+  Intensive programs and fellowships in AI safety are competitive and reach only a few people, so many interested students here can't get a place. We want to change that with a bootcamp on our own campus.
+
+  Saarland has an unusually large cybersecurity and AI community, with CISPA, Saarland University, DFKI and the Max Planck Institutes. A bootcamp that combines AI safety and AI security fits those local strengths.
+
+  Over one weekend you get a solid technical foundation in AI safety and AI security, plus an introduction to governance and field-building. Just as important, you get to know the other participants and stay involved afterwards.
+
+details:
+  - title: When and where
+    text: |
+      - **When:** a weekend in January 2027, Friday to Sunday. The exact weekend will be announced.
+      - **Hours:** roughly 09:00 to 21:00 each day
+      - **Where:** Saarland University. Rooms will be announced.
+      - **Food:** lunch and dinner each day, plus coffee and snacks
+  - title: Who it's for
+    text: |
+      Students and researchers in Saarland and nearby. The bootcamp is mostly technical, but the optional deep dives and live-coding sessions really are optional, so you can choose how technical your weekend gets.
+  - title: Format
+    text: |
+      - **One shared track:** everyone attends the core sessions together.
+      - **Optional deep dives and live coding:** for people who want to go more technical. If that's not for you, there is an alternative at the same time, such as a discussion group, reading, or a break.
+      - **Networking built in:** lunch and dinner are deliberately long enough for people to talk.
+      - **Ends with project proposals:** on Sunday you propose a project to work on afterwards and are paired with a mentor.
+
+offers_title: What you take away
+offers:
+  - title: A technical foundation
+    text: |
+      The programme is still being finalised and depends on interest and on who can teach. Topics we are planning around:
+
+      - Why AI safety and security? The risk landscape
+      - Alignment basics: how models are trained and what goes wrong
+      - Evals and red teaming
+      - AI control: monitoring untrusted models
+      - Adversarial attacks, jailbreaks and prompt injection
+      - Governance and policy, including the EU AI Act
+      - Careers in AI safety
+
+      Optional deep dives may cover interpretability and model and data security (theft, poisoning, backdoors).
+  - title: A project, a mentor and a community
+    text: |
+      Every participant, alone or in a team, leaves with a project proposal or a concrete next step.
+
+      - **Mentor pairing:** in the project session you are paired with a mentor you can contact for help. If your project needs different expertise, we share contacts of other mentors.
+      - **Follow-ups:** the organisers check in with you after the bootcamp.
+      - **Funding support:** we help you apply for funding for your project if you need it.
+      - **Community:** you are invited to our reading groups and events.
+
+schedule_title: Draft schedule
+schedule:
+  - week: Friday
+    dates: Kick-off
+    title: Welcome, core sessions and an AI game jam
+    text: Arrival and introduction in the morning, core sessions through the day, then a game jam where you use AI to build a game and play each other's. Dinner with board games to finish.
+  - week: Saturday
+    dates: Deep dives
+    title: Core sessions plus optional deep dives
+    text: Core sessions alternate with optional deep dives and live coding, with a discussion group as the alternative. Dinner together, then an optional evening out where non-drinkers are just as welcome.
+  - week: Sunday
+    dates: Projects and next steps
+    title: Project workshop, pitches and mentor pairing
+    text: A governance and careers session in the morning. In the afternoon you work on a project proposal, pitch it, and get paired with a mentor. We close with feedback and dinner.
+
+faqs:
+  - question: Do I need a technical background?
+    answer: |
+      The bootcamp is mostly technical, so some programming or machine learning background helps. The most technical parts, the deep dives and live coding, are optional, and there is always an alternative session at the same time.
+  - question: When can I apply?
+    answer: |
+      The application form is not out yet. Join our WhatsApp community and you will hear as soon as it opens.
+  - question: Does it cost anything?
+    answer: |
+      Lunch and dinner are provided each day, along with coffee and snacks. We will share any further details together with the application form.
+  - question: What happens after the weekend?
+    answer: |
+      You leave with a project proposal and a mentor. The organisers follow up with you afterwards, help with funding applications if your project needs them, and invite you to our reading groups and events.

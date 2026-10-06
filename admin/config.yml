@@ -107,6 +107,10 @@ collections:
             fields:
               - { label: Question, name: question, widget: string }
               - { label: Answer, name: answer, widget: markdown }
+      - name: bootcamp
+        label: AI Safety Bootcamp
+        file: _data/programs/bootcamp.yml
+        fields: *program_fields
       - name: advanced
         label: Advanced Fellowship
         file: _data/programs/advanced.yml

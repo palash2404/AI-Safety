@@ -16,11 +16,12 @@ permalink: /programs/
 
   <section class="wrap programs-overview">
     <div class="program-grid">
-      {% assign list = "introductory,advanced" | split: "," %}
+      {% assign list = "introductory,bootcamp,advanced" | split: "," %}
       {% for key in list %}
       {% assign p = site.data.programs[key] %}
       {% if p.live == false %}{% continue %}{% endif %}
       {% assign slug = key | append: "-fellowship" %}
+      {% if key == "bootcamp" %}{% assign slug = "bootcamp" %}{% endif %}
       <a class="program-choice" href="{{ '/' | append: slug | append: '/' | relative_url }}">
         <div class="card-top">
           <h2>{{ p.name | escape }}</h2>
