@@ -19,6 +19,12 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') setOpen(false);
   });
+  // Tapping anywhere outside the open menu closes it
+  document.addEventListener('pointerdown', function (e) {
+    if (!nav.classList.contains('open')) return;
+    if (nav.contains(e.target) || toggle.contains(e.target)) return;
+    setOpen(false);
+  });
 })();
 
 // Newsletter sign-up

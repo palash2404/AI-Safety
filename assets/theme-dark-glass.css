@@ -70,7 +70,7 @@ h1 { letter-spacing: -0.035em; line-height: 1.02; }
 h2 { letter-spacing: -0.025em; line-height: 1.06; }
 h3 { letter-spacing: -0.01em; }
 .cta h2 { letter-spacing: -0.035em; }
-a:hover, .back-link:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { a:hover, .back-link:hover { color: #fff; } }
 
 .eyebrow {
   align-self: flex-start; display: inline-flex; align-items: center; width: fit-content;
@@ -94,17 +94,14 @@ a:hover, .back-link:hover { color: #fff; }
 }
 .btn-outline { border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.04); color: #fff; }
 @media (hover: hover) and (pointer: fine) {
-  .btn-primary:hover { background: #fff; color: var(--accent-ink); box-shadow: 0 0 0 6px rgba(127, 196, 102, 0.22), 0 18px 50px rgba(127, 196, 102, 0.35); }
-  .btn-primary:hover::after { background: var(--accent); transform: translate(3px, -3px); }
-  .btn-outline:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-}
-@media (hover: none) {
-  .btn-primary:hover { background: var(--accent); color: var(--accent-ink); }
-  .btn-outline:hover { background: rgba(255, 255, 255, 0.04); color: #fff; }
+  @media (hover: hover) and (pointer: fine) { .btn-primary:hover { background: #fff; color: var(--accent-ink); box-shadow: 0 0 0 6px rgba(127, 196, 102, 0.22), 0 18px 50px rgba(127, 196, 102, 0.35); } }
+  @media (hover: hover) and (pointer: fine) { .btn-primary:hover::after { background: var(--accent); transform: translate(3px, -3px); } }
+  @media (hover: hover) and (pointer: fine) { .btn-outline:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); } }
 }
 
+
 /* ---------- Header: a floating glass pill ---------- */
-.site-header { top: 12px; margin-top: 12px; padding: 0 16px; background: transparent; border-bottom: 0; }
+.site-header { top: max(12px, env(safe-area-inset-top, 0px)); margin-top: 12px; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px)); background: transparent; border-bottom: 0; }
 .site-header.scrolled { box-shadow: none; }
 .header-inner {
   padding: 8px 8px 8px 12px; border-radius: 999px;
@@ -115,7 +112,7 @@ a:hover, .back-link:hover { color: #fff; }
 .brand-mark { width: 48px; height: 48px; padding: 7px; border-radius: 999px; background: #e3efdd; }
 .brand-name span { color: var(--leaf-300); }
 .icon-link { color: #c9dcc2; }
-.icon-link:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .icon-link:hover { color: #fff; } }
 .menu-toggle { border-radius: 999px; border-color: rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); }
 
 /* ---------- Cards: glass sitting in a thin outer frame ---------- */
@@ -131,10 +128,10 @@ a:hover, .back-link:hover { color: #fff; }
 }
 .why-card:first-child, .program-card { background: linear-gradient(160deg, #12301f, var(--glass) 70%); }
 @media (hover: hover) and (pointer: fine) {
-  .why-card:hover, .program-card:hover, .offer-card:hover, .project:hover, .program-choice:hover {
+  @media (hover: hover) and (pointer: fine) { .why-card:hover, .program-card:hover, .offer-card:hover, .project:hover, .program-choice:hover {
     transform: translateY(-4px);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 0 7px rgba(155, 197, 141, 0.10), 0 0 0 8px rgba(155, 197, 141, 0.40);
-  }
+  } }
 }
 
 /* ---------- Sections that used to be dark green bands ---------- */
@@ -149,7 +146,7 @@ a:hover, .back-link:hover { color: #fff; }
 .mission-text { color: #fff; }
 .events-text > p:not(.eyebrow), .share-box p, .legal { color: var(--text-muted); }
 .event, .initiative-side { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
-a.event-link:hover { background: rgba(255, 255, 255, 0.10); }
+@media (hover: hover) and (pointer: fine) { a.event-link:hover { background: rgba(255, 255, 255, 0.10); } }
 .events-link { color: var(--leaf-300); }
 
 /* ---------- Team, updates, AI security ---------- */
@@ -165,14 +162,14 @@ a.event-link:hover { background: rgba(255, 255, 255, 0.10); }
 }
 .social a, .legal-nav a { color: #e3efdd; }
 .social a { transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .35s var(--spring); }
-.social a:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+@media (hover: hover) and (pointer: fine) { .social a:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); } }
 .newsletter-row { padding: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); }
 .newsletter input { background: transparent; border: 0; color: #fff; min-height: 44px; }
 .newsletter input::placeholder { color: #9fb3a3; }
 .newsletter input:focus-visible { box-shadow: none; }
 .newsletter-row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(127, 196, 102, 0.30); }
 .newsletter button { background: var(--accent); color: var(--accent-ink); min-height: 44px; white-space: nowrap; flex-shrink: 0; transition: background-color .25s ease, transform .35s var(--spring); }
-.newsletter button:hover { background: #fff; }
+@media (hover: hover) and (pointer: fine) { .newsletter button:hover { background: #fff; } }
 
 /* ---------- Scroll reveals: a slightly heavier, softer rise ---------- */
 .reveal { transform: translateY(24px); }
@@ -202,7 +199,8 @@ a.event-link:hover { background: rgba(255, 255, 255, 0.10); }
 /* ---------- People who ask for less motion or less transparency ---------- */
 @media (prefers-reduced-motion: reduce) {
   .btn, .btn-primary::after, .why-card, .program-card, .offer-card, .project, .program-choice, .social a { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
-  .btn:active, .btn-primary:hover::after, .why-card:hover, .program-card:hover, .offer-card:hover, .project:hover, .program-choice:hover { transform: none; }
+  .btn:active { transform: none; }
+@media (hover: hover) and (pointer: fine) { .btn-primary:hover::after, .why-card:hover, .program-card:hover, .offer-card:hover, .project:hover, .program-choice:hover { transform: none; } }
 }
 @media (prefers-reduced-transparency: reduce) {
   .header-inner { background: #0a120d; -webkit-backdrop-filter: none; backdrop-filter: none; }
@@ -234,3 +232,17 @@ a.event-link:hover { background: rgba(255, 255, 255, 0.10); }
 .program-choice .card-top, .program-card .card-top { align-items: baseline; }
 .program-choice-tagline { color: var(--text); font-size: 1.1rem; }
 .program-choice-link { padding-top: 20px; }
+
+/* Phones: the floating header keeps its own small side padding, the footer panel clears the home indicator */
+.header-inner.wrap { padding-left: 12px; padding-right: 8px; }
+.site-footer { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 860px) {
+  .site-header { padding: 0 max(12px, env(safe-area-inset-right, 0px)) 0 max(12px, env(safe-area-inset-left, 0px)); }
+  .header-inner.wrap { padding-left: 8px; padding-right: 6px; }
+  .site-footer { padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .site-footer > .wrap { padding-left: 24px; padding-right: 24px; }
+  /* blur is the most expensive effect on a phone: keep it lighter there */
+  .header-inner { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); background: rgba(10, 18, 13, 0.84); }
+}
+.site-footer > .wrap { padding-left: 56px; padding-right: 56px; }
+@media (max-width: 860px) { .site-footer > .wrap { padding-left: 24px; padding-right: 24px; } }

@@ -65,6 +65,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  min-height: 100svh; /* phones: the visible height, not the height with the address bar hidden */
   display: flex; flex-direction: column;
 }
 main { flex-grow: 1; width: 100%; }
@@ -80,7 +81,7 @@ h2 { font-weight: 700; font-size: clamp(2rem, 3.6vw, 3rem); }
 h3 { font-weight: 700; font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.2; }
 p  { margin: 0; }
 a  { color: var(--leaf-700); }
-a:hover { color: var(--forest-800); }
+@media (hover: hover) and (pointer: fine) { a:hover { color: var(--forest-800); } }
 :focus-visible { outline: 2px solid var(--leaf-500); outline-offset: 3px; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
@@ -101,9 +102,9 @@ a:hover { color: var(--forest-800); }
 }
 .btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--leaf-700); color: #fff; }
-.btn-primary:hover { background: var(--forest-800); color: #fff; }
+@media (hover: hover) and (pointer: fine) { .btn-primary:hover { background: var(--forest-800); color: #fff; } }
 .btn-outline { border: 1.5px solid var(--forest-950); color: var(--forest-950); }
-.btn-outline:hover { background: var(--mint-100); color: var(--forest-950); }
+@media (hover: hover) and (pointer: fine) { .btn-outline:hover { background: var(--mint-100); color: var(--forest-950); } }
 .btn-lg { min-height: 52px; padding: 0 30px; font-size: 1.05rem; }
 .btn-xl { min-height: 56px; padding: 0 36px; font-size: 1.125rem; }
 
@@ -124,12 +125,13 @@ a:hover { color: var(--forest-800); }
 
 .site-nav { display: flex; gap: 28px; align-items: center; }
 .site-nav a { color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--leaf-700); }
+.site-nav a[aria-current="page"] { color: var(--leaf-700); }
+@media (hover: hover) and (pointer: fine) { .site-nav a:hover { color: var(--leaf-700); } }
 .site-nav .nav-join { display: none; }
 
 .header-actions { display: flex; align-items: center; gap: 18px; }
 .icon-link { display: flex; color: var(--forest-800); }
-.icon-link:hover { color: var(--leaf-700); }
+@media (hover: hover) and (pointer: fine) { .icon-link:hover { color: var(--leaf-700); } }
 
 .menu-toggle {
   display: none;
@@ -202,7 +204,7 @@ a:hover { color: var(--forest-800); }
 }
 .program-card strong { color: #fff; font-weight: 600; }
 .card-link { font-weight: 600; color: var(--leaf-300); margin-top: auto; padding-top: 8px; }
-.card-link:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .card-link:hover { color: #fff; } }
 
 .chip {
   font-size: 0.8125rem; font-weight: 600; padding: 6px 12px; border-radius: 999px;
@@ -262,7 +264,7 @@ a:hover { color: var(--forest-800); }
 /* ---------- Team page ---------- */
 .page { padding-top: 88px; padding-bottom: 112px; }
 .back-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; font-size: 0.95rem; color: var(--leaf-700); text-decoration: none; }
-.back-link:hover { color: var(--forest-800); }
+@media (hover: hover) and (pointer: fine) { .back-link:hover { color: var(--forest-800); } }
 .team-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 56px; }
 .team-head > div { display: flex; flex-direction: column; gap: 18px; max-width: 700px; align-items: flex-start; }
 .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
@@ -312,7 +314,7 @@ a:hover { color: var(--forest-800); }
   border-radius: 999px; border: 1.5px solid var(--mint-200); color: var(--forest-950);
   text-decoration: none; font-weight: 600; font-size: 0.95rem;
 }
-.filter-chips a:hover { background: var(--forest-950); border-color: var(--forest-950); color: #fff; }
+@media (hover: hover) and (pointer: fine) { .filter-chips a:hover { background: var(--forest-950); border-color: var(--forest-950); color: #fff; } }
 
 .block-head { display: flex; flex-direction: column; gap: 12px; max-width: 700px; margin-bottom: 40px; }
 .block-head h2 { font-size: clamp(2rem, 3.2vw, 2.75rem); }
@@ -401,10 +403,10 @@ a:hover { color: var(--forest-800); }
 .empty-note { padding: 28px 32px; border-radius: 20px; border: 1.5px dashed var(--mint-200); color: var(--text-muted); }
 .empty-note.on-dark { border-color: var(--forest-800); color: var(--on-dark); }
 a.event-link { text-decoration: none; transition: background .15s ease; }
-a.event-link:hover { background: #fff; }
+@media (hover: hover) and (pointer: fine) { a.event-link:hover { background: #fff; } }
 .event-empty { padding: 24px; }
 .recap h3 a, .member-name a { color: inherit; text-decoration: none; }
-.recap h3 a:hover, .member-name a:hover { color: var(--leaf-700); }
+@media (hover: hover) and (pointer: fine) { .recap h3 a:hover, .member-name a:hover { color: var(--leaf-700); } }
 .recap-page h1 { margin-bottom: 0; }
 .recap-page .lede { font-size: 1.1875rem; }
 .recap-hero { width: 100%; height: auto; border-radius: 20px; display: block; margin: 8px 0; }
@@ -440,7 +442,7 @@ a.event-link:hover { background: #fff; }
 .dark .prose { color: var(--on-dark-2); }
 .dark .prose strong { color: #fff; }
 .dark .prose a { color: var(--leaf-300); }
-.dark .prose a:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .dark .prose a:hover { color: #fff; } }
 
 .offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .offer-card { padding: 40px; border-radius: 24px; background: var(--forest-900); border: 1px solid var(--forest-800); display: flex; flex-direction: column; gap: 18px; }
@@ -470,9 +472,9 @@ a.event-link:hover { background: #fff; }
   background: #fff; border: 1px solid var(--mint-150); text-decoration: none; color: var(--text);
   transition: border-color .15s ease, transform .2s var(--ease-out);
 }
-.program-choice:hover { border-color: var(--leaf-500); color: var(--text); }
+@media (hover: hover) and (pointer: fine) { .program-choice:hover { border-color: var(--leaf-500); color: var(--text); } }
 @media (hover: hover) and (pointer: fine) {
-  .program-choice:hover { transform: translateY(-2px); }
+  @media (hover: hover) and (pointer: fine) { .program-choice:hover { transform: translateY(-2px); } }
 }
 .program-choice:active { transform: scale(0.99); }
 .program-choice h2 { font-size: clamp(1.6rem, 2.4vw, 2rem); }
@@ -556,10 +558,10 @@ a.event-link:hover { background: #fff; }
 .recaps-dark .recap-meta { color: var(--on-dark); }
 .recaps-dark .chip-light { background: var(--forest-800); color: var(--mint-100); }
 .recaps-dark .recap h3, .recaps-dark .recap h3 a { color: #fff; }
-.recaps-dark .recap h3 a:hover { color: var(--leaf-300); }
+@media (hover: hover) and (pointer: fine) { .recaps-dark .recap h3 a:hover { color: var(--leaf-300); } }
 .recaps-dark .recap p { color: var(--on-dark-2); }
 .recaps-dark .recap > a { color: var(--leaf-300); }
-.recaps-dark .recap > a:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .recaps-dark .recap > a:hover { color: #fff; } }
 @media (max-width: 960px) {
   .contributors-light { padding: 24px 0 72px; }
 }
@@ -571,13 +573,13 @@ a.event-link:hover { background: #fff; }
 .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px; align-items: start; }
 .footer-brand { display: flex; flex-direction: column; gap: 18px; }
 .footer-brand a { color: var(--leaf-300); font-weight: 600; }
-.footer-brand a:hover { color: #fff; }
+@media (hover: hover) and (pointer: fine) { .footer-brand a:hover { color: #fff; } }
 .social { display: flex; gap: 8px; }
 .social a {
   width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
   border-radius: 999px; border: 1px solid var(--forest-800); color: var(--mint-100);
 }
-.social a:hover { background: var(--forest-800); color: #fff; }
+@media (hover: hover) and (pointer: fine) { .social a:hover { background: var(--forest-800); color: #fff; } }
 
 .newsletter { display: flex; flex-direction: column; gap: 14px; margin: 0; }
 .newsletter label { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #fff; }
@@ -591,14 +593,14 @@ a.event-link:hover { background: #fff; }
   min-height: 48px; padding: 0 22px; border-radius: 999px; border: none;
   background: var(--leaf-700); color: #fff; font: inherit; font-weight: 600; font-size: 0.95rem; cursor: pointer;
 }
-.newsletter button:hover { background: var(--leaf-500); }
+@media (hover: hover) and (pointer: fine) { .newsletter button:hover { background: var(--leaf-500); } }
 .newsletter-note { font-size: 0.8125rem; line-height: 1.5; color: #9fbf95; }
 .newsletter-note a { color: var(--on-dark-2); }
 .newsletter-status { font-size: 0.875rem; color: var(--leaf-300); min-height: 1em; }
 
 .legal-nav { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 .legal-nav a { display: inline-flex; align-items: center; min-height: 36px; color: var(--mint-100); font-weight: 500; text-decoration: none; }
-.legal-nav a:hover { color: var(--leaf-300); }
+@media (hover: hover) and (pointer: fine) { .legal-nav a:hover { color: var(--leaf-300); } }
 
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -693,9 +695,9 @@ a.event-link { transition: background-color .15s ease; }
 /* "Find out more →" arrows nudge forward on hover (mouse only) */
 .card-link, .program-choice-link { display: inline-block; }
 @media (hover: hover) and (pointer: fine) {
-  .card-link:hover { transform: translateX(3px); }
-  .program-choice:hover .program-choice-link { transform: translateX(3px); }
-  .back-link:hover { transform: translateX(-3px); }
+  @media (hover: hover) and (pointer: fine) { .card-link:hover { transform: translateX(3px); } }
+  @media (hover: hover) and (pointer: fine) { .program-choice:hover .program-choice-link { transform: translateX(3px); } }
+  @media (hover: hover) and (pointer: fine) { .back-link:hover { transform: translateX(-3px); } }
 }
 .card-link, .program-choice-link, .back-link { transition: color .15s ease, transform .2s var(--ease-out); }
 
@@ -726,9 +728,8 @@ a.event-link { transition: background-color .15s ease; }
   html { scroll-behavior: auto; }
   .reveal, .reveal.in { opacity: 1; transform: none; transition: none; }
   .site-nav, .site-nav.open { transform: none; }
-  .btn:active, .program-choice:active, .program-choice:hover, .card-link:hover, .back-link:hover,
-  .program-choice:hover .program-choice-link,
-  .newsletter button:active, .filter-chips a:active, .social a:active, .menu-toggle:active { transform: none; }
+  .btn:active, .program-choice:active, .newsletter button:active, .filter-chips a:active, .social a:active, .menu-toggle:active { transform: none; }
+@media (hover: hover) and (pointer: fine) { .program-choice:hover, .card-link:hover, .back-link:hover, .program-choice:hover .program-choice-link { transform: none; } }
   .accordion details[open] > :not(summary) { animation: fade-only .2s ease; }
   .accordion summary::after { transition: none; }
 }
@@ -746,12 +747,13 @@ a.member-photo img { transition: transform .3s var(--ease-out); }
   transition: background-color .15s ease, color .15s ease;
 }
 @media (hover: hover) and (pointer: fine) {
-  a.member-photo:hover img { transform: scale(1.03); }
-  a.member-photo:hover .member-badge { background: var(--leaf-700); color: #fff; }
+  @media (hover: hover) and (pointer: fine) { a.member-photo:hover img { transform: scale(1.03); } }
+  @media (hover: hover) and (pointer: fine) { a.member-photo:hover .member-badge { background: var(--leaf-700); color: #fff; } }
 }
 a.member-photo:active { transform: scale(0.98); }
 @media (prefers-reduced-motion: reduce) {
-  a.member-photo:hover img, a.member-photo:active { transform: none; }
+  a.member-photo:active { transform: none; }
+@media (hover: hover) and (pointer: fine) { a.member-photo:hover img { transform: none; } }
 }
 
 /* Header: make room for the longer "Join our community" button on small laptops/tablets */
@@ -795,3 +797,48 @@ a.member-photo:active { transform: scale(0.98); }
 /* Team page: Advisors above the team */
 .team-subhead { font-size: clamp(1.4rem, 2.2vw, 1.75rem); margin-bottom: 24px; }
 .team-advisors { margin-bottom: 72px; }
+
+/* =====================================================================
+   Phones and touch screens
+   Hover styles above only apply to a real mouse (see the hover media
+   queries), so nothing stays "stuck" after a tap. The rest removes the
+   small things that make a site feel like a website on a phone.
+   ===================================================================== */
+html {
+  -webkit-tap-highlight-color: transparent; /* no grey flash on tap; :active states give the feedback */
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%; /* no surprise font inflation in landscape */
+}
+a, button, summary, input, label { touch-action: manipulation; } /* taps fire at once, no double-tap wait */
+button, summary, .btn, .menu-toggle, .site-nav a, .social a, .icon-link {
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; /* long-press doesn't select a control's label */
+}
+
+/* Press feedback for everything tappable (works for finger and mouse) */
+.site-nav a:active, .legal-nav a:active, .card-link:active, .back-link:active, .events-link:active, .recap > a:active { opacity: 0.6; }
+.accordion summary:active, .schedule-day summary:active { opacity: 0.7; }
+a.event-link:active, .member-photo:active { transform: scale(0.98); }
+.accordion summary, .schedule-day summary { transition: opacity .12s ease; }
+
+@media (pointer: coarse) {
+  /* iOS zooms the page into any field with text under 16px and never zooms back */
+  input, textarea, select, .newsletter input { font-size: 16px; }
+  /* comfortable tap targets */
+  .legal-nav a, .card-link, .back-link, .events-link, .recap > a, .program-choice-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .footer-brand a { display: inline-block; padding: 6px 0; }
+}
+
+/* Notches and rounded corners: keep content out from under them (needs viewport-fit=cover) */
+.wrap { padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.site-footer { padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
+@media (max-width: 520px) {
+  .wrap { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+}
+
+@media (max-width: 860px) {
+  /* a long menu scrolls inside itself and doesn't drag the page behind it */
+  .header-actions { display: none; } /* empty on phones; it was pushing the menu button off the edge */
+  .site-nav { max-height: calc(100dvh - 96px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.event-link:active, .member-photo:active { transform: none; }
+}
