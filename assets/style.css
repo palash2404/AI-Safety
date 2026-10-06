@@ -791,3 +791,7 @@ a.member-photo:active { transform: scale(0.98); }
   .slot-note { grid-column: 2; }
 }
 @media (prefers-reduced-motion: reduce) { .slot-list { animation: none; } .schedule-day summary::after { transition: none; } }
+
+/* Team page: Advisors above the team */
+.team-subhead { font-size: clamp(1.4rem, 2.2vw, 1.75rem); margin-bottom: 24px; }
+.team-advisors { margin-bottom: 72px; }

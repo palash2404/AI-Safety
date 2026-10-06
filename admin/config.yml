@@ -152,6 +152,17 @@ collections:
         label: Team
         file: _data/team.yml
         fields:
+          - label: Advisors
+            hint: "Shown in their own section above the team."
+            name: advisors
+            widget: list
+            required: false
+            summary: "{{fields.name}} · {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false, hint: "Square photos work best." }
+              - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it." }
           - label: Team members
             name: members
             widget: list

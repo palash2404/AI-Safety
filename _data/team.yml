@@ -1,3 +1,8 @@
+advisors:
+  - name: Manon Kempermann
+    role: Founder
+    photo: /assets/uploads/team/manon-kempermann.jpg
+    link: "https://www.linkedin.com/in/manon-kempermann-%F0%9F%94%B6-0a8396263/"
 members:
   - name: Mahalakshmi Raveenthiran
     role: Lead · Introductory Fellowship
@@ -19,11 +24,3 @@ members:
     role: Intro Fellowship Facilitator
     photo: /assets/uploads/team/shaun-paul.jpg
     link: "https://www.linkedin.com/in/shaunpaul2002/"
-  - name: Julius Kamp
-    role: Advanced Fellowship
-    photo: /assets/uploads/team/julius-kamp.jpg
-    link: ''
-  - name: Manon Kempermann
-    role: Founder · Advisor
-    photo: /assets/uploads/team/manon-kempermann.jpg
-    link: "https://www.linkedin.com/in/manon-kempermann-%F0%9F%94%B6-0a8396263/"
