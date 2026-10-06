@@ -207,3 +207,30 @@ a.event-link:hover { background: rgba(255, 255, 255, 0.10); }
 @media (prefers-reduced-transparency: reduce) {
   .header-inner { background: #0a120d; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
+
+/* ---------- Programs: quiet facts instead of bubbles ----------
+   Program page heading: one calm line of text with dot separators.
+   Programs page cards: a short list with hairlines between rows. */
+.fact-list { gap: 4px 0; margin-top: 4px; }
+.fact-list li {
+  min-height: 0; padding: 0; border-radius: 0; background: none;
+  color: var(--text-muted); font-size: 1rem; font-weight: 400;
+}
+.fact-list li::before { content: none; }
+.fact-list li:not(:last-child)::after { content: "·"; margin: 0 12px; color: var(--leaf-500); }
+
+.program-choice .fact-list {
+  flex-direction: column; flex-wrap: nowrap; gap: 0; margin-top: 12px;
+  border-top: 1px solid var(--hair);
+}
+.program-choice .fact-list li { display: block; padding: 12px 0; border-bottom: 1px solid var(--hair); font-size: 0.95rem; }
+.program-choice .fact-list li:not(:last-child)::after { content: none; }
+
+/* The tag beside a program name: plain text, no pill */
+.program-choice .chip, .program-card .chip {
+  padding: 0; border-radius: 0; background: none;
+  color: var(--soft-green); font-size: 0.9rem; font-weight: 400; letter-spacing: 0.02em;
+}
+.program-choice .card-top, .program-card .card-top { align-items: baseline; }
+.program-choice-tagline { color: var(--text); font-size: 1.1rem; }
+.program-choice-link { padding-top: 20px; }
