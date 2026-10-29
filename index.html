@@ -116,18 +116,33 @@ nav: home
       </div>
       <div class="event-list">
         {% assign upcoming = site.data.events.upcoming | sort: "date" %}
+        {% assign has_calendar = false %}
         {% for event in upcoming %}
         {% if event.title == nil or event.title == "" %}{% continue %}{% endif %}
-        {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link }}" target="_blank" rel="noopener noreferrer">{% else %}<div class="event">{% endif %}
+        {% if event.start_time and event.start_time != "" and event.date_tba != true %}{% assign has_calendar = true %}{% endif %}
+        {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link }}"{% if event.link contains "://" %} target="_blank" rel="noopener noreferrer"{% endif %}>{% else %}<div class="event">{% endif %}
+          {% if event.weekly %}
+          <div class="event-date event-date-weekly"><span>Weekly</span><strong>{{ event.date | date: "%a" }}</strong></div>
+          {% elsif event.date_tba %}
+          <div class="event-date"><span>{{ event.date | date: "%b" }}</span><strong>TBA</strong></div>
+          {% else %}
           <div class="event-date"><span>{{ event.date | date: "%b" }}</span><strong>{{ event.date | date: "%-d" }}</strong></div>
-          <div class="event-info"><span class="event-title">{{ event.title | escape }}</span>{% if event.details and event.details != "" %}<span class="event-meta">{{ event.details | escape }}</span>{% endif %}</div>
+          {% endif %}
+          <div class="event-info">
+            <span class="event-title">{{ event.title | escape }}</span>
+            {% if event.details and event.details != "" %}<span class="event-meta">{{ event.details | escape }}</span>{% endif %}
+            {% if event.weekly %}<span class="event-meta event-start">First session {{ event.date | date: "%A, %-d %B" }}</span>{% endif %}
+          </div>
         {% if event.link and event.link != "" %}</a>{% else %}</div>{% endif %}
         {% else %}
         <div class="event event-empty">
           <div class="event-info"><span class="event-title">No upcoming events announced yet.</span><span class="event-meta">Join our WhatsApp community to hear about the next one first.</span></div>
         </div>
         {% endfor %}
-        <a href="{{ '/updates.html' | relative_url }}#recaps" class="events-link">See past events →</a>
+        <div class="events-links">
+          {% if has_calendar %}<a href="{{ '/calendar.ics' | relative_url }}" class="events-link events-calendar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>Add to your calendar</a>{% endif %}
+          <a href="{{ '/updates.html' | relative_url }}#recaps" class="events-link">See past events →</a>
+        </div>
       </div>
     </div>
   </section>

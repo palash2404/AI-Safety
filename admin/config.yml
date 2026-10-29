@@ -146,12 +146,18 @@ collections:
             name: upcoming
             widget: list
             required: false
-            hint: "Remove events once they've happened, and add an event recap instead."
+            hint: "Remove one-off events once they've happened, and add an event recap instead."
             summary: "{{fields.date}} · {{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Date, name: date, widget: datetime, type: date, format: YYYY-MM-DD }
-              - { label: Place and time, name: details, widget: string, required: false, hint: "e.g. Campus E1 3, HS 002 · 18:15" }
+              - { label: Place and time (shown on the site), name: details, widget: string, required: false, hint: "e.g. Campus E1 3, HS 002 · 18:15" }
+              - { label: Every week, name: weekly, widget: boolean, required: false, default: false, hint: "For regular sessions like the reading groups. The date above is the first session." }
+              - { label: Last session (weekly only), name: until, widget: datetime, type: date, format: YYYY-MM-DD, required: false, hint: "Leave empty if the end isn't known yet." }
+              - { label: Exact date not fixed yet, name: date_tba, widget: boolean, required: false, default: false, hint: "Shows the month with TBA instead of a day. Pick any day in the right month above." }
+              - { label: Start time (for calendars), name: start_time, widget: string, required: false, hint: "e.g. 17:00. With an end time, the event is added to the calendar people can subscribe to.", pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', 'Use 24-hour time like 17:00'] }
+              - { label: End time (for calendars), name: end_time, widget: string, required: false, hint: "e.g. 19:00", pattern: ['^([01][0-9]|2[0-3]):[0-5][0-9]$', 'Use 24-hour time like 19:00'] }
+              - { label: Address (for calendars), name: location, widget: string, required: false, hint: "e.g. E1.7, Room 0.08, Saarland University" }
               - { label: Sign-up or info link, name: link, widget: string, required: false, pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
 
       - name: team

@@ -1,3 +1,26 @@
 # Upcoming events on the homepage — edit in the editor at /admin (Site content → Upcoming events).
 # Remove events once they have happened, and add a recap on the Updates page instead.
-upcoming: []
+# Events with a start and end time also go into the calendar file (/calendar.ics)
+# that people can add to their own calendar.
+upcoming:
+  - title: AI Security Reading Group
+    date: 2026-11-09
+    weekly: true
+    start_time: "17:00"
+    end_time: "19:00"
+    location: E1.7, Room 0.08, Saarland University
+    details: Mondays, 17:00–19:00 · E1.7, Room 0.08
+    link: "/reading-groups/"
+  - title: AI Safety Reading Group
+    date: 2026-11-10
+    weekly: true
+    start_time: "17:00"
+    end_time: "19:00"
+    location: E1.7, Room 0.08, Saarland University
+    details: Tuesdays, 17:00–19:00 · E1.7, Room 0.08
+    link: "/reading-groups/"
+  - title: AI Safety Bootcamp
+    date: 2027-01-01
+    date_tba: true
+    details: A weekend in January, Friday to Sunday · Saarland University · exact dates to be announced
+    link: "/bootcamp/"

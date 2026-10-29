@@ -1,0 +1,43 @@
+---
+layout: null
+permalink: /calendar.ics
+sitemap: false
+---
+{% comment %}
+  Calendar feed built from _data/events.yml. Every event with a start and end
+  time is included; weekly events repeat every week (until "Last session" if set).
+{% endcomment %}BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI Safety Saarland//Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:AI Safety Saarland
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+{% for event in site.data.events.upcoming %}{% if event.title and event.title != "" and event.start_time and event.start_time != "" and event.end_time and event.end_time != "" and event.date_tba != true %}{% assign day = event.date | date: "%Y%m%d" %}{% assign start = event.start_time | remove: ":" %}{% assign end = event.end_time | remove: ":" %}BEGIN:VEVENT
+UID:{{ event.title | slugify }}-{{ day }}@ais-saarland.org
+DTSTAMP:{{ day }}T000000Z
+DTSTART;TZID=Europe/Berlin:{{ day }}T{{ start }}00
+DTEND;TZID=Europe/Berlin:{{ day }}T{{ end }}00
+{% if event.weekly %}RRULE:FREQ=WEEKLY{% if event.until and event.until != "" %};UNTIL={{ event.until | date: "%Y%m%d" }}T235959Z{% endif %}
+{% endif %}SUMMARY:{{ event.title | replace: "\", "\\" | replace: ",", "\," | replace: ";", "\;" }}
+{% if event.location and event.location != "" %}LOCATION:{{ event.location | replace: "\", "\\" | replace: ",", "\," | replace: ";", "\;" }}
+{% endif %}{% if event.link and event.link != "" %}URL:{% if event.link contains "://" %}{{ event.link }}{% else %}{{ event.link | absolute_url }}{% endif %}
+{% endif %}END:VEVENT
+{% endif %}{% endfor %}END:VCALENDAR

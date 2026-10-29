@@ -313,3 +313,11 @@ h3 { letter-spacing: -0.01em; }
 @media (prefers-reduced-transparency: reduce) {
   .now-panel { background: #0b130e; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
+
+/* ---------- Events: weekly and to-be-announced dates, calendar link ---------- */
+.event-date-weekly strong { font-size: 1.35rem; }
+.event-date strong { white-space: nowrap; }
+.event-start { color: var(--soft-green); font-size: 0.9rem; }
+.events-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin-top: 8px; }
+.events-links .events-link { margin-top: 0; }
+.events-calendar { display: inline-flex; align-items: center; gap: 8px; }
