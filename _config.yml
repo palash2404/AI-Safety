@@ -4,8 +4,8 @@ description: AI Safety Saarland is a student initiative at Saarland University w
 url: https://ais-saarland.org
 baseurl: ""
 
-# AI Security page is offline for now. To bring it back, set this to true
-# and remove "published: false" from ai-security.html.
+# AI Security page and the homepage AI Security Team section are offline for now.
+# To bring them back, set this to true and remove "published: false" from ai-security.html.
 ai_security_live: false
 
 # Links used in the header and footer

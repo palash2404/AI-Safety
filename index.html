@@ -83,7 +83,8 @@ nav: home
     </div>
   </section>
 
-  <!-- AI Security -->
+  <!-- AI Security (offline for now, see ai_security_live in _config.yml) -->
+  {% if site.ai_security_live %}
   <section class="security wrap" id="security">
     <div class="security-text">
       <p class="eyebrow">Sub-chapter</p>
@@ -105,6 +106,7 @@ nav: home
       {% endfor %}
     </div>
   </section>
+  {% endif %}
 
   <!-- Events -->
   <section class="wrap" id="events">
