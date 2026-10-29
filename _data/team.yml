@@ -5,22 +5,24 @@ advisors:
     link: "https://www.linkedin.com/in/manon-kempermann-%F0%9F%94%B6-0a8396263/"
 members:
   - name: Mahalakshmi Raveenthiran
-    role: Lead · Introductory Fellowship
+    role: Lead · AI Safety Reading Group
     photo: /assets/uploads/team/mahalakshmi-raveenthiran.jpg
     link: "https://www.linkedin.com/in/mahalakshmiraveenthiran/"
-  - name: Palash Nagwani
-    role: Head of Marketing · UI/UX · Website
-    photo: /assets/uploads/team/palash-nagwani.jpg
-    link: https://www.linkedin.com/in/palash-nagwani2404
   - name: Apoorva Batham
-    role: Lead · Head of Events
+    role: Co-Lead · One-Day Events
     photo: /assets/uploads/team/apoorva-batham.jpg
     link: "https://www.linkedin.com/in/apoorva-batham/"
+  - name: Margo Ponomarenko
+    role: Head of Marketing
+    link: "https://www.linkedin.com/in/marharyta-ponomarenko/"
+  - name: Esha Afzal
+    role: AI Security Reading Group
+    link: "https://www.linkedin.com/in/esha-afzal-b30060380/"
   - name: Ayushi Churiwala
-    role: Intro Fellowship Facilitator
+    role: Introductory Fellowship
     photo: /assets/uploads/team/ayushi-churiwala.jpg
     link: "https://www.linkedin.com/in/ayushi-churiwala-38b57512b/"
-  - name: Shaun Paul
-    role: Intro Fellowship Facilitator
-    photo: /assets/uploads/team/shaun-paul.jpg
-    link: "https://www.linkedin.com/in/shaunpaul2002/"
+  - name: Palash Nagwani
+    role: UI/UX
+    photo: /assets/uploads/team/palash-nagwani.jpg
+    link: https://www.linkedin.com/in/palash-nagwani2404
