@@ -1,0 +1,68 @@
+# Reading Groups page — edit in the editor at /admin (Programs → Reading Groups)
+live: true  # false = hidden from the website (the page and all links to it), but kept here
+name: Reading Groups
+tag: Weekly
+tagline: Two weekly reading groups, one form for both.
+intro: From the second week of November we run two weekly reading groups at Saarland University, one on AI Safety and one on AI Security. Each session is about an hour of reading together and an hour of discussion. One interest form covers both groups.
+summary: Two weekly reading groups from the second week of November, AI Safety on Tuesdays and AI Security on Mondays. Read together, then discuss. One interest form covers both.
+facts:
+  - "AI Security: Mondays, 17:00–19:00"
+  - "AI Safety: Tuesdays, 17:00–19:00"
+  - E1.7, Room 0.08
+  - From the second week of November
+apply_link: "https://forms.gle/nu4BgpWbVrpo6T4M6"
+apply_label: Fill in the interest form
+closed_note: ""
+
+about_title: One form, two reading groups
+about: |
+  The **same interest form** is for both reading groups. In it you choose AI Safety, AI Security, or both, and tell us which topics you'd like to read about.
+
+  You don't have to register to take part. Feel free to just drop by. The form takes about five minutes and helps us plan topics and formats around what people are interested in.
+
+  Each session is two hours: about an hour of reading together, then an hour of discussion. Sometimes there are snacks.
+
+details:
+  - title: AI Safety Reading Group
+    text: |
+      - **When:** Tuesdays, 17:00–19:00
+      - **Where:** E1.7, Room 0.08
+      - **Starts:** second week of November
+      - **Topics may include:** risks from advanced AI and threat models, alignment (RLHF, scalable oversight), interpretability, evals and red teaming, AI control, deception and scheming, governance and policy, and societal impacts
+  - title: AI Security Reading Group
+    text: |
+      - **When:** Mondays, 17:00–19:00
+      - **Where:** E1.7, Room 0.08
+      - **Starts:** second week of November
+      - **Topics may include:** jailbreaks and prompt injection, adversarial robustness, data poisoning and backdoors, model stealing, privacy attacks, security of LLM agents, AI for cyber offence and defence, and watermarking and deepfake detection
+  - title: Choosing what we read
+    text: |
+      Members propose papers, blog posts, reports or videos, and vote on what to read. A proposal includes:
+
+      - **Title and link**
+      - **Type:** paper, blog post, article, report, video, …
+      - **Why read it:** one or two lines
+      - **Reading time:** a rough estimate
+      - **Prerequisites:** what someone needs to know to follow it, and which parts to read beforehand if it can't be read in about an hour
+
+      The reading with the most votes wins, and the organisers break ties. Proposals that aren't picked go to a backlog and can be voted on again later.
+
+offers_title: ""
+offers: []
+
+schedule_title: ""
+schedule: []
+
+faqs:
+  - question: Is it one form for both reading groups?
+    answer: |
+      Yes. Fill in the [interest form](https://forms.gle/nu4BgpWbVrpo6T4M6) once and pick AI Safety, AI Security, or both.
+  - question: Do I have to sign up to come?
+    answer: |
+      No, you can just drop by. The form helps us plan topics and formats, so we'd still appreciate it if you fill it in.
+  - question: Do I need to prepare before each session?
+    answer: |
+      Usually not. We read together in the first hour. If a reading builds on earlier work or is too long for an hour, the organisers say which parts to read beforehand.
+  - question: Do I need a technical background?
+    answer: |
+      No. Some readings are technical papers and others are blog posts or reports. The form asks how comfortable you are with technical papers so we can pitch the readings well.

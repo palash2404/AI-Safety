@@ -19,7 +19,7 @@ layout: default
     {% endif %}
     <div class="program-cta">
       {% if p.apply_link and p.apply_link != "" %}
-      <a href="{{ p.apply_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Apply now</a>
+      <a href="{{ p.apply_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">{{ p.apply_label | default: "Apply now" | escape }}</a>
       {% else %}
       <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Get notified</a>
       {% if p.closed_note and p.closed_note != "" %}<p class="closed-note">{{ p.closed_note | escape }}</p>{% endif %}

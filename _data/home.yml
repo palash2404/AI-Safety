@@ -19,7 +19,7 @@ mission: To foster interdisciplinary exchange, education, and research addressin
 
 programs:
   title: Go deeper into AI safety.
-  intro: Start with the fundamentals in our weekly Introductory Fellowship, or spend a weekend going hands-on at our AI Safety Bootcamp.
+  intro: Start with the fundamentals in our weekly Introductory Fellowship, join one of our weekly Reading Groups on AI Safety and AI Security, or spend a weekend going hands-on at our AI Safety Bootcamp.
   items:
     - name: Introductory Fellowship
       program: introductory
@@ -33,6 +33,18 @@ programs:
         - lead: Build understanding
           text: in a supportive, interdisciplinary community
       link: "/introductory-fellowship/"
+    - name: Reading Groups
+      program: reading
+      tag: Weekly
+      summary: Two weekly reading groups on AI Safety and AI Security, starting in the second week of November. One interest form covers both, or just drop by.
+      points:
+        - lead: "AI Security:"
+          text: Mondays, 17:00–19:00 in E1.7, Room 0.08
+        - lead: "AI Safety:"
+          text: Tuesdays, 17:00–19:00 in E1.7, Room 0.08
+        - lead: "Read, then discuss:"
+          text: about an hour of reading together and an hour of discussion
+      link: "/reading-groups/"
     - name: AI Safety Bootcamp
       program: bootcamp
       tag: January 2027
@@ -64,8 +76,8 @@ security:
   link: "/ai-security/"
   activities:
     - name: AI Security Reading Group
-      tag: 6 weeks
-      text: A closed, in-person reading group exploring critical and neglected problems in AI security — threat models and research agendas for safeguarding advanced AI systems.
+      tag: Weekly
+      text: A weekly reading group on Mondays, 17:00–19:00 in E1.7, Room 0.08, starting in the second week of November, on problems like jailbreaks, data poisoning, model stealing and the security of LLM agents. It shares one interest form with the AI Safety Reading Group, on the Reading Groups page.
     - name: AI Security Afternoon
       tag: Once a semester
       text: A half-day event with invited talks from people working on AI security professionally, plus time for students to connect and ask questions.

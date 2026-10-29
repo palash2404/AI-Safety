@@ -53,7 +53,7 @@ collections:
   # ---------- Fellowship pages ----------
   - name: programs
     label: Programs
-    description: The Introductory and Advanced Fellowship pages. Update key dates, the schedule and the application link here.
+    description: The program pages (fellowships, Reading Group, Bootcamp). Update key dates, the schedule and the application link here.
     publish: false
     files:
       - name: introductory
@@ -68,6 +68,7 @@ collections:
           - { label: Summary (Programs page card), name: summary, widget: text }
           - { label: Quick facts, name: facts, widget: list, required: false, hint: "Short chips under the heading, e.g. 10 weeks", field: { label: Fact, name: fact, widget: string } }
           - { label: Application link, name: apply_link, widget: string, required: false, hint: "Paste the application form link when applications open. Leave empty when they're closed.", pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
+          - { label: Button text, name: apply_label, widget: string, required: false, hint: "Leave empty for \"Apply now\"" }
           - { label: Note when applications are closed, name: closed_note, widget: text, required: false }
           - { label: Main section heading, name: about_title, widget: string }
           - { label: Main section text, name: about, widget: markdown }
@@ -117,6 +118,10 @@ collections:
             fields:
               - { label: Question, name: question, widget: string }
               - { label: Answer, name: answer, widget: markdown }
+      - name: reading
+        label: Reading Groups
+        file: _data/programs/reading.yml
+        fields: *program_fields
       - name: bootcamp
         label: AI Safety Bootcamp
         file: _data/programs/bootcamp.yml

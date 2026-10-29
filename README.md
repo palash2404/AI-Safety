@@ -90,11 +90,11 @@ The editor ([Sveltia CMS](https://sveltiacms.app)) signs people in through a sma
 
 ## Files
 
-- `_data/` — the editable content: `home.yml`, `events.yml`, `team.yml`, `contributors.yml`, `projects.yml`, and `ai_security.yml`, and `programs/introductory.yml` + `programs/advanced.yml`
+- `_data/` — the editable content: `home.yml`, `events.yml`, `team.yml`, `contributors.yml`, `projects.yml`, and `ai_security.yml`, and `programs/introductory.yml`, `programs/reading.yml`, `programs/bootcamp.yml` + `programs/advanced.yml`
 - `_recaps/` — one file per event recap
 - `index.html`, `team.html`, `updates.html`, `programs.html` — page templates that read from `_data/` and `_recaps/`
 - `ai-security.html` — the AI Security page
-- `introductory-fellowship.html`, `advanced-fellowship.html` — the fellowship pages (layout in `_layouts/program.html`)
+- `introductory-fellowship.html`, `advanced-fellowship.html`, `reading-groups.html`, `bootcamp.html` — the program pages (layout in `_layouts/program.html`)
 - `ai-security-1.html`, `get-involved-1.html` — redirects so old Squarespace links still work
 - `privacy-notice.html`, `terms-and-conditions.html` — legal pages (edit these directly)
 - `_layouts/`, `_includes/` — the shared page frame, header and footer
