@@ -8,7 +8,11 @@
   <link rel="icon" type="image/png" href="/assets/favicon.png">
 </head>
 <body>
-  <!-- Sveltia CMS reads its settings from admin/config.yml -->
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <!-- Sveltia CMS reads its settings from admin/config.yml.
+       Pinned to one version with an integrity hash, so a hijacked or broken
+       release can't run in the editor (where the GitHub login lives). To update:
+       change the version, then replace the hash with the output of
+       curl -s <new url> | openssl dgst -sha384 -binary | openssl base64 -A -->
+  <script src="https://unpkg.com/@sveltia/cms@0.253.2/dist/sveltia-cms.js" integrity="sha384-b3NfLhuFjiXL+mJgdgGU9YvgmJVl+BSiNNuK4Exr/Eg4CgvWVt4BhYSI5rJ5TtgA" crossorigin="anonymous"></script>
 </body>
 </html>

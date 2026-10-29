@@ -67,7 +67,7 @@ collections:
           - { label: Intro sentence, name: intro, widget: text }
           - { label: Summary (Programs page card), name: summary, widget: text }
           - { label: Quick facts, name: facts, widget: list, required: false, hint: "Short chips under the heading, e.g. 10 weeks", field: { label: Fact, name: fact, widget: string } }
-          - { label: Application link, name: apply_link, widget: string, required: false, hint: "Paste the application form link when applications open. Leave empty when they're closed." }
+          - { label: Application link, name: apply_link, widget: string, required: false, hint: "Paste the application form link when applications open. Leave empty when they're closed.", pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
           - { label: Note when applications are closed, name: closed_note, widget: text, required: false }
           - { label: Main section heading, name: about_title, widget: string }
           - { label: Main section text, name: about, widget: markdown }
@@ -146,7 +146,7 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Date, name: date, widget: datetime, type: date, format: YYYY-MM-DD }
               - { label: Place and time, name: details, widget: string, required: false, hint: "e.g. Campus E1 3, HS 002 · 18:15" }
-              - { label: Sign-up or info link, name: link, widget: string, required: false }
+              - { label: Sign-up or info link, name: link, widget: string, required: false, pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
 
       - name: team
         label: Team
@@ -162,7 +162,7 @@ collections:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
               - { label: Photo, name: photo, widget: image, required: false, hint: "Square photos work best." }
-              - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it." }
+              - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it.", pattern: ['^https://(www\.)?linkedin\.com/', 'Must be a LinkedIn link starting with https://www.linkedin.com/'] }
           - label: Team members
             name: members
             widget: list
@@ -172,7 +172,7 @@ collections:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
               - { label: Photo, name: photo, widget: image, required: false, hint: "Square photos work best." }
-              - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it." }
+              - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it.", pattern: ['^https://(www\.)?linkedin\.com/', 'Must be a LinkedIn link starting with https://www.linkedin.com/'] }
 
       - name: contributors
         label: Contributors
@@ -250,7 +250,7 @@ collections:
                 fields:
                   - { label: Label, name: label, widget: string, hint: "e.g. Starts" }
                   - { label: Value, name: value, widget: string, hint: "e.g. Wednesday, May 13th" }
-              - { label: Application link, name: apply_link, widget: string, required: false, hint: "Leave empty to hide the button." }
+              - { label: Application link, name: apply_link, widget: string, required: false, hint: "Leave empty to hide the button.", pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
               - { label: Button text, name: apply_label, widget: string, required: false, hint: "e.g. Apply by May 10th" }
 
       - name: home
@@ -300,14 +300,14 @@ collections:
                     fields:
                       - { label: Bold start, name: lead, widget: string, required: false }
                       - { label: Rest of the sentence, name: text, widget: string }
-                  - { label: '"Find out more" link', name: link, widget: string, required: false, hint: "Leave empty to hide the link." }
+                  - { label: '"Find out more" link', name: link, widget: string, required: false, hint: "Leave empty to hide the link.", pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
           - label: AI Security Team
             name: security
             widget: object
             fields:
               - { label: Heading, name: title, widget: string }
               - { label: Text, name: text, widget: text }
-              - { label: '"Learn more" link', name: link, widget: string, required: false, hint: "Leave empty to hide the button." }
+              - { label: '"Learn more" link', name: link, widget: string, required: false, hint: "Leave empty to hide the button.", pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
               - label: Activities
                 name: activities
                 widget: list
