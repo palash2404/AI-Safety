@@ -36,12 +36,12 @@ programs:
     - name: Reading Groups
       program: reading
       tag: Weekly
-      summary: Two weekly reading groups on AI Safety and AI Security, starting in the second week of November. One interest form covers both, or just drop by.
+      summary: Two weekly reading groups on AI Safety and AI Security, starting in the second week of November. Join one or both, with one interest form, or just drop by.
       points:
         - lead: "AI Security:"
-          text: Mondays, 17:00–19:00 in E1.7, Room 0.08
+          text: Mondays, 17:00–19:00 in E1.7, Room 0.08, led by Esha Afzal
         - lead: "AI Safety:"
-          text: Tuesdays, 17:00–19:00 in E1.7, Room 0.08
+          text: Tuesdays, 17:00–19:00 in E1.7, Room 0.08, led by Mahalakshmi Raveenthiran
         - lead: "Read, then discuss:"
           text: about an hour of reading together and an hour of discussion
       link: "/reading-groups/"

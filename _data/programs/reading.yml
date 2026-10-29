@@ -4,8 +4,8 @@ featured: true  # true = shown in the "Happening now" pop-up when someone opens 
 name: Reading Groups
 tag: Weekly
 tagline: Two weekly reading groups, one form for both.
-intro: From the second week of November we run two weekly reading groups at Saarland University, one on AI Safety and one on AI Security. Each session is about an hour of reading together and an hour of discussion. One interest form covers both groups.
-summary: Two weekly reading groups from the second week of November, AI Safety on Tuesdays and AI Security on Mondays. Read together, then discuss. One interest form covers both.
+intro: From the second week of November we run two weekly reading groups at Saarland University, one on AI Safety and one on AI Security. Each session is about an hour of reading together and an hour of discussion. You can join one group or both, with a single interest form.
+summary: Two weekly reading groups from the second week of November, AI Safety on Tuesdays and AI Security on Mondays. Join one or both, with one interest form.
 facts:
   - "AI Security: Mondays, 17:00–19:00"
   - "AI Safety: Tuesdays, 17:00–19:00"
@@ -17,7 +17,7 @@ closed_note: ""
 
 about_title: One form, two reading groups
 about: |
-  The **same interest form** is for both reading groups. In it you choose AI Safety, AI Security, or both, and tell us which topics you'd like to read about.
+  The **same interest form** is for both reading groups. You can join **one group or both**: in the form you choose AI Safety, AI Security, or both, and tell us which topics you'd like to read about.
 
   You don't have to register to take part. Feel free to just drop by. The form takes about five minutes and helps us plan topics and formats around what people are interested in.
 
@@ -26,12 +26,14 @@ about: |
 details:
   - title: AI Safety Reading Group
     text: |
+      - **Led by:** Mahalakshmi Raveenthiran
       - **When:** Tuesdays, 17:00–19:00
       - **Where:** E1.7, Room 0.08
       - **Starts:** second week of November
       - **Topics may include:** risks from advanced AI and threat models, alignment (RLHF, scalable oversight), interpretability, evals and red teaming, AI control, deception and scheming, governance and policy, and societal impacts
   - title: AI Security Reading Group
     text: |
+      - **Led by:** Esha Afzal
       - **When:** Mondays, 17:00–19:00
       - **Where:** E1.7, Room 0.08
       - **Starts:** second week of November
@@ -58,6 +60,12 @@ faqs:
   - question: Is it one form for both reading groups?
     answer: |
       Yes. Fill in the [interest form](https://forms.gle/nu4BgpWbVrpo6T4M6) once and pick AI Safety, AI Security, or both.
+  - question: Can I join both reading groups?
+    answer: |
+      Yes. Come to one or both, whatever fits your interests. Pick "Both" in the [interest form](https://forms.gle/nu4BgpWbVrpo6T4M6) so we know to plan for you in each group.
+  - question: Who runs the reading groups?
+    answer: |
+      The AI Safety Reading Group on Tuesdays is led by Mahalakshmi Raveenthiran. The AI Security Reading Group on Mondays is led by Esha Afzal.
   - question: Do I have to sign up to come?
     answer: |
       No, you can just drop by. The form helps us plan topics and formats, so we'd still appreciate it if you fill it in.
