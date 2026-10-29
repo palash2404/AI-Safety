@@ -61,6 +61,7 @@ collections:
         file: _data/programs/introductory.yml
         fields: &program_fields
           - { label: Show on website, name: live, widget: boolean, default: true, hint: "Turn off to hide this program everywhere on the site. Its content is kept." }
+          - { label: Show in the "Happening now" pop-up, name: featured, widget: boolean, default: false, required: false, hint: "Turn on for programs running or open for sign-up right now. They slide in a moment after someone opens the site." }
           - { label: Name, name: name, widget: string }
           - { label: Tag, name: tag, widget: string, required: false, hint: "Short label on the Programs page, e.g. Weekly" }
           - { label: Tagline (big heading), name: tagline, widget: string }

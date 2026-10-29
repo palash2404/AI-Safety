@@ -246,3 +246,70 @@ h3 { letter-spacing: -0.01em; }
 }
 .site-footer > .wrap { padding-left: 56px; padding-right: 56px; }
 @media (max-width: 860px) { .site-footer > .wrap { padding-left: 24px; padding-right: 24px; } }
+
+/* ---------- "Happening now" panel ----------
+   A glass card that slides in at the bottom right a moment after the page
+   opens (a sheet along the bottom on phones). Lists the programs marked
+   "Show in the Happening now pop-up" in the editor. */
+.now-panel {
+  position: fixed; z-index: 30;
+  right: max(24px, env(safe-area-inset-right, 0px)); bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  width: min(380px, calc(100vw - 48px)); max-height: calc(100svh - 140px); overflow-y: auto; overscroll-behavior: contain;
+  padding: 20px 20px 22px; border-radius: 28px;
+  background: rgba(11, 19, 14, 0.88);
+  -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 0 0 1px rgba(155, 197, 141, 0.22), 0 30px 80px rgba(0, 0, 0, 0.55);
+  opacity: 0; transform: translateY(24px) scale(0.98); transform-origin: bottom right;
+  transition: opacity .35s ease, transform .6s var(--spring);
+}
+.now-panel.is-open { opacity: 1; transform: none; }
+.now-panel.is-closing { opacity: 0; transform: translateY(16px) scale(0.98); transition-duration: .2s, .25s; transition-timing-function: ease, ease; }
+
+.now-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.now-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft-green);
+}
+.now-dot { position: relative; width: 8px; height: 8px; border-radius: 999px; background: var(--accent); }
+.now-dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--accent);
+  animation: now-ping 2s var(--spring) infinite;
+}
+@keyframes now-ping { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(2.6); opacity: 0; } }
+.now-close {
+  display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin: -6px -6px 0 0;
+  border: 0; border-radius: 999px; background: rgba(255, 255, 255, 0.06); color: #c9dcc2; cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, transform .2s var(--spring);
+}
+.now-close:active { transform: scale(0.92); }
+@media (hover: hover) and (pointer: fine) { .now-close:hover { background: rgba(255, 255, 255, 0.12); color: #fff; } }
+
+.now-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.now-item + .now-item { padding-top: 16px; border-top: 1px solid var(--hair); }
+.now-item-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; text-decoration: none; }
+.now-item-name { font-size: 1.35rem; font-weight: 500; letter-spacing: -0.015em; color: var(--leaf-300); line-height: 1.2; }
+.now-item .chip { padding: 0; background: none; color: var(--soft-green); font-size: 0.85rem; white-space: nowrap; }
+.now-item p { margin-top: 8px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.55; }
+.now-facts { list-style: none; margin: 12px 0 0; padding: 0; border-top: 1px solid var(--hair); }
+.now-facts li { padding: 8px 0; border-bottom: 1px solid var(--hair); font-size: 0.9rem; color: var(--text); }
+.now-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.now-more { font-size: 0.95rem; }
+.now-actions .btn { min-height: 44px; font-size: 0.9rem; padding-left: 18px; }
+
+@media (max-width: 520px) {
+  .now-panel {
+    left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom, 0px)); width: auto;
+    max-height: 70svh; transform: translateY(110%); transform-origin: bottom center;
+  }
+  .now-panel.is-closing { transform: translateY(110%); }
+  .now-item p { display: none; } /* keep the sheet short: name, times and the button are enough */
+  .now-facts { margin-top: 10px; }
+  .now-actions .btn { flex: 1 1 auto; justify-content: space-between; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .now-panel, .now-panel.is-closing { transform: none; transition: opacity .25s ease; }
+  .now-dot::after { animation: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .now-panel { background: #0b130e; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}

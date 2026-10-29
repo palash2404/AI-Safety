@@ -1,5 +1,6 @@
 # Reading Groups page — edit in the editor at /admin (Programs → Reading Groups)
 live: true  # false = hidden from the website (the page and all links to it), but kept here
+featured: true  # true = shown in the "Happening now" pop-up when someone opens the site
 name: Reading Groups
 tag: Weekly
 tagline: Two weekly reading groups, one form for both.

@@ -47,6 +47,43 @@
   });
 })();
 
+// "Happening now" panel
+// Slides in once per visit, a moment after the page opens. Closing it keeps it
+// hidden until the set of programs in it changes. Storage can be blocked
+// (private windows, strict settings), so every access is wrapped.
+(function () {
+  var panel = document.getElementById('now-panel');
+  if (!panel) return;
+  var programs = panel.getAttribute('data-programs');
+  function get(store, key) { try { return window[store].getItem(key); } catch (e) { return null; } }
+  function set(store, key, value) { try { window[store].setItem(key, value); } catch (e) {} }
+
+  if (get('localStorage', 'now-panel-closed') === programs) return;
+  if (get('sessionStorage', 'now-panel-seen') === programs) return;
+
+  function close() {
+    if (!panel.classList.contains('is-open')) return;
+    panel.classList.remove('is-open');
+    panel.classList.add('is-closing');
+    set('localStorage', 'now-panel-closed', programs);
+    setTimeout(function () { panel.hidden = true; panel.classList.remove('is-closing'); }, 260);
+  }
+
+  panel.querySelector('.now-close').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  // Following a link from the panel counts as seen; don't bring it back
+  panel.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { set('localStorage', 'now-panel-closed', programs); });
+  });
+
+  setTimeout(function () {
+    panel.hidden = false;
+    set('sessionStorage', 'now-panel-seen', programs);
+    void panel.offsetWidth; // apply the starting position before animating to the open one
+    panel.classList.add('is-open');
+  }, 1200);
+})();
+
 // Header shadow once the page has scrolled
 (function () {
   var header = document.querySelector('.site-header');

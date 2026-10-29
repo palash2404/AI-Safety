@@ -1,0 +1,46 @@
+{% comment %}
+  "Happening now" panel: slides in a moment after the page opens and lists every
+  program with "Show in the Happening now pop-up" turned on in the editor.
+  Closing it hides it until the list of programs changes.
+{% endcomment %}
+{% assign now_keys = "introductory,reading,bootcamp,advanced" | split: "," %}
+{% assign now_ids = "" %}
+{% capture now_items %}
+{% for key in now_keys %}
+{% assign p = site.data.programs[key] %}
+{% if p.live == false or p.featured != true %}{% continue %}{% endif %}
+{% assign slug = key | append: "-fellowship" %}
+{% if key == "bootcamp" %}{% assign slug = "bootcamp" %}{% endif %}
+{% if key == "reading" %}{% assign slug = "reading-groups" %}{% endif %}
+{% assign now_url = '/' | append: slug | append: '/' %}
+{% if page.url == now_url %}{% continue %}{% endif %}{% comment %} no need to advertise the page you're on {% endcomment %}
+{% assign now_ids = now_ids | append: key | append: "," %}
+<li class="now-item">
+  <a class="now-item-head" href="{{ '/' | append: slug | append: '/' | relative_url }}">
+    <span class="now-item-name">{{ p.name | escape }}</span>
+    {% if p.tag and p.tag != "" %}<span class="chip chip-light">{{ p.tag | escape }}</span>{% endif %}
+  </a>
+  <p>{{ p.summary | escape }}</p>
+  {% if p.facts.size > 0 %}
+  <ul class="now-facts">
+    {% for fact in p.facts limit: 3 %}{% if fact != "" %}<li>{{ fact | escape }}</li>{% endif %}{% endfor %}
+  </ul>
+  {% endif %}
+  <div class="now-actions">
+    <a class="now-more" href="{{ '/' | append: slug | append: '/' | relative_url }}">Find out more →</a>
+    {% if p.apply_link and p.apply_link != "" %}<a class="btn btn-primary" href="{{ p.apply_link }}" target="_blank" rel="noopener noreferrer">{{ p.apply_label | default: "Apply now" | escape }}</a>{% endif %}
+  </div>
+</li>
+{% endfor %}
+{% endcapture %}
+{% if now_ids != "" %}
+<aside class="now-panel" id="now-panel" aria-labelledby="now-title" data-programs="{{ now_ids }}" hidden>
+  <div class="now-top">
+    <p class="now-eyebrow" id="now-title"><span class="now-dot" aria-hidden="true"></span>Happening now</p>
+    <button type="button" class="now-close" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+  </div>
+  <ul class="now-list">{{ now_items }}</ul>
+</aside>
+{% endif %}
