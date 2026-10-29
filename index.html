@@ -89,7 +89,7 @@ nav: home
       <p class="eyebrow">Sub-chapter</p>
       <h2>{{ home.security.title | escape }}</h2>
       <p>{{ home.security.text | escape }}</p>
-      {% if home.security.link and home.security.link != "" %}<a href="{{ home.security.link }}" class="btn btn-primary btn-lg">Learn more</a>{% endif %}
+      {% if site.ai_security_live and home.security.link and home.security.link != "" %}<a href="{{ home.security.link }}" class="btn btn-primary btn-lg">Learn more</a>{% endif %}
     </div>
 
     <div class="accordion">
