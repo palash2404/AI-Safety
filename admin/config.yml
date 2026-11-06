@@ -17,7 +17,9 @@ site_url: https://ais-saarland.org
 display_url: https://ais-saarland.org
 logo_url: /assets/logo.png
 
-# Photos uploaded in the editor are saved here
+# Photos uploaded in the editor are saved here. Every photo field accepts only
+# JPEG, PNG, WebP, AVIF and GIF: SVG files can contain scripts, and uploads are
+# served from the same site as this editor.
 media_folder: assets/uploads
 public_folder: /assets/uploads
 
@@ -46,7 +48,7 @@ collections:
         name: type
         widget: select
         options: [Talk, Workshop, Reading group, Fellowship, Social, Hackathon, Other]
-      - { label: Photo, name: photo, widget: image, required: false, hint: "Landscape photos work best. Only use photos where people agreed to be online." }
+      - { label: Photo, name: photo, widget: image, required: false, accept: "image/jpeg,image/png,image/webp,image/avif,image/gif", hint: "Landscape photos work best. Only use photos where people agreed to be online." }
       - { label: Short summary, name: summary, widget: text, hint: "Two or three sentences shown on the Updates page." }
       - { label: Full recap (optional), name: body, widget: markdown, required: false, hint: "If you write something here, the event gets its own page with a 'Read the recap' link." }
 
@@ -173,7 +175,7 @@ collections:
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
-              - { label: Photo, name: photo, widget: image, required: false, hint: "Square photos work best." }
+              - { label: Photo, name: photo, widget: image, required: false, accept: "image/jpeg,image/png,image/webp,image/avif,image/gif", hint: "Square photos work best." }
               - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it.", pattern: ['^https://(www\.)?linkedin\.com/', 'Must be a LinkedIn link starting with https://www.linkedin.com/'] }
           - label: Team members
             name: members
@@ -183,7 +185,7 @@ collections:
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
-              - { label: Photo, name: photo, widget: image, required: false, hint: "Square photos work best." }
+              - { label: Photo, name: photo, widget: image, required: false, accept: "image/jpeg,image/png,image/webp,image/avif,image/gif", hint: "Square photos work best." }
               - { label: LinkedIn link, name: link, widget: string, required: false, hint: "Paste the full LinkedIn address, e.g. https://www.linkedin.com/in/your-name. The photo and name then link to it.", pattern: ['^https://(www\.)?linkedin\.com/', 'Must be a LinkedIn link starting with https://www.linkedin.com/'] }
 
       - name: contributors
@@ -199,7 +201,7 @@ collections:
               - { label: Name, name: name, widget: string }
               - { label: When, name: when, widget: string, required: false, hint: "e.g. Summer 2026" }
               - { label: What they contributed, name: contribution, widget: text }
-              - { label: Photo, name: photo, widget: image, required: false }
+              - { label: Photo, name: photo, widget: image, required: false, accept: "image/jpeg,image/png,image/webp,image/avif,image/gif" }
 
       - name: projects
         label: Current projects

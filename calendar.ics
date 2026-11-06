@@ -36,8 +36,9 @@ DTSTAMP:{{ day }}T000000Z
 DTSTART;TZID=Europe/Berlin:{{ day }}T{{ start }}00
 DTEND;TZID=Europe/Berlin:{{ day }}T{{ end }}00
 {% if event.weekly %}RRULE:FREQ=WEEKLY{% if event.until and event.until != "" %};UNTIL={{ event.until | date: "%Y%m%d" }}T235959Z{% endif %}
-{% endif %}SUMMARY:{{ event.title | replace: "\", "\\" | replace: ",", "\," | replace: ";", "\;" }}
-{% if event.location and event.location != "" %}LOCATION:{{ event.location | replace: "\", "\\" | replace: ",", "\," | replace: ";", "\;" }}
-{% endif %}{% if event.link and event.link != "" %}URL:{% if event.link contains "://" %}{{ event.link }}{% else %}{{ event.link | absolute_url }}{% endif %}
+{% endif %}SUMMARY:{{ event.title | strip_newlines | replace: "\", "\\" | replace: ",", "\," | replace: ";", "\;" }}
+{% if event.location and event.location != "" %}LOCATION:{{ event.location | strip_newlines | replace: "\", "\\" | replace: ",", "\," | replace: ";", "\;" }}
+{% endif %}{% comment %} links must start with https:// or / {% endcomment %}{% assign link = event.link | strip | strip_newlines %}{% assign link_start = link | slice: 0, 8 %}{% assign link_first = link | slice: 0, 1 %}{% if link_start == "https://" %}URL:{{ link }}
+{% elsif link_first == "/" %}URL:{{ link | absolute_url }}
 {% endif %}END:VEVENT
 {% endif %}{% endfor %}END:VCALENDAR

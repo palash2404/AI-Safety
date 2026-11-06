@@ -30,7 +30,7 @@ nav: updates
         <div class="contributor">
           <div class="contributor-photo">
             {% if person.photo and person.photo != "" %}
-            <img src="{{ person.photo | relative_url }}" alt="{{ person.name | escape }}" loading="lazy">
+            <img src="{{ person.photo | relative_url | escape }}" alt="{{ person.name | escape }}" loading="lazy">
             {% else %}
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
             {% endif %}
@@ -61,7 +61,7 @@ nav: updates
       <article class="recap">
         <div class="recap-photo">
           {% if recap.photo and recap.photo != "" %}
-          <img src="{{ recap.photo | relative_url }}" alt="{{ recap.title | escape }}" loading="lazy">
+          <img src="{{ recap.photo | relative_url | escape }}" alt="{{ recap.title | escape }}" loading="lazy">
           {% else %}
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
           {% endif %}

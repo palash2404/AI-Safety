@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
+  <!-- Security policy for the editor, where the GitHub login lives. The editor loads
+       extra code from unpkg at runtime (not covered by the integrity hash below), so
+       scripts may come only from unpkg and the editor's own blob: worker, and data may
+       go only to GitHub and the sign-in Worker. If the editor breaks after an update,
+       check the browser console for "Content-Security-Policy" and add the host here. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://cdn.jsdelivr.net; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' blob: data: https://api.github.com https://www.githubstatus.com https://unpkg.com https://sveltia-cms-auth.pana00002.workers.dev; frame-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Editor — AI Safety Saarland</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
 </head>

@@ -28,7 +28,7 @@
   {% endif %}
   <div class="now-actions">
     <a class="now-more" href="{{ '/' | append: slug | append: '/' | relative_url }}">Find out more →</a>
-    {% if p.apply_link and p.apply_link != "" %}<a class="btn btn-primary" href="{{ p.apply_link }}" target="_blank" rel="noopener noreferrer">{{ p.apply_label | default: "Apply now" | escape }}</a>{% endif %}
+    {% if p.apply_link and p.apply_link != "" %}<a class="btn btn-primary" href="{{ p.apply_link | escape }}" target="_blank" rel="noopener noreferrer">{{ p.apply_label | default: "Apply now" | escape }}</a>{% endif %}
   </div>
 </li>
 {% endfor %}

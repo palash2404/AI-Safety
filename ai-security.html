@@ -89,7 +89,7 @@ published: false # offline for now, see ai_security_live in _config.yml
           </dl>
           {% endif %}
           {% if i.apply_link and i.apply_link != "" %}
-          <a href="{{ i.apply_link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">{{ i.apply_label | default: "Apply now" | escape }}</a>
+          <a href="{{ i.apply_link | escape }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">{{ i.apply_label | default: "Apply now" | escape }}</a>
           {% endif %}
         </aside>
         {% endif %}

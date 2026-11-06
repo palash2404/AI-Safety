@@ -76,7 +76,7 @@ nav: home
             {% endfor %}
           </ul>
           {% endif %}
-          {% if program.link and program.link != "" %}<a href="{{ program.link }}" class="card-link">Find out more →</a>{% endif %}
+          {% if program.link and program.link != "" %}<a href="{{ program.link | escape }}" class="card-link">Find out more →</a>{% endif %}
         </article>
         {% endfor %}
       </div>
@@ -90,7 +90,7 @@ nav: home
       <p class="eyebrow">Sub-chapter</p>
       <h2>{{ home.security.title | escape }}</h2>
       <p>{{ home.security.text | escape }}</p>
-      {% if site.ai_security_live and home.security.link and home.security.link != "" %}<a href="{{ home.security.link }}" class="btn btn-primary btn-lg">Learn more</a>{% endif %}
+      {% if site.ai_security_live and home.security.link and home.security.link != "" %}<a href="{{ home.security.link | escape }}" class="btn btn-primary btn-lg">Learn more</a>{% endif %}
     </div>
 
     <div class="accordion">
@@ -122,7 +122,7 @@ nav: home
         {% for event in upcoming %}
         {% if event.title == nil or event.title == "" %}{% continue %}{% endif %}
         {% if event.start_time and event.start_time != "" and event.date_tba != true %}{% assign has_calendar = true %}{% endif %}
-        {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link }}"{% if event.link contains "://" %} target="_blank" rel="noopener noreferrer"{% endif %}>{% else %}<div class="event">{% endif %}
+        {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link | escape }}"{% if event.link contains "://" %} target="_blank" rel="noopener noreferrer"{% endif %}>{% else %}<div class="event">{% endif %}
           {% if event.weekly %}
           <div class="event-date event-date-weekly"><span>Weekly</span><strong>{{ event.date | date: "%a" }}</strong></div>
           {% elsif event.date_tba %}

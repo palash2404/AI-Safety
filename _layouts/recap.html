@@ -8,7 +8,7 @@ layout: default
     <h1>{{ page.title | escape }}</h1>
     {% if page.summary and page.summary != "" %}<p class="lede">{{ page.summary | escape }}</p>{% endif %}
     {% if page.photo and page.photo != "" %}
-    <img class="recap-hero" src="{{ page.photo | relative_url }}" alt="{{ page.title | escape }}">
+    <img class="recap-hero" src="{{ page.photo | relative_url | escape }}" alt="{{ page.title | escape }}">
     {% endif %}
     {{ content }}
   </article>
