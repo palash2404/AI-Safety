@@ -21,7 +21,7 @@ Fonts: Bricolage Grotesque (headings) and Figtree (body). They're self-hosted in
 
 ## Editing the website (for team members)
 
-You don't need to know any code. Every change is saved as a draft and only goes live after Palash approves it, so nothing you do in the editor can break the live site.
+You don't need to know any code. Every change is saved as a draft and only goes live on the website after Palash approves it, so nothing you do in the editor can break the live site. Drafts aren't private, though: this repository is public, so a draft's text and photos can be seen on GitHub as soon as you save them.
 
 **Before you start:** you need a free GitHub account, and Palash needs to add you to this repository as a collaborator. Accept the email invitation from GitHub.
 
@@ -44,11 +44,11 @@ You don't need to know any code. Every change is saved as a draft and only goes 
 - **AI Security page** — the sub-initiative page: threats, who it's for, and initiatives (reading group, AI Security Afternoon, research sprints) with logistics and application links.
 - **Programs** — the Introductory and Advanced Fellowship pages: key dates, prerequisites, schedule, FAQs and the application link. When applications open, paste the form link into **Application link** and an "Apply now" button appears. Each program has a **Show on website** switch: turning it off hides the program page and every link to it, but keeps its content. The Advanced Fellowship is switched off for now — when you turn it back on, also update the Programs heading in **Homepage texts** (it currently talks about one program).
 
-Photos: only upload photos of people who agreed to appear online (our Privacy Notice promises this). Landscape photos work best for recaps, square ones for team members.
+Photos: only upload photos of people who agreed to appear online (our Privacy Notice promises this). Ask before you upload, not after: saving a draft already puts the photo on GitHub, and it stays there even if the change is rejected. Landscape photos work best for recaps, square ones for team members.
 
 ### Save and send for review
 
-1. Make your changes and click **Save**. This creates a **draft** — nothing is live yet.
+1. Make your changes and click **Save**. This creates a **draft**. Nothing is live on the website yet, but the draft is visible on GitHub.
 2. When it's ready, set the status to **In review**.
 3. Palash checks it and publishes it. The site updates about a minute after that.
 
@@ -60,13 +60,14 @@ Photos: only upload photos of people who agreed to appear online (our Privacy No
 2. Open it and check **Files changed**.
 3. Click **Merge pull request** → **Confirm merge**. The site rebuilds and goes live in about a minute (watch the **Actions** tab — a green tick means it worked).
 
-To reject a change, click **Close pull request** instead.
+To reject a change, click **Close pull request** instead, then click **Delete branch** so the draft's branch doesn't stay around. GitHub still shows the files of a closed pull request. If a rejected draft contains a photo or personal details that must not be public, ask GitHub Support to remove the pull request (support.github.com, "Remove sensitive data").
 
 ### Add or remove editors
 
 - Repo → **Settings → Collaborators → Add people** → enter their GitHub username. They get an email invitation.
 - To remove someone, use the same page.
 - Recommended safety net: **Settings → Branches → Add rule** for `main`, tick **Require a pull request before merging** and **Require review from Code Owners** (you are the code owner in `.github/CODEOWNERS`). Leave admin bypass allowed so you can still push directly.
+- Also tick **Settings → General → Automatically delete head branches**, so a draft's branch is removed once you merge it.
 
 ### How the sign-in works (one-time setup, already done)
 
@@ -81,6 +82,7 @@ The editor ([Sveltia CMS](https://sveltiacms.app)) signs people in through a sma
   - `GITHUB_CLIENT_SECRET` — the OAuth App's client secret (never share it or put it in this repo)
   - `ALLOWED_DOMAINS` — `ais-saarland.org`
 - The editor's settings are in `admin/config.yml` (`base_url` points at the Worker).
+- `ALLOWED_DOMAINS` trusts the whole site, not only `/admin/`: any page on `ais-saarland.org` can start a sign-in. That is only a risk if someone's script runs on the site, which is why the public pages and the editor have a Content-Security-Policy and photo uploads accept only JPEG, PNG, WebP, AVIF and GIF (no SVG or HTML). Keep it that way. The stronger fix would be moving the editor to its own subdomain (for example `edit.ais-saarland.org`, which needs a DNS change and a second site) and setting `ALLOWED_DOMAINS` to that.
 
 ### If sign-in doesn't work
 
