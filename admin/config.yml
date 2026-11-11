@@ -65,7 +65,7 @@ collections:
         file: _data/programs/introductory.yml
         fields: &program_fields
           - { label: Show on website, name: live, widget: boolean, default: true, hint: "Turn off to hide this program everywhere on the site. Its content is kept." }
-          - { label: Show in the "Happening now" banner, name: featured, widget: boolean, default: false, required: false, hint: "Turn on for programs running or open for sign-up right now. They appear in a strip above the header on every page." }
+          - { label: Show in the "Happening now" pop-up, name: featured, widget: boolean, default: false, required: false, hint: "Turn on for programs running or open for sign-up right now. They slide in a moment after someone opens the site." }
           - { label: Name, name: name, widget: string }
           - { label: Tag, name: tag, widget: string, required: false, hint: "Short label on the Programs page, e.g. Weekly" }
           - { label: Tagline (big heading), name: tagline, widget: string }
@@ -277,8 +277,8 @@ collections:
             name: about
             widget: object
             fields:
-              - { label: Heading of the About section, name: eyebrow, widget: string, hint: "Shown over the mission, on the black band" }
-              - { label: Big heading (top of the page), name: title, widget: string }
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Big heading, name: title, widget: string }
               - { label: Intro text, name: intro, widget: text }
           - label: Why AI safety is important
             name: why
@@ -294,43 +294,6 @@ collections:
                   - { label: Title, name: title, widget: string }
                   - { label: Text, name: text, widget: text }
           - { label: Our mission, name: mission, widget: text }
-          - label: First visit steps
-            name: first_visit
-            widget: object
-            required: false
-            hint: "Three numbered steps under the top of the homepage. Remove all steps to hide the section."
-            fields:
-              - { label: Heading, name: title, widget: string }
-              - label: Steps
-                name: steps
-                widget: list
-                required: false
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Text, name: text, widget: string, hint: "Links: [link text](https://...)" }
-                  - { label: Tag, name: tag, widget: string, required: false, hint: "Optional green pill, e.g. Drop-ins welcome" }
-          - label: What a session is like
-            name: session
-            widget: object
-            required: false
-            hint: "Photo beside a short description. Leave the heading empty to hide the section."
-            fields:
-              - { label: Heading, name: title, widget: string, required: false }
-              - { label: Text, name: text, widget: string, required: false }
-              - label: Facts
-                name: facts
-                widget: list
-                required: false
-                summary: "{{fields.label}}: {{fields.text}}"
-                fields:
-                  - { label: Label, name: label, widget: string }
-                  - { label: Text, name: text, widget: string }
-              - { label: Link, name: link, widget: string, required: false, pattern: ['^(https://|/)', 'Must start with https:// (or / for a page on this site)'] }
-              - { label: Link text, name: link_label, widget: string, required: false }
-              - { label: Photo, name: photo, widget: image, required: false, accept: "image/jpeg,image/png,image/webp,image/avif,image/gif", hint: "Only photos of people who agreed to appear online." }
-              - { label: Photo description (for screen readers), name: photo_alt, widget: string, required: false }
-              - { label: Photo credit, name: photo_credit, widget: string, required: false, hint: "Shown in the footer. Links: [name](https://...)" }
           - label: Programs
             name: programs
             widget: object

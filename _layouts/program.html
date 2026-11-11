@@ -3,137 +3,133 @@ layout: default
 ---
 {% assign p = site.data.programs[page.program] %}
 {% if p.live == false %}
-<main id="main" class="article"><div class="container"><p class="lead">This program isn't running at the moment. <a href="{{ '/programs/' | relative_url }}">See our current programs</a></p></div></main>
+<main class="page wrap"><p class="lede">This program isn't running at the moment. <a href="{{ '/programs/' | relative_url }}">See our current programs →</a></p></main>
 {% else %}
-<main id="main">
-  <!-- Head: the tagline, the facts and the one action -->
-  <section class="page-head program-hero">
-    <div class="container page-head__grid">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/programs/' | relative_url }}">All programs</a><span aria-hidden="true">/</span><span aria-current="page">{{ p.name | escape }}</span></nav>
-      <h1>{{ p.tagline | escape }}</h1>
-      <p class="lead">{{ p.intro | escape }}</p>
-      <div class="page-head__aside">
-        {% if p.tag and p.tag != "" %}<span class="tag {% if p.featured == true %}tag--in{% else %}tag--out{% endif %}">{{ p.tag | escape }}</span>{% endif %}
-        {% if p.facts.size > 0 %}
-        <ul class="fact-rows" role="list">
-          {% for fact in p.facts %}{% if fact != "" %}<li>{{ fact | escape }}</li>{% endif %}{% endfor %}
-        </ul>
-        {% endif %}
-        {% if p.apply_link and p.apply_link != "" %}
-        <a href="{{ p.apply_link | escape }}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">{{ p.apply_label | default: "Apply now" | escape }}</a>
-        {% else %}
-        <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get notified</a>
-        {% if p.closed_note and p.closed_note != "" %}<p class="closed-note">{{ p.closed_note | escape }}</p>{% endif %}
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  <!-- About and practical details -->
-  <section class="page-section">
-    <div class="container program-about__grid">
-      <div class="program-about__body">
-        <h2>{{ p.about_title | escape }}</h2>
-        <div class="prose">{{ p.about | markdownify }}</div>
-      </div>
-      {% if p.details.size > 0 %}
-      <div class="accordion program-about__details">
-        {% for item in p.details %}
-        <details{% if forloop.first %} open{% endif %}>
-          <summary>{{ item.title | escape }}</summary>
-          <div class="prose">{{ item.text | markdownify }}</div>
-        </details>
-        {% endfor %}
-      </div>
+<main>
+  <!-- Hero -->
+  <section class="wrap program-hero">
+    <a href="{{ '/programs/' | relative_url }}" class="back-link">← All programs</a>
+    <p class="eyebrow">{{ p.name | escape }}</p>
+    <h1>{{ p.tagline | escape }}</h1>
+    <p class="lede">{{ p.intro | escape }}</p>
+    {% if p.facts.size > 0 %}
+    <ul class="fact-list">
+      {% for fact in p.facts %}{% if fact != "" %}<li>{{ fact | escape }}</li>{% endif %}{% endfor %}
+    </ul>
+    {% endif %}
+    <div class="program-cta">
+      {% if p.apply_link and p.apply_link != "" %}
+      <a href="{{ p.apply_link | escape }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">{{ p.apply_label | default: "Apply now" | escape }}</a>
+      {% else %}
+      <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Get notified</a>
+      {% if p.closed_note and p.closed_note != "" %}<p class="closed-note">{{ p.closed_note | escape }}</p>{% endif %}
       {% endif %}
     </div>
   </section>
 
+  <!-- About + practical details -->
+  <section class="wrap program-about">
+    <div class="program-body">
+      <h2>{{ p.about_title | escape }}</h2>
+      <div class="prose">{{ p.about | markdownify }}</div>
+    </div>
+    {% if p.details.size > 0 %}
+    <div class="accordion program-details">
+      {% for item in p.details %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ item.title | escape }}</summary>
+        <div class="prose">{{ item.text | markdownify }}</div>
+      </details>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+
   {% if p.offers.size > 0 %}
   <!-- What we offer -->
-  <section class="offers band-ink">
-    <div class="container">
-      <h2>{{ p.offers_title | escape }}</h2>
-      <ul class="offers__list" role="list">
+  <section class="dark">
+    <div class="wrap">
+      <div class="block-head"><h2>{{ p.offers_title | escape }}</h2></div>
+      <div class="offer-grid">
         {% for offer in p.offers %}
-        <li>
+        <div class="offer-card">
           <h3>{{ offer.title | escape }}</h3>
           <div class="prose">{{ offer.text | markdownify }}</div>
-        </li>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </section>
   {% endif %}
 
   {% if p.schedule.size > 0 %}
   <!-- Schedule -->
-  <section class="page-section" id="schedule">
-    <div class="container">
+  <section class="wrap program-schedule" id="schedule">
+    <div class="block-head">
+      <p class="eyebrow">Schedule</p>
       <h2>{{ p.schedule_title | escape }}</h2>
-      <ol class="timeline" role="list">
-        {% for s in p.schedule %}
-        <li>
-          {% capture row %}
-          <div class="timeline__row">
-            <div class="timeline__when"><span>{{ s.week | escape }}</span>{% if s.dates and s.dates != "" %}<strong>{{ s.dates | escape }}</strong>{% endif %}</div>
-            <div class="timeline__what">
+    </div>
+    {% assign has_slots = false %}{% for s in p.schedule %}{% if s.slots.size > 0 %}{% assign has_slots = true %}{% endif %}{% endfor %}
+    <ol class="schedule-list{% if has_slots %} schedule-days{% endif %}">
+      {% for s in p.schedule %}
+      {% if s.slots.size > 0 %}
+      <li class="schedule-item schedule-day">
+        <details{% if forloop.first %} open{% endif %}>
+          <summary>
+            <div class="schedule-when"><span>{{ s.week | escape }}</span>{% if s.dates and s.dates != "" %}<strong>{{ s.dates | escape }}</strong>{% endif %}</div>
+            <div class="schedule-what">
               <h3>{{ s.title | escape }}</h3>
               <p>{{ s.text | escape }}</p>
             </div>
-          </div>
-          {% endcapture %}
-          {% if s.slots.size > 0 %}
-          <details{% if forloop.first %} open{% endif %}>
-            <summary>{{ row }}</summary>
-            <ol class="slots" role="list">
-              {% for slot in s.slots %}
-              <li>
-                <span class="slots__time">{{ slot.time | escape }}</span>
-                <span class="slots__title">{{ slot.title | escape }}</span>
-                {% if slot.note and slot.note != "" %}<span class="slots__note">{{ slot.note | escape }}</span>{% endif %}
-              </li>
-              {% endfor %}
-            </ol>
-          </details>
-          {% else %}
-          {{ row }}
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
+          </summary>
+          <ol class="slot-list">
+            {% for slot in s.slots %}
+            <li>
+              <span class="slot-time">{{ slot.time | escape }}</span>
+              <span class="slot-title">{{ slot.title | escape }}</span>
+              {% if slot.note and slot.note != "" %}<span class="slot-note">{{ slot.note | escape }}</span>{% endif %}
+            </li>
+            {% endfor %}
+          </ol>
+        </details>
+      </li>
+      {% else %}
+      <li class="schedule-item">
+        <div class="schedule-when"><span>{{ s.week | escape }}</span>{% if s.dates and s.dates != "" %}<strong>{{ s.dates | escape }}</strong>{% endif %}</div>
+        <div class="schedule-what">
+          <h3>{{ s.title | escape }}</h3>
+          <p>{{ s.text | escape }}</p>
+        </div>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ol>
   </section>
   {% endif %}
 
   {% if p.faqs.size > 0 %}
   <!-- FAQs -->
-  <section class="page-section" id="faq">
-    <div class="container program-about__grid">
-      <div class="program-about__body">
-        <h2>Questions you might have.</h2>
-      </div>
-      <div class="accordion program-about__details">
-        {% for f in p.faqs %}
-        <details>
-          <summary>{{ f.question | escape }}</summary>
-          <div class="prose">{{ f.answer | markdownify }}</div>
-        </details>
-        {% endfor %}
-      </div>
+  <section class="wrap program-faq" id="faq">
+    <div class="block-head">
+      <p class="eyebrow">FAQs</p>
+      <h2>Questions you might have.</h2>
+    </div>
+    <div class="accordion">
+      {% for f in p.faqs %}
+      <details>
+        <summary>{{ f.question | escape }}</summary>
+        <div class="prose">{{ f.answer | markdownify }}</div>
+      </details>
+      {% endfor %}
     </div>
   </section>
   {% endif %}
 
-  <!-- Close -->
-  <section class="join band-paper">
-    <div class="container join__grid">
-      <h2>Questions about the {{ p.name | escape }}?</h2>
-      <div class="join__act">
-        <p class="lead">Write to us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or join our community to hear about the next round first.</p>
-        <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Join our community</a>
-      </div>
-    </div>
+  <!-- Closing CTA -->
+  <section class="cta wrap">
+    <h2>Questions about the {{ p.name | escape }}?</h2>
+    <p>Write to us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or join our community to hear about the next round first.</p>
+    <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join our community</a>
   </section>
 </main>
 {% endif %}

@@ -37,6 +37,5 @@ defaults:
 
 exclude:
   - README.md
-  - design.md
   - Gemfile
   - Gemfile.lock

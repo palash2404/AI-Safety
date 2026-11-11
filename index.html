@@ -2,233 +2,158 @@
 nav: home
 ---
 {% assign home = site.data.home %}
-{% assign rg = site.data.programs.reading %}
-{% assign upcoming = site.data.events.upcoming | sort: "date" %}
-{% assign show_counter = false %}{% if rg.live != false and rg.featured == true %}{% assign show_counter = true %}{% endif %}
-<main id="main">
+<main>
 
-  <!-- Hero: who we are, beside the reading-group counter -->
-  <section class="hero" id="about-hero">
-    <div class="container hero__grid{% unless show_counter %} hero__grid--solo{% endunless %}">
-      <div class="hero__text">
-        <h1>{{ home.about.title | escape }}</h1>
-        <p class="lead">{{ home.about.intro | escape }}</p>
-        <a class="btn btn--quiet" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">Join our community</a>
-      </div>
-      {% if show_counter %}
-      <div class="counter well">
-        <div class="counter__head">
-          <h2 class="counter__name">{{ rg.name | escape }}</h2>
-          <span class="tag tag--in">Open</span>
+  <!-- About -->
+  <section class="about wrap" id="about">
+    <div class="about-text">
+      <p class="eyebrow">{{ home.about.eyebrow | escape }}</p>
+      <h1>{{ home.about.title | escape }}</h1>
+      <p class="lede">{{ home.about.intro | escape }}</p>
+      <a href="{{ '/team.html' | relative_url }}" class="btn btn-outline">Meet the team <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="about-art">
+      <img src="{{ '/assets/logo.png' | relative_url }}" alt="AI Safety Saarland logo — the outline of Saarland" width="460" height="398">
+    </div>
+  </section>
+
+  <!-- Why AI safety -->
+  <section class="dark" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow eyebrow-light">Why it matters</p>
+          <h2>{{ home.why.title | escape }}</h2>
         </div>
-        <p class="counter__line">{{ rg.tagline | escape }}</p>
-        <ul class="counter__rows" role="list">
-          {% for event in upcoming %}{% if event.weekly != true or event.link != "/reading-groups/" %}{% continue %}{% endif %}
-          <li>
-            <span class="counter__day">{{ event.date | date: "%a" }}</span>
-            <span class="counter__what"><b>{{ event.title | remove: " Reading Group" | escape }}</b>{% if event.start_time and event.start_time != "" %}<span class="num">{{ event.start_time }} to {{ event.end_time }}</span>{% endif %}</span>
-          </li>
-          {% endfor %}
-        </ul>
-        {% if rg.apply_link and rg.apply_link != "" %}<a class="btn btn--primary counter__btn" href="{{ rg.apply_link | escape }}" target="_blank" rel="noopener noreferrer">{{ rg.apply_label | default: "Apply now" | escape }}</a>{% endif %}
+        <p>{{ home.why.intro | escape }}</p>
       </div>
-      {% endif %}
-    </div>
-  </section>
-
-  {% if home.first_visit.steps.size > 0 %}
-  <!-- First visit: three steps -->
-  <section class="visit" aria-labelledby="visit-title">
-    <div class="container">
-      <h2 id="visit-title" class="visit__title">{{ home.first_visit.title | escape }}</h2>
-      <ol class="steps" role="list">
-        {% for step in home.first_visit.steps %}
-        <li>
-          <h3>{{ step.title | escape }}</h3>
-          <p>{{ step.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
-          {% if step.tag and step.tag != "" %}<span class="tag tag--in">{{ step.tag | escape }}</span>{% endif %}
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
-  </section>
-  {% endif %}
-
-  <!-- The argument: why AI safety -->
-  <section class="why" id="why" aria-labelledby="why-title">
-    <div class="container">
-      <div class="split-head">
-        <h2 id="why-title">{{ home.why.title | escape }}</h2>
-        <p class="lead">{{ home.why.intro | escape }}</p>
-      </div>
-      <ol class="claims" role="list">
+      <div class="why-grid">
         {% for reason in home.why.reasons %}
-        <li>
+        <div class="why-card">
+          <span class="why-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
           <h3>{{ reason.title | escape }}</h3>
           <p>{{ reason.text | escape }}</p>
-        </li>
+        </div>
         {% endfor %}
-      </ol>
+      </div>
     </div>
   </section>
 
-  <!-- About and mission: ink band -->
-  <section class="about band-ink" id="about" aria-labelledby="about-title">
-    <div class="container about__grid">
-      <div class="about__head">
-        <h2 id="about-title">{{ home.about.eyebrow | escape }}</h2>
-        <a class="link-on-ink" href="{{ '/team.html' | relative_url }}">Meet the team</a>
-      </div>
-      <dl class="about__list" id="mission">
+  <!-- Mission -->
+  <section class="mission wrap" id="mission">
+    <div class="mission-label">
+      <p class="eyebrow">Our mission</p>
+      <span class="mission-bar"></span>
+    </div>
+    <p class="mission-text">{{ home.mission | escape }}</p>
+  </section>
+  <hr class="rule">
+
+  <!-- Programs -->
+  <section class="dark programs" id="programs">
+    <div class="wrap">
+      <div class="section-head">
         <div>
-          <dt>Our mission</dt>
-          <dd class="about__mission">{{ home.mission | escape }}</dd>
+          <p class="eyebrow eyebrow-light">Programs</p>
+          <h2>{{ home.programs.title | escape }}</h2>
         </div>
-        <div>
-          <dt>Where</dt>
-          <dd>Saarland University, Saarbrücken</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  {% if home.session.title and home.session.title != "" %}
-  <!-- What a session is like -->
-  <section class="session" aria-labelledby="session-title">
-    <div class="container session__grid">
-      {% if home.session.photo and home.session.photo != "" %}
-      <figure class="photo session__photo">
-        <img src="{{ home.session.photo | relative_url | escape }}" width="1600" height="1183" alt="{{ home.session.photo_alt | escape }}" loading="lazy">
-      </figure>
-      {% endif %}
-      <div class="session__text">
-        <h2 id="session-title">{{ home.session.title | escape }}</h2>
-        {% if home.session.text and home.session.text != "" %}<p class="lead">{{ home.session.text | escape }}</p>{% endif %}
-        {% if home.session.facts.size > 0 %}
-        <dl class="facts">
-          {% for fact in home.session.facts %}<div><dt>{{ fact.label | escape }}</dt><dd>{{ fact.text | escape }}</dd></div>{% endfor %}
-        </dl>
-        {% endif %}
-        {% if home.session.link and home.session.link != "" %}<a class="text-link" href="{{ home.session.link | escape }}">{{ home.session.link_label | default: "Find out more" | escape }}</a>{% endif %}
+        <p>{{ home.programs.intro | escape }}</p>
       </div>
-    </div>
-  </section>
-  {% endif %}
 
-  <!-- Events: schedule -->
-  <section class="events" id="events" aria-labelledby="events-title">
-    <div class="container">
-      <div class="split-head">
-        <h2 id="events-title">{{ home.events.title | escape }}</h2>
-        <p class="lead">{{ home.events.text | escape }}</p>
-      </div>
-      {% assign has_calendar = false %}{% assign shown = 0 %}
-      {% capture rows %}
-      {% for event in upcoming %}
-      {% if event.title == nil or event.title == "" %}{% continue %}{% endif %}
-      {% if event.start_time and event.start_time != "" and event.date_tba != true %}{% assign has_calendar = true %}{% endif %}
-      {% assign shown = shown | plus: 1 %}
-      <tr{% if shown == 1 %} class="schedule__next"{% endif %}>
-        <td class="schedule__when">
-          {% if event.weekly %}<b class="schedule__day">{{ event.date | date: "%A" }}s</b>{% if event.start_time and event.start_time != "" %}<span class="num">{{ event.start_time }} to {{ event.end_time }}</span>{% endif %}
-          {% elsif event.date_tba %}<b class="schedule__day">{{ event.date | date: "%B %Y" }}</b><span>Dates to be announced</span>
-          {% else %}<b class="schedule__day">{{ event.date | date: "%-d %B" }}</b>{% if event.start_time and event.start_time != "" %}<span class="num">{{ event.start_time }}{% if event.end_time and event.end_time != "" %} to {{ event.end_time }}{% endif %}</span>{% endif %}{% endif %}
-        </td>
-        <th scope="row">{% if event.link and event.link != "" %}<a href="{{ event.link | escape }}"{% if event.link contains "://" %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ event.title | escape }}</a>{% else %}{{ event.title | escape }}{% endif %}</th>
-        <td>{% if event.details and event.details != "" %}{{ event.details | escape }}{% endif %}{% if event.weekly %}<br>First session {{ event.date | date: "%A, %-d %B" }}{% endif %}</td>
-        <td>{% if event.weekly %}<span class="tag tag--in">Weekly</span>{% elsif event.date_tba %}<span class="tag tag--out">Dates to come</span>{% endif %}</td>
-      </tr>
-      {% endfor %}
-      {% endcapture %}
-      {% if shown > 0 %}
-      <table class="schedule">
-        <caption class="visually-hidden">Upcoming events</caption>
-        <thead>
-          <tr><th scope="col">When</th><th scope="col">Event</th><th scope="col">Details</th><th scope="col"><span class="visually-hidden">Status</span></th></tr>
-        </thead>
-        <tbody>{{ rows }}</tbody>
-      </table>
-      {% else %}
-      <p class="empty-note">No upcoming events announced yet. Join our WhatsApp community to hear about the next one first.</p>
-      {% endif %}
-      <p class="events__links">
-        {% if has_calendar %}<a href="{{ '/calendar.ics' | relative_url }}">Add to your calendar</a>{% endif %}
-        <a href="{{ '/updates.html' | relative_url }}#recaps">See past events</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Programs: switcher (without script every program shows in order) -->
-  <section class="programs" id="programs" aria-labelledby="programs-title">
-    <div class="container">
-      {% assign selected = "" %}
-      {% for program in home.programs.items %}{% if program.program and site.data.programs[program.program].live == false %}{% continue %}{% endif %}{% if selected == "" and site.data.programs[program.program].featured == true %}{% assign selected = forloop.index %}{% endif %}{% endfor %}
-      <div class="switch" data-switch>
-        <div class="switch__side">
-          <div class="programs__head">
-            <h2 id="programs-title">{{ home.programs.title | escape }}</h2>
-            <p class="lead">{{ home.programs.intro | escape }}</p>
+      <div class="program-grid">
+        {% for program in home.programs.items %}
+        {% if program.program and site.data.programs[program.program].live == false %}{% continue %}{% endif %}
+        <article class="program-card">
+          <div class="card-top">
+            <h3>{{ program.name | escape }}</h3>
+            {% if program.tag and program.tag != "" %}<span class="chip">{{ program.tag | escape }}</span>{% endif %}
           </div>
-          <div class="seg" role="tablist" aria-label="Programs">
-            {% for program in home.programs.items %}{% if program.program and site.data.programs[program.program].live == false %}{% continue %}{% endif %}
-            <button type="button" role="tab" id="tab-{{ forloop.index }}" aria-controls="panel-{{ forloop.index }}" aria-selected="{% if forloop.index == selected %}true{% else %}false{% endif %}">{{ program.name | escape }}</button>
+          <p class="card-lede">{{ program.summary | escape }}</p>
+          {% if program.points.size > 0 %}
+          <ul>
+            {% for point in program.points %}
+            <li>{% if point.lead and point.lead != "" %}<strong>{{ point.lead | escape }}</strong> {% endif %}{{ point.text | escape }}</li>
             {% endfor %}
-          </div>
-        </div>
-        <div class="switch__panels">
-          {% for program in home.programs.items %}
-          {% if program.program and site.data.programs[program.program].live == false %}{% continue %}{% endif %}
-          <article class="program" role="tabpanel" id="panel-{{ forloop.index }}" aria-labelledby="tab-{{ forloop.index }}">
-            <div class="program__lead">
-              <h3 class="program__name">{{ program.name | escape }}</h3>
-              {% if program.tag and program.tag != "" %}<span class="tag {% if site.data.programs[program.program].featured == true %}tag--in{% else %}tag--out{% endif %}">{{ program.tag | escape }}</span>{% endif %}
-              <p class="program__summary">{{ program.summary | escape }}</p>
-              {% if program.link and program.link != "" %}<a class="text-link" href="{{ program.link | escape }}">More on the {{ program.name | escape }}</a>{% endif %}
-            </div>
-            {% if program.points.size > 0 %}
-            <ul class="program__points" role="list">
-              {% for point in program.points %}
-              <li>{% if point.lead and point.lead != "" %}<b>{{ point.lead | escape }}</b> {% endif %}{{ point.text | escape }}</li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-          </article>
-          {% endfor %}
-        </div>
+          </ul>
+          {% endif %}
+          {% if program.link and program.link != "" %}<a href="{{ program.link | escape }}" class="card-link">Find out more →</a>{% endif %}
+        </article>
+        {% endfor %}
       </div>
     </div>
   </section>
 
   <!-- AI Security (offline for now, see ai_security_live in _config.yml) -->
   {% if site.ai_security_live %}
-  <section class="page-section" id="security" aria-labelledby="security-title">
-    <div class="container program-about__grid">
-      <div class="program-about__body">
-        <h2 id="security-title">{{ home.security.title | escape }}</h2>
-        <p class="lead">{{ home.security.text | escape }}</p>
-        {% if home.security.link and home.security.link != "" %}<a href="{{ home.security.link | escape }}" class="btn btn--primary">Learn more</a>{% endif %}
-      </div>
-      <div class="program-about__details accordion">
-        {% for activity in home.security.activities %}
-        <details{% if forloop.first %} open{% endif %}>
-          <summary>{{ activity.name | escape }}{% if activity.tag and activity.tag != "" %} <span class="tag">{{ activity.tag | escape }}</span>{% endif %}</summary>
-          {% if activity.text and activity.text != "" %}<div class="prose"><p>{{ activity.text | escape }}</p></div>{% endif %}
-        </details>
-        {% endfor %}
-      </div>
+  <section class="security wrap" id="security">
+    <div class="security-text">
+      <p class="eyebrow">Sub-chapter</p>
+      <h2>{{ home.security.title | escape }}</h2>
+      <p>{{ home.security.text | escape }}</p>
+      {% if site.ai_security_live and home.security.link and home.security.link != "" %}<a href="{{ home.security.link | escape }}" class="btn btn-primary btn-lg">Learn more</a>{% endif %}
+    </div>
+
+    <div class="accordion">
+      {% for activity in home.security.activities %}
+      {% if activity.text and activity.text != "" %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ activity.name | escape }}{% if activity.tag and activity.tag != "" %} <span class="chip chip-light">{{ activity.tag | escape }}</span>{% endif %}</summary>
+        <p>{{ activity.text | escape }}</p>
+      </details>
+      {% else %}
+      <div class="accordion-row">{{ activity.name | escape }}{% if activity.tag and activity.tag != "" %} <span class="chip chip-light">{{ activity.tag | escape }}</span>{% endif %}</div>
+      {% endif %}
+      {% endfor %}
     </div>
   </section>
   {% endif %}
 
-  <!-- Close: join -->
-  <section class="join band-paper" id="join" aria-labelledby="join-title">
-    <div class="container join__grid">
-      <h2 id="join-title">{{ home.join.title | escape }}</h2>
-      <div class="join__act">
-        <p class="lead">{{ home.join.text | escape }}</p>
-        <a class="btn btn--primary" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">Join our community</a>
+  <!-- Events -->
+  <section class="wrap" id="events">
+    <div class="events">
+      <div class="events-text">
+        <p class="eyebrow">Events</p>
+        <h2>{{ home.events.title | escape }}</h2>
+        <p>{{ home.events.text | escape }}</p>
+      </div>
+      <div class="event-list">
+        {% assign upcoming = site.data.events.upcoming | sort: "date" %}
+        {% assign has_calendar = false %}
+        {% for event in upcoming %}
+        {% if event.title == nil or event.title == "" %}{% continue %}{% endif %}
+        {% if event.start_time and event.start_time != "" and event.date_tba != true %}{% assign has_calendar = true %}{% endif %}
+        {% if event.link and event.link != "" %}<a class="event event-link" href="{{ event.link | escape }}"{% if event.link contains "://" %} target="_blank" rel="noopener noreferrer"{% endif %}>{% else %}<div class="event">{% endif %}
+          {% if event.weekly %}
+          <div class="event-date event-date-weekly"><span>Weekly</span><strong>{{ event.date | date: "%a" }}</strong></div>
+          {% elsif event.date_tba %}
+          <div class="event-date"><span>{{ event.date | date: "%b" }}</span><strong>TBA</strong></div>
+          {% else %}
+          <div class="event-date"><span>{{ event.date | date: "%b" }}</span><strong>{{ event.date | date: "%-d" }}</strong></div>
+          {% endif %}
+          <div class="event-info">
+            <span class="event-title">{{ event.title | escape }}</span>
+            {% if event.details and event.details != "" %}<span class="event-meta">{{ event.details | escape }}</span>{% endif %}
+            {% if event.weekly %}<span class="event-meta event-start">First session {{ event.date | date: "%A, %-d %B" }}</span>{% endif %}
+          </div>
+        {% if event.link and event.link != "" %}</a>{% else %}</div>{% endif %}
+        {% else %}
+        <div class="event event-empty">
+          <div class="event-info"><span class="event-title">No upcoming events announced yet.</span><span class="event-meta">Join our WhatsApp community to hear about the next one first.</span></div>
+        </div>
+        {% endfor %}
+        <div class="events-links">
+          {% if has_calendar %}<a href="{{ '/calendar.ics' | relative_url }}" class="events-link events-calendar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>Add to your calendar</a>{% endif %}
+          <a href="{{ '/updates.html' | relative_url }}#recaps" class="events-link">See past events →</a>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Join CTA -->
+  <section class="cta wrap" id="join">
+    <h2>{{ home.join.title | escape }}</h2>
+    <p>{{ home.join.text | escape }}</p>
+    <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xl">Join our community</a>
   </section>
 
 </main>

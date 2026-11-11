@@ -3,36 +3,43 @@ title: Updates
 description: Event recaps, contributors and current projects from AI Safety Saarland.
 nav: updates
 ---
-<main id="main">
-  <section class="page-head">
-    <div class="container page-head__grid">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Back to home</a><span aria-hidden="true">/</span><span aria-current="page">Updates</span></nav>
-      <h1>News from our community.</h1>
-      <p class="lead">Recaps of the events we've hosted, thanks to the people who have helped build AI Safety Saarland, and what our members are working on right now.</p>
-    </div>
+<main>
+  <section class="wrap updates-intro">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Back to home</a>
+    <p class="eyebrow">Updates</p>
+    <h1>News from our community.</h1>
+    <p class="lede">Recaps of the events we've hosted, thanks to the people who have helped build AI Safety Saarland, and what our members are working on right now.</p>
   </section>
 
-  <section class="page-section" id="contributors" aria-labelledby="contributors-title">
-    <div class="container">
-      <div class="split-head">
-        <h2 id="contributors-title">The people who made it happen.</h2>
-        <p class="lead">AI Safety Saarland runs on volunteers. A thank-you to everyone who has organised, taught, designed or spoken with us, past and present.</p>
+
+
+  <section class="contributors-light" id="contributors">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Contributors</p>
+          <h2>The people who made it happen.</h2>
+        </div>
+        <p>AI Safety Saarland runs on volunteers. A thank-you to everyone who has organised, taught, designed or spoken with us — past and present.</p>
       </div>
       {% assign people = site.data.contributors.people %}
       {% if people.size > 0 %}
-      <ul class="card-grid" role="list">
+      <div class="contributor-grid">
         {% for person in people %}
-        {% if person.name == nil or person.name == "" %}{% continue %}{% endif %}
-        <li>
+    {% if person.name == nil or person.name == "" %}{% continue %}{% endif %}
+        <div class="contributor">
           <div class="contributor-photo">
-            {% if person.photo and person.photo != "" %}<img src="{{ person.photo | relative_url | escape }}" alt="" loading="lazy">{% else %}<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>{% endif %}
+            {% if person.photo and person.photo != "" %}
+            <img src="{{ person.photo | relative_url | escape }}" alt="{{ person.name | escape }}" loading="lazy">
+            {% else %}
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+            {% endif %}
           </div>
-          <h3>{{ person.name | escape }}</h3>
-          {% if person.when and person.when != "" %}<span class="card-meta">{{ person.when | escape }}</span>{% endif %}
+          <div><div class="contributor-name">{{ person.name | escape }}</div>{% if person.when and person.when != "" %}<div class="contributor-when">{{ person.when | escape }}</div>{% endif %}</div>
           <p>{{ person.contribution | escape }}</p>
-        </li>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
       {% else %}
       <p class="empty-note">Thank-yous to our contributors are coming soon.</p>
       {% endif %}
@@ -40,57 +47,78 @@ nav: updates
   </section>
 
   <!-- Event recaps: each one is a file in _recaps/, written in the editor at /admin -->
-  <section class="page-section" id="recaps" aria-labelledby="recaps-title">
-    <div class="container">
-      <h2 id="recaps-title">What we've hosted.</h2>
-      {% assign recaps = site.recaps | sort: "date" | reverse %}
-      {% if recaps.size > 0 %}
-      <ul class="card-grid" role="list">
-        {% for recap in recaps %}
-        {% assign has_page = recap.content | strip_html | strip | size %}
-        <li>
-          <figure class="photo">
-            {% if recap.photo and recap.photo != "" %}<img src="{{ recap.photo | relative_url | escape }}" alt="{{ recap.title | escape }}" loading="lazy">{% else %}<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>{% endif %}
-          </figure>
-          <div class="card-meta">{% if recap.type and recap.type != "" %}<span class="tag">{{ recap.type | escape }}</span>{% endif %}<span>{{ recap.date | date: "%-d %B %Y" }}</span></div>
-          <h3>{% if has_page > 0 %}<a href="{{ recap.url | relative_url }}">{{ recap.title | escape }}</a>{% else %}{{ recap.title | escape }}{% endif %}</h3>
-          <p>{{ recap.summary | escape }}</p>
-          {% if has_page > 0 %}<a class="text-link" href="{{ recap.url | relative_url }}">Read the recap</a>{% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p class="empty-note">Our first event recaps are coming soon.</p>
-      {% endif %}
+  <section class="dark recaps-dark" id="recaps">
+    <div class="wrap">
+    <div class="block-head">
+      <p class="eyebrow eyebrow-light">Event recaps</p>
+      <h2>What we've hosted.</h2>
+    </div>
+    {% assign recaps = site.recaps | sort: "date" | reverse %}
+    {% if recaps.size > 0 %}
+    <div class="recap-grid">
+      {% for recap in recaps %}
+      {% assign has_page = recap.content | strip_html | strip | size %}
+      <article class="recap">
+        <div class="recap-photo">
+          {% if recap.photo and recap.photo != "" %}
+          <img src="{{ recap.photo | relative_url | escape }}" alt="{{ recap.title | escape }}" loading="lazy">
+          {% else %}
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+          {% endif %}
+        </div>
+        <div class="recap-meta">{% if recap.type and recap.type != "" %}<span class="chip chip-light">{{ recap.type | escape }}</span>{% endif %}<span>{{ recap.date | date: "%-d %B %Y" }}</span></div>
+        <h3>{% if has_page > 0 %}<a href="{{ recap.url | relative_url }}">{{ recap.title | escape }}</a>{% else %}{{ recap.title | escape }}{% endif %}</h3>
+        <p>{{ recap.summary | escape }}</p>
+        {% if has_page > 0 %}<a href="{{ recap.url | relative_url }}">Read the recap →</a>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-note on-dark">Our first event recaps are coming soon.</p>
+    {% endif %}
     </div>
   </section>
 
-  <section class="page-section" id="projects" aria-labelledby="projects-title">
-    <div class="container">
-      <h2 id="projects-title">What our members are working on.</h2>
-      {% assign projects = site.data.projects.projects %}
-      {% if projects.size > 0 %}
-      <ul class="card-grid" role="list">
-        {% for project in projects %}
-        {% if project.title == nil or project.title == "" %}{% continue %}{% endif %}
-        <li>
-          <div class="card-meta"><span class="tag tag--in">{{ project.status | default: "In progress" | escape }}</span>{% if project.topic and project.topic != "" %}<span>{{ project.topic | escape }}</span>{% endif %}</div>
-          <h3>{{ project.title | escape }}</h3>
-          <p>{{ project.description | escape }}</p>
-          {% if project.people.size > 0 %}<p class="people">{{ project.people | join: ", " | escape }}</p>{% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p class="empty-note">We'll share what our members are working on here soon.</p>
-      {% endif %}
-      <div class="share well">
-        <div class="share__text">
-          <p class="share__title">Working on something related to AI safety?</p>
-          <p>Tell us about it and we'll feature it here.</p>
+  <section class="wrap projects" id="projects">
+    <div class="block-head">
+      <p class="eyebrow">Current projects</p>
+      <h2>What our members are working on.</h2>
+    </div>
+    {% assign projects = site.data.projects.projects %}
+    {% if projects.size > 0 %}
+    <div class="project-grid">
+      {% for project in projects %}
+    {% if project.title == nil or project.title == "" %}{% continue %}{% endif %}
+      <article class="project">
+        <div class="project-top">
+          <span class="status"><span class="status-dot"></span>{{ project.status | default: "In progress" | escape }}</span>
+          {% if project.topic and project.topic != "" %}<span class="project-topic">{{ project.topic | escape }}</span>{% endif %}
         </div>
-        <a href="mailto:{{ site.email }}?subject=Update%20for%20the%20website" class="btn btn--primary">Share your update</a>
+        <h3>{{ project.title | escape }}</h3>
+        <p>{{ project.description | escape }}</p>
+        {% if project.people.size > 0 %}
+        <div class="project-people">
+          <div class="avatars">
+            {% for name in project.people limit: 4 %}
+            {% assign parts = name | split: " " %}
+            <span aria-hidden="true">{{ parts.first | slice: 0 | upcase }}{% if parts.size > 1 %}{{ parts.last | slice: 0 | upcase }}{% endif %}</span>
+            {% endfor %}
+          </div>
+          <span>{{ project.people | join: ", " | escape }}</span>
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-note">We'll share what our members are working on here soon.</p>
+    {% endif %}
+    <div class="share-box">
+      <div>
+        <p class="share-title">Working on something related to AI safety?</p>
+        <p>Tell us about it and we'll feature it here.</p>
       </div>
+      <a href="mailto:{{ site.email }}?subject=Update%20for%20the%20website" class="btn btn-primary btn-lg">Share your update</a>
     </div>
   </section>
 </main>

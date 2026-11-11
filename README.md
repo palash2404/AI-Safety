@@ -4,7 +4,7 @@ Website for AI Safety Saarland, the student AI safety initiative at Saarland Uni
 
 ## Colour palette
 
-The site uses the "Ink" design: white paper, black type and hairline rules, with the two greens of the logo (forest `#0d2a1e` and leaf `#5ea248`) as the only colour. Every colour and size is a CSS variable in `assets/tokens.css`, and `design.md` describes the system. The table below is the old palette, kept for reference.
+Every colour is a shade of the two greens in the logo (forest `#0d2a1e` and leaf `#5ea248`). They're defined as CSS variables at the top of `assets/style.css`.
 
 | Name | Hex | Used for |
 |---|---|---|
@@ -17,7 +17,7 @@ The site uses the "Ink" design: white paper, black type and hairline rules, with
 | Mint 100 | `#e3efdd` | Panels and highlights |
 | Mint 50 | `#f4f8f1` | Page background |
 
-Font: Epilogue, for headings and body. It's self-hosted in `assets/fonts/` (SIL Open Font License), so the site makes no requests to Google Fonts — a GDPR issue in Germany.
+Fonts: Bricolage Grotesque (headings) and Figtree (body). They're self-hosted in `assets/fonts/` (SIL Open Font License), so the site makes no requests to Google Fonts — a GDPR issue in Germany.
 
 ## Editing the website (for team members)
 
@@ -40,7 +40,7 @@ You don't need to know any code. Every change is saved as a draft and only goes 
   - **Team** — name, role, photo and an optional LinkedIn link.
   - **Contributors** — people we thank on the Updates page.
   - **Current projects** — what members are working on.
-  - **Homepage texts** — About, Why AI safety, Mission, First visit steps, What a session is like (with its photo), Programs, AI Security and the Join section.
+  - **Homepage texts** — About, Why AI safety, Mission, Programs, AI Security and the Join section.
 - **AI Security page** — the sub-initiative page: threats, who it's for, and initiatives (reading group, AI Security Afternoon, research sprints) with logistics and application links.
 - **Programs** — the Introductory and Advanced Fellowship pages: key dates, prerequisites, schedule, FAQs and the application link. When applications open, paste the form link into **Application link** and an "Apply now" button appears. Each program has a **Show on website** switch: turning it off hides the program page and every link to it, but keeps its content. The Advanced Fellowship is switched off for now — when you turn it back on, also update the Programs heading in **Homepage texts** (it currently talks about one program).
 
@@ -101,7 +101,7 @@ The editor ([Sveltia CMS](https://sveltiacms.app)) signs people in through a sma
 - `privacy-notice.html`, `terms-and-conditions.html` — legal pages (edit these directly)
 - `_layouts/`, `_includes/` — the shared page frame, header and footer
 - `admin/` — the editor (Sveltia CMS) and its settings in `admin/config.yml`
-- `assets/` — styles (`tokens.css`, `base.css`, `style.css`), scripts, fonts, logo; photos uploaded in the editor go to `assets/uploads/`
+- `assets/` — styles, scripts, fonts, logo; photos uploaded in the editor go to `assets/uploads/`
 
 ## Still to do
 

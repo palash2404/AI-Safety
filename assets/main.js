@@ -1,48 +1,30 @@
-// Lets the stylesheet know scripts run (the programs switcher only shows its tabs then).
-document.documentElement.classList.add('js');
-
-// Programs switcher on the homepage. Without script every program shows in order.
-document.querySelectorAll('[data-switch]').forEach(function (sw) {
-  var tabs = Array.prototype.slice.call(sw.querySelectorAll('[role="tab"]'));
-  if (!tabs.length) return;
-  function select(tab, focus) {
-    tabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-      var panel = document.getElementById(t.getAttribute('aria-controls'));
-      if (panel) panel.hidden = !on;
-    });
-    if (focus) tab.focus();
-  }
-  select(tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0], false);
-  tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { select(t, false); });
-    t.addEventListener('keydown', function (e) {
-      var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
-      if (!d) return;
-      e.preventDefault();
-      select(tabs[(i + d + tabs.length) % tabs.length], true);
-    });
-  });
-});
-
-// The header bar tucks away while scrolling down and comes back on the way up.
+// Mobile menu
 (function () {
-  var bar = document.querySelector('[data-bar]');
-  if (!bar) return;
-  var last = window.scrollY, ticking = false;
-  window.addEventListener('scroll', function () {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () {
-      var y = window.scrollY;
-      bar.classList.toggle('is-tucked', y > last && y > 240 && !bar.contains(document.activeElement));
-      last = y;
-      ticking = false;
-    });
-  }, { passive: true });
-  bar.addEventListener('focusin', function () { bar.classList.remove('is-tucked'); });
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('open'));
+  });
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setOpen(false);
+  });
+  // Tapping anywhere outside the open menu closes it
+  document.addEventListener('pointerdown', function (e) {
+    if (!nav.classList.contains('open')) return;
+    if (nav.contains(e.target) || toggle.contains(e.target)) return;
+    setOpen(false);
+  });
 })();
 
 // Newsletter sign-up
@@ -53,27 +35,100 @@ document.querySelectorAll('[data-switch]').forEach(function (sw) {
   var form = document.getElementById('newsletter');
   if (!form) return;
   var status = document.getElementById('newsletter-status');
-  var input = form.querySelector('input[name="email"]');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!input.value.trim() || !input.checkValidity()) {
-      input.setAttribute('aria-invalid', 'true');
-      if (status) status.textContent = 'That address looks incomplete. Write it as name@example.com.';
-      input.focus();
-      return;
-    }
-    input.removeAttribute('aria-invalid');
-    var email = input.value.trim();
+    var email = form.email.value.trim();
+    if (!email) return;
     var subject = encodeURIComponent('Newsletter sign-up');
     var body = encodeURIComponent('Please add ' + email + ' to the AI Safety Saarland newsletter.');
     window.location.href = 'mailto:info@ais-saarland.org?subject=' + subject + '&body=' + body;
     if (status) status.textContent = 'Thanks! Your email app should open — just press send.';
   });
-  input.addEventListener('input', function () {
-    if (input.getAttribute('aria-invalid') && input.checkValidity()) {
-      input.removeAttribute('aria-invalid');
-      if (status) status.textContent = '';
-    }
+})();
+
+// "Happening now" panel
+// Slides in once per visit, a moment after the page opens. Closing it keeps it
+// hidden until the set of programs in it changes. Storage can be blocked
+// (private windows, strict settings), so every access is wrapped.
+(function () {
+  var panel = document.getElementById('now-panel');
+  if (!panel) return;
+  var programs = panel.getAttribute('data-programs');
+  function get(store, key) { try { return window[store].getItem(key); } catch (e) { return null; } }
+  function set(store, key, value) { try { window[store].setItem(key, value); } catch (e) {} }
+
+  if (get('localStorage', 'now-panel-closed') === programs) return;
+  if (get('sessionStorage', 'now-panel-seen') === programs) return;
+
+  function close() {
+    if (!panel.classList.contains('is-open')) return;
+    panel.classList.remove('is-open');
+    panel.classList.add('is-closing');
+    set('localStorage', 'now-panel-closed', programs);
+    setTimeout(function () { panel.hidden = true; panel.classList.remove('is-closing'); }, 260);
+  }
+
+  panel.querySelector('.now-close').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  // Following a link from the panel counts as seen; don't bring it back
+  panel.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { set('localStorage', 'now-panel-closed', programs); });
+  });
+
+  setTimeout(function () {
+    panel.hidden = false;
+    set('sessionStorage', 'now-panel-seen', programs);
+    void panel.offsetWidth; // apply the starting position before animating to the open one
+    panel.classList.add('is-open');
+  }, 1200);
+})();
+
+// Header shadow once the page has scrolled
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  function update() { header.classList.toggle('scrolled', window.scrollY > 8); }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();
+
+// Scroll reveals: cards fade up as they enter the screen, one after another.
+// Skipped entirely for people who prefer reduced motion or on old browsers,
+// and never applied to things already on screen when the page loads.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var groups = document.querySelectorAll(
+    '.program-grid, .contributor-grid, .project-grid, .recap-grid, .team-grid, .why-grid, .threat-grid, .audience-grid, .offer-grid, .event-list, .initiative-list, .schedule-list'
+  );
+  var items = [];
+  groups.forEach(function (group) {
+    Array.prototype.forEach.call(group.children, function (el, i) {
+      if (el.getBoundingClientRect().top < window.innerHeight) return; // already visible
+      el.style.setProperty('--i', Math.min(i, 5));
+      el.classList.add('reveal');
+      items.push(el);
+    });
+  });
+  if (!items.length) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -60px 0px' });
+  items.forEach(function (el) { io.observe(el); });
+
+  // Safety net: jumping to an anchor or a slow device should never leave things hidden
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      items.forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      });
+    }, 400);
   });
 })();

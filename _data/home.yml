@@ -17,31 +17,6 @@ why:
 
 mission: To foster interdisciplinary exchange, education, and research addressing large-scale risks from AI development and deployment at Saarland University and beyond.
 
-first_visit:
-  title: Your first reading group
-  steps:
-    - title: Pick a group
-      text: AI Security on Mondays, AI Safety on Tuesdays, or both.
-    - title: Fill in one form
-      text: "The [interest form](https://forms.gle/nu4BgpWbVrpo6T4M6) covers both groups."
-    - title: Come to E1.7, Room 0.08
-      text: From 16 November.
-      tag: Drop-ins welcome
-
-session:
-  title: Read for an hour, then talk
-  text: Each session is two hours.
-  facts:
-    - label: First hour
-      text: About an hour of reading together
-    - label: Second hour
-      text: An hour of discussion
-  link: "/reading-groups/"
-  link_label: More on the Reading Groups
-  photo: /assets/uploads/home/reading-room.jpg
-  photo_alt: A two-storey reading room with wooden galleries and rows of desks
-  photo_credit: "[Villy Fink Isaksen](https://commons.wikimedia.org/wiki/File:Statsbiblioteket_l%C3%A6sesalen-2.jpg) (CC BY-SA 4.0, Wikimedia Commons)"
-
 programs:
   title: Go deeper into AI safety.
   intro: Start with the fundamentals in our weekly Introductory Fellowship, join one of our weekly Reading Groups on AI Safety and AI Security, or spend a weekend going hands-on at our AI Safety Bootcamp.
