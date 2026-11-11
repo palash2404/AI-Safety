@@ -1,53 +1,58 @@
 ---
 title: Programs
-description: Our fellowships at Saarland University — start with the fundamentals of AI Safety, or go hands-on with evaluation and interpretability.
+description: Our fellowships at Saarland University. Start with the fundamentals of AI Safety, or go hands-on with evaluation and interpretability.
 nav: programs
 permalink: /programs/
 ---
 {% assign intro = site.data.programs.introductory %}
 {% assign adv = site.data.programs.advanced %}
-<main>
-  <section class="wrap updates-intro">
-    <a href="{{ '/' | relative_url }}" class="back-link">← Back to home</a>
-    <p class="eyebrow">Programs</p>
-    <h1>{{ site.data.home.programs.title | escape }}</h1>
-    <p class="lede">{{ site.data.home.programs.intro | escape }}</p>
+<main id="main">
+  <section class="page-head">
+    <div class="container page-head__grid">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Back to home</a><span aria-hidden="true">/</span><span aria-current="page">Programs</span></nav>
+      <h1>{{ site.data.home.programs.title | escape }}</h1>
+      <p class="lead">{{ site.data.home.programs.intro | escape }}</p>
+    </div>
   </section>
 
-  <section class="wrap programs-overview">
-    <div class="program-grid">
-      {% assign list = "introductory,reading,bootcamp,advanced" | split: "," %}
-      {% for key in list %}
-      {% assign p = site.data.programs[key] %}
-      {% if p.live == false %}{% continue %}{% endif %}
-      {% assign slug = key | append: "-fellowship" %}
-      {% if key == "bootcamp" %}{% assign slug = "bootcamp" %}{% endif %}
-      {% if key == "reading" %}{% assign slug = "reading-groups" %}{% endif %}
-      <a class="program-choice" href="{{ '/' | append: slug | append: '/' | relative_url }}">
-        <div class="card-top">
-          <h2>{{ p.name | escape }}</h2>
-          {% if p.tag and p.tag != "" %}<span class="chip chip-light">{{ p.tag | escape }}</span>{% endif %}
-        </div>
-        <p class="program-choice-tagline">{{ p.tagline | escape }}</p>
-        <p>{{ p.summary | escape }}</p>
-        {% if p.facts.size > 0 %}
-        <ul class="fact-list">
-          {% for fact in p.facts %}{% if fact != "" %}<li>{{ fact | escape }}</li>{% endif %}{% endfor %}
-        </ul>
-        {% endif %}
-        <span class="program-choice-link">Find out more →</span>
-      </a>
-      {% endfor %}
-    </div>
+  <section class="page-section">
+    <div class="container">
+      <ul class="choices" role="list">
+        {% assign list = "introductory,reading,bootcamp,advanced" | split: "," %}
+        {% for key in list %}
+        {% assign p = site.data.programs[key] %}
+        {% if p.live == false %}{% continue %}{% endif %}
+        {% assign slug = key | append: "-fellowship" %}
+        {% if key == "bootcamp" %}{% assign slug = "bootcamp" %}{% endif %}
+        {% if key == "reading" %}{% assign slug = "reading-groups" %}{% endif %}
+        <li class="choice">
+          <div class="choice__head">
+            <h2><a href="{{ '/' | append: slug | append: '/' | relative_url }}">{{ p.name | escape }}</a></h2>
+            {% if p.tag and p.tag != "" %}<span class="tag {% if p.featured == true %}tag--in{% else %}tag--out{% endif %}">{{ p.tag | escape }}</span>{% endif %}
+          </div>
+          <div class="choice__body">
+            <p class="choice__tagline">{{ p.tagline | escape }}</p>
+            <p>{{ p.summary | escape }}</p>
+            {% if p.facts.size > 0 %}
+            <ul class="fact-rows" role="list">
+              {% for fact in p.facts %}{% if fact != "" %}<li>{{ fact | escape }}</li>{% endif %}{% endfor %}
+            </ul>
+            {% endif %}
+            <a class="text-link" href="{{ '/' | append: slug | append: '/' | relative_url }}" tabindex="-1" aria-hidden="true">More on the {{ p.name | escape }}</a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
 
-    {% if intro.live != false and adv.live != false %}
-    <div class="share-box">
-      <div>
-        <p class="share-title">Not sure which one is for you?</p>
-        <p>New to AI safety? Start with the Introductory Fellowship. Comfortable with deep learning and Python? Go for the Advanced Fellowship.</p>
+      {% if intro.live != false and adv.live != false %}
+      <div class="share well">
+        <div class="share__text">
+          <p class="share__title">Not sure which one is for you?</p>
+          <p>New to AI safety? Start with the Introductory Fellowship. Comfortable with deep learning and Python? Go for the Advanced Fellowship.</p>
+        </div>
+        <a href="mailto:{{ site.email }}" class="btn btn--primary">Ask us</a>
       </div>
-      <a href="mailto:{{ site.email }}" class="btn btn-primary btn-lg">Ask us</a>
+      {% endif %}
     </div>
-    {% endif %}
   </section>
 </main>

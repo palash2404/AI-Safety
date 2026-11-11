@@ -4,7 +4,7 @@
 # that people can add to their own calendar.
 upcoming:
   - title: AI Security Reading Group
-    date: 2026-11-09
+    date: 2026-11-16
     weekly: true
     start_time: "17:00"
     end_time: "19:00"
@@ -12,7 +12,7 @@ upcoming:
     details: Mondays, 17:00–19:00 · E1.7, Room 0.08 · led by Esha Afzal
     link: "/reading-groups/"
   - title: AI Safety Reading Group
-    date: 2026-11-10
+    date: 2026-11-17
     weekly: true
     start_time: "17:00"
     end_time: "19:00"

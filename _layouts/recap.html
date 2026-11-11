@@ -1,15 +1,17 @@
 ---
 layout: default
 ---
-<main class="legal-main">
-  <article class="legal recap-page">
-    <a class="back-link" href="{{ '/updates.html' | relative_url }}#recaps">← All updates</a>
-    <div class="recap-meta">{% if page.type and page.type != "" %}<span class="chip chip-light">{{ page.type | escape }}</span>{% endif %}<span>{{ page.date | date: "%-d %B %Y" }}</span></div>
-    <h1>{{ page.title | escape }}</h1>
-    {% if page.summary and page.summary != "" %}<p class="lede">{{ page.summary | escape }}</p>{% endif %}
-    {% if page.photo and page.photo != "" %}
-    <img class="recap-hero" src="{{ page.photo | relative_url | escape }}" alt="{{ page.title | escape }}">
-    {% endif %}
-    {{ content }}
-  </article>
+<main id="main" class="article">
+  <div class="container">
+    <article class="article__inner">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/updates.html' | relative_url }}#recaps">All updates</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.title | escape }}</span></nav>
+      <div class="card-meta">{% if page.type and page.type != "" %}<span class="tag">{{ page.type | escape }}</span>{% endif %}<span>{{ page.date | date: "%-d %B %Y" }}</span></div>
+      <h1>{{ page.title | escape }}</h1>
+      {% if page.summary and page.summary != "" %}<p class="lead">{{ page.summary | escape }}</p>{% endif %}
+      {% if page.photo and page.photo != "" %}
+      <figure class="photo article__photo"><img src="{{ page.photo | relative_url | escape }}" alt="{{ page.title | escape }}"></figure>
+      {% endif %}
+      {{ content }}
+    </article>
+  </div>
 </main>

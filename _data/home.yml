@@ -17,6 +17,31 @@ why:
 
 mission: To foster interdisciplinary exchange, education, and research addressing large-scale risks from AI development and deployment at Saarland University and beyond.
 
+first_visit:
+  title: Your first reading group
+  steps:
+    - title: Pick a group
+      text: AI Security on Mondays, AI Safety on Tuesdays, or both.
+    - title: Fill in one form
+      text: "The [interest form](https://forms.gle/nu4BgpWbVrpo6T4M6) covers both groups."
+    - title: Come to E1.7, Room 0.08
+      text: From 16 November.
+      tag: Drop-ins welcome
+
+session:
+  title: Read for an hour, then talk
+  text: Each session is two hours.
+  facts:
+    - label: First hour
+      text: About an hour of reading together
+    - label: Second hour
+      text: An hour of discussion
+  link: "/reading-groups/"
+  link_label: More on the Reading Groups
+  photo: /assets/uploads/home/reading-room.jpg
+  photo_alt: A two-storey reading room with wooden galleries and rows of desks
+  photo_credit: "[Villy Fink Isaksen](https://commons.wikimedia.org/wiki/File:Statsbiblioteket_l%C3%A6sesalen-2.jpg) (CC BY-SA 4.0, Wikimedia Commons)"
+
 programs:
   title: Go deeper into AI safety.
   intro: Start with the fundamentals in our weekly Introductory Fellowship, join one of our weekly Reading Groups on AI Safety and AI Security, or spend a weekend going hands-on at our AI Safety Bootcamp.
@@ -36,7 +61,7 @@ programs:
     - name: Reading Groups
       program: reading
       tag: Weekly
-      summary: Two weekly reading groups on AI Safety and AI Security, starting in the second week of November. Join one or both, with one interest form, or just drop by.
+      summary: Two weekly reading groups on AI Safety and AI Security, starting on 16 November. Join one or both, with one interest form, or just drop by.
       points:
         - lead: "AI Security:"
           text: Mondays, 17:00–19:00 in E1.7, Room 0.08, led by Esha Afzal
@@ -77,7 +102,7 @@ security:
   activities:
     - name: AI Security Reading Group
       tag: Weekly
-      text: A weekly reading group on Mondays, 17:00–19:00 in E1.7, Room 0.08, starting in the second week of November, on problems like jailbreaks, data poisoning, model stealing and the security of LLM agents. It shares one interest form with the AI Safety Reading Group, on the Reading Groups page.
+      text: A weekly reading group on Mondays, 17:00–19:00 in E1.7, Room 0.08, starting on 16 November, on problems like jailbreaks, data poisoning, model stealing and the security of LLM agents. It shares one interest form with the AI Safety Reading Group, on the Reading Groups page.
     - name: AI Security Afternoon
       tag: Once a semester
       text: A half-day event with invited talks from people working on AI security professionally, plus time for students to connect and ask questions.

@@ -3,38 +3,44 @@ title: Team
 description: Meet the students behind AI Safety Saarland.
 nav: team
 ---
-<main class="page wrap">
-  <div class="team-head">
-    <div>
-      <a href="{{ '/' | relative_url }}" class="back-link">← Back to home</a>
+<main id="main">
+  <section class="page-head">
+    <div class="container page-head__grid">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Back to home</a><span aria-hidden="true">/</span><span aria-current="page">Team</span></nav>
       <h1>Meet the team.</h1>
-      <p class="lede">The students behind AI Safety Saarland — organising fellowships, reading groups and events at Saarland University.</p>
+      <p class="lead">The students behind AI Safety Saarland, organising fellowships, reading groups and events at Saarland University.</p>
+      <div class="page-head__aside">
+        <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn--quiet">Join the team</a>
+      </div>
     </div>
-    <a href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Join the team</a>
-  </div>
+  </section>
 
-  {% assign advisors = site.data.team.advisors %}
-  {% assign has_advisors = false %}{% for a in advisors %}{% if a.name and a.name != "" %}{% assign has_advisors = true %}{% endif %}{% endfor %}
-  {% if has_advisors %}
-  <h2 class="team-subhead">Advisors</h2>
-  <div class="team-grid team-advisors">
-    {% for member in advisors %}
-    {% if member.name == nil or member.name == "" %}{% continue %}{% endif %}
-    {% include member.html member=member %}
-    {% endfor %}
-  </div>
-  <h2 class="team-subhead">Team</h2>
-  {% endif %}
+  <section class="page-section">
+    <div class="container">
+      {% assign advisors = site.data.team.advisors %}
+      {% assign has_advisors = false %}{% for a in advisors %}{% if a.name and a.name != "" %}{% assign has_advisors = true %}{% endif %}{% endfor %}
+      {% if has_advisors %}
+      <h2 class="team-subhead">Advisors</h2>
+      <ul class="team-grid" role="list">
+        {% for member in advisors %}
+        {% if member.name == nil or member.name == "" %}{% continue %}{% endif %}
+        {% include member.html member=member %}
+        {% endfor %}
+      </ul>
+      <h2 class="team-subhead">Team</h2>
+      {% endif %}
 
-  {% assign members = site.data.team.members %}
-  {% if members.size > 0 %}
-  <div class="team-grid">
-    {% for member in members %}
-    {% if member.name == nil or member.name == "" %}{% continue %}{% endif %}
-    {% include member.html member=member %}
-    {% endfor %}
-  </div>
-  {% else %}
-  <p class="empty-note">Team profiles are coming soon.</p>
-  {% endif %}
+      {% assign members = site.data.team.members %}
+      {% if members.size > 0 %}
+      <ul class="team-grid" role="list">
+        {% for member in members %}
+        {% if member.name == nil or member.name == "" %}{% continue %}{% endif %}
+        {% include member.html member=member %}
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="empty-note">Team profiles are coming soon.</p>
+      {% endif %}
+    </div>
+  </section>
 </main>
