@@ -1,5 +1,6 @@
 # AI Safety Bootcamp page — edit in the editor at /admin (Programs → AI Safety Bootcamp)
 live: true  # false = hidden from the website (the page and all links to it), but kept here
+featured: true  # true = shown in the "Happening now" cards at the top of the homepage
 name: AI Safety Bootcamp
 tag: January 2027
 tagline: One weekend to get hands-on with AI safety and AI security.
@@ -10,7 +11,8 @@ facts:
   - Friday to Sunday
   - Saarland University
   - Lunch and dinner provided
-apply_link: ""
+apply_link: "https://forms.gle/6H8XJA4vomr9qjSh9"
+apply_label: Apply now
 closed_note: Applications are not open yet. Join our WhatsApp community to hear first when the application form goes out.
 
 about_title: Why a bootcamp?
@@ -24,6 +26,7 @@ about: |
 details:
   - title: When and where
     text: |
+      - **Apply:** [fill in the application form](https://forms.gle/6H8XJA4vomr9qjSh9)
       - **When:** a weekend in January 2027, Friday to Sunday. The exact weekend will be announced.
       - **Hours:** roughly 09:00 to 21:00 each day
       - **Where:** Saarland University. Rooms will be announced.

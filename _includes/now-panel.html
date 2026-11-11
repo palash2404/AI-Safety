@@ -1,7 +1,7 @@
 {% comment %}
   "Happening now" cards at the top of the homepage: every program with
   "Show in Happening now" turned on in the editor, side by side
-  (Reading Groups first, then the fellowship).
+  (Reading Groups, then the fellowship, then the bootcamp).
 {% endcomment %}
 {% assign now_keys = "reading,introductory,bootcamp,advanced" | split: "," %}
 {% assign now_count = 0 %}
@@ -34,6 +34,6 @@
 {% if now_count > 0 %}
 <section class="now-section wrap" id="now" aria-labelledby="now-title">
   <p class="now-eyebrow" id="now-title"><span class="now-dot" aria-hidden="true"></span>Happening now</p>
-  <ul class="now-grid{% if now_count == 1 %} now-grid--solo{% endif %}">{{ now_items }}</ul>
+  <ul class="now-grid{% if now_count == 1 %} now-grid--solo{% elsif now_count == 3 %} now-grid--three{% endif %}">{{ now_items }}</ul>
 </section>
 {% endif %}
