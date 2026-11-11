@@ -1,17 +1,19 @@
 # Introductory Fellowship page — edit in the editor at /admin (Programs → Introductory Fellowship)
 live: true  # false = hidden from the website (the page and all links to it), but kept here
+featured: true  # true = shown in the "Happening now" cards at the top of the homepage
 name: Introductory Fellowship
 tag: Weekly
 tagline: Learn. Discuss. Reflect. Shape the future of AI.
 intro: Begin your journey into AI Safety and help shape technology that truly benefits humanity.
 summary: Learn the fundamentals of AI Safety and Governance through a weekly reading and discussion group.
 facts:
+  - Starts in the third week of November
   - 10 weeks
   - About 4 hours per week
   - In person in Saarbrücken
   - No prior experience needed
-  - Starts in the third week of November
-apply_link: ""
+apply_link: "https://docs.google.com/forms/d/e/1FAIpQLSfti85fVRd2P2RAIC98bvgciyEEYQqCKRITDdZwx1_tyvWBOA/viewform"
+apply_label: Apply now
 closed_note: Applications are currently closed. Join our WhatsApp community to hear first when the next round opens.
 
 about_title: Why join the fellowship?
@@ -23,6 +25,7 @@ about: |
 details:
   - title: Key dates
     text: |
+      - **Applications open now:** [fill in the application form](https://docs.google.com/forms/d/e/1FAIpQLSfti85fVRd2P2RAIC98bvgciyEEYQqCKRITDdZwx1_tyvWBOA/viewform)
       - **Third week of November (from 16 November):** Fellowship kick-off
   - title: Prerequisites
     text: |
