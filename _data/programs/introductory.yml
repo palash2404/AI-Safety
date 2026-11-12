@@ -115,9 +115,6 @@ faqs:
   - question: Is attendance required for all sessions to receive a certificate?
     answer: |-
       Regular attendance is expected, but you may miss up to **two sessions** during the 10-week program and still receive a certificate of participation. Since each session builds on the previous one, we strongly encourage consistent engagement to get the full benefit of the fellowship.
-  - question: How is the Research Incubator different from the Introductory Fellowship?
-    answer: |-
-      Neither program assumes prior AI safety or governance experience, but the Research Incubator is our more intensive flagship program. It gives you access to a highly skilled research mentor, career advice and exclusive community support.
   - question: I have another question!
     answer: |-
       Send us an email at [info@ais-saarland.org](mailto:info@ais-saarland.org) and we will get back to you as quickly as possible!
